@@ -1,0 +1,7 @@
+main_homepage:
+    path:     /Home
+    defaults: { _controller: MainBundle:Default:index }
+
+main_homepage_admin:
+    path:     /HomeAdmin
+    defaults: { _controller: MainBundle:Default:indexAdmin }
