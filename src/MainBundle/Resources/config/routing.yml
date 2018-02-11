@@ -5,3 +5,15 @@ main_homepage:
 main_homepage_admin:
     path:     /HomeAdmin
     defaults: { _controller: MainBundle:Default:indexAdmin }
+
+ajout:
+    path:     /fav/ajout
+    defaults: { _controller: MainBundle:Favoris:ajout }
+
+_supp:
+    path:     /fav/supp
+    defaults: { _controller: MainBundle:Favoris:Supp }
+
+affiche:
+    path:     /fav/affiche
+    defaults: { _controller: MainBundle:Favoris:affiche }
