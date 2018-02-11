@@ -6,6 +6,7 @@ main_homepage_admin:
     path:     /HomeAdmin
     defaults: { _controller: MainBundle:Default:indexAdmin }
 
+<<<<<<< HEAD
 _ajout:
     path:     /Res/Ajout
     defaults: { _controller: MainBundle:Reservation:Ajout }
@@ -17,3 +18,16 @@ _supprimer:
 _modifier:
     path:     /Res/Modif
     defaults: { _controller: MainBundle:Reservation:Modifier }
+=======
+ajout:
+    path:     /fav/ajout
+    defaults: { _controller: MainBundle:Favoris:ajout }
+
+_supp:
+    path:     /fav/supp
+    defaults: { _controller: MainBundle:Favoris:Supp }
+
+affiche:
+    path:     /fav/affiche
+    defaults: { _controller: MainBundle:Favoris:affiche }
+>>>>>>> c6f2d9cf5bf8deead6e0796b75ac633acadbc2c7
