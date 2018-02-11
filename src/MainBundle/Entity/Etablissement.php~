@@ -48,69 +48,8 @@ class Etablissement
      * @ORM\Column(name="Horaire", type="string", length=255)
      */
     private $horaire;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service")
-     * @ORM\JoinColumn(name="service", referencedColumnName="id")
-     */
-    private $services;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag")
-     * @ORM\JoinColumn(name="tags", referencedColumnName="id")
-     */
-    private $tags;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
-     * @ORM\JoinColumn(name="users",referencedColumnName="id")
-     */
-    private $users;
 
-    /**
-     * @return mixed
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
 
-    /**
-     * @param mixed $users
-     */
-    public function setUsers($users)
-    {
-        $this->users = $users;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getServices()
-    {
-        return $this->services;
-    }
-
-    /**
-     * @param mixed $services
-     */
-    public function setServices($services)
-    {
-        $this->services = $services;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param mixed $tags
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-    }
     /**
      * Get id
      *
@@ -217,3 +156,4 @@ class Etablissement
         return $this->horaire;
     }
 }
+

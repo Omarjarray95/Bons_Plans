@@ -28,27 +28,7 @@ class Tag
      */
     private $name;
 
-    /**
-     * @return mixed
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
-    }
 
-    /**
-     * @param mixed $etablissements
-     */
-    public function setEtablissements($etablissements)
-    {
-        $this->etablissements = $etablissements;
-    }
-
-    /**
-     * @ORM\ManyToMany(targetEntity="src\MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="etablissements",referencedColumnName="id")
-     */
-    private $etablissements;
     /**
      * Get id
      *
@@ -83,3 +63,4 @@ class Tag
         return $this->name;
     }
 }
+

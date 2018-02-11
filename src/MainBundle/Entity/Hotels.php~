@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="hotels")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\HotelsRepository")
  */
-class Hotels extends Etablissement
+class Hotels
 {
     /**
      * @var int
@@ -27,9 +27,6 @@ class Hotels extends Etablissement
      * @ORM\Column(name="nbrStars", type="integer")
      */
     private $nbrStars;
-    /**
-     * @ORM\Column(type="string")
-     */
 
 
     /**
@@ -66,3 +63,4 @@ class Hotels extends Etablissement
         return $this->nbrStars;
     }
 }
+

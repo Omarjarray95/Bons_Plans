@@ -32,3 +32,4 @@ class Reservation
         return $this->id;
     }
 }
+

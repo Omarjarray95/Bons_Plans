@@ -5,12 +5,12 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Reservation
+ * Evaluation
  *
- * @ORM\Table(name="reservation")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\ReservationRepository")
+ * @ORM\Table(name="evaluation")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\EvaluationRepository")
  */
-class Reservation
+class Evaluation
 {
     /**
      * @var int
@@ -32,3 +32,4 @@ class Reservation
         return $this->id;
     }
 }
+

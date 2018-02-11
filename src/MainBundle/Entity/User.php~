@@ -24,26 +24,6 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @return mixed
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
-    }
-
-    /**
-     * @param mixed $etablissements
-     */
-    public function setEtablissements($etablissements)
-    {
-        $this->etablissements = $etablissements;
-    }
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="etablissements",referencedColumnName="id")
-     */
-    private $etablissements;
     public function __construct()
     {
         parent::__construct();
