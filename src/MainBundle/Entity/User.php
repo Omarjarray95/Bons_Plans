@@ -10,6 +10,7 @@ namespace MainBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\Etablissement;
 
 /**
  * @ORM\Entity
@@ -23,30 +24,51 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
     /**
-     * @return mixed
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
-    }
-
-    /**
-     * @param mixed $etablissements
-     */
-    public function setEtablissements($etablissements)
-    {
-        $this->etablissements = $etablissements;
-    }
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="etablissements",referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
      */
     private $etablissements;
+
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+
+
+    /**
+     * Add etablissement
+     *
+     * @param Etablissement $etablissement
+     *
+     * @return User
+     */
+    public function addEtablissement(Etablissement $etablissement)
+    {
+        $this->etablissements[] = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissement
+     *
+     * @param Etablissement $etablissement
+     */
+    public function removeEtablissement(Etablissement $etablissement)
+    {
+        $this->etablissements->removeElement($etablissement);
+    }
+
+    /**
+     * Get etablissements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtablissements()
+    {
+        return $this->etablissements;
     }
 }

@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Hotels extends Etablissement
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var int
@@ -27,20 +19,8 @@ class Hotels extends Etablissement
      * @ORM\Column(name="nbrStars", type="integer")
      */
     private $nbrStars;
-    /**
-     * @ORM\Column(type="string")
-     */
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set nbrStars

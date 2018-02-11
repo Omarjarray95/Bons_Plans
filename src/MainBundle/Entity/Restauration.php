@@ -10,20 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="restauration")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\RestaurationRepository")
  */
-class Restauration
+class Restauration extends Etablissement
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
 
     /**
-     * Get id
      *
      * @return int
      * @ORM\Column(name="type_resto", type="string", columnDefinition="enum('Restaurant', 'Bar','Cafe','Fast-Food','Autre')")
@@ -45,8 +35,5 @@ class Restauration
     {
         $this->typeResto = $typeResto;
     }
-    public function getId()
-    {
-        return $this->id;
-    }
+
 }

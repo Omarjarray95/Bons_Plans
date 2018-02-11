@@ -125,4 +125,3 @@ class Reclamation
         return $this->contenuReclamation;
     }
 }
-

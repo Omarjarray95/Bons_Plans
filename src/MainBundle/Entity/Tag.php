@@ -3,6 +3,7 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\Etablissement;
 
 /**
  * Tag
@@ -20,6 +21,10 @@ class Tag
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
+     */
+    private $etablissements;
 
     /**
      * @var string
@@ -28,27 +33,6 @@ class Tag
      */
     private $name;
 
-    /**
-     * @return mixed
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
-    }
-
-    /**
-     * @param mixed $etablissements
-     */
-    public function setEtablissements($etablissements)
-    {
-        $this->etablissements = $etablissements;
-    }
-
-    /**
-     * @ORM\ManyToMany(targetEntity="src\MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="etablissements",referencedColumnName="id")
-     */
-    private $etablissements;
     /**
      * Get id
      *
@@ -81,5 +65,49 @@ class Tag
     public function getName()
     {
         return $this->name;
+    }
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etablissements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add etablissement
+     *
+     * @param Etablissement $etablissement
+     *
+     * @return Tag
+     */
+    public function addEtablissement(Etablissement $etablissement)
+    {
+        $this->etablissements[] = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissement
+     *
+     * @param Etablissement $etablissement
+     */
+    public function removeEtablissement(Etablissement $etablissement)
+    {
+        $this->etablissements->removeElement($etablissement);
+    }
+
+    /**
+     * Get etablissements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtablissements()
+    {
+        return $this->etablissements;
     }
 }

@@ -49,18 +49,15 @@ class Etablissement
      */
     private $horaire;
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service")
-     * @ORM\JoinColumn(name="service", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="id")
      */
     private $services;
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag")
-     * @ORM\JoinColumn(name="tags", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="id")
      */
     private $tags;
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
-     * @ORM\JoinColumn(name="users",referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User",mappedBy="id")
      */
     private $users;
 
@@ -215,5 +212,86 @@ class Etablissement
     public function getHoraire()
     {
         return $this->horaire;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->services = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add service
+     *
+     * @param \MainBundle\Entity\Service $service
+     *
+     * @return Etablissement
+     */
+    public function addService(\MainBundle\Entity\Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \MainBundle\Entity\Service $service
+     */
+    public function removeService(\MainBundle\Entity\Service $service)
+    {
+        $this->services->removeElement($service);
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \MainBundle\Entity\Tag $tag
+     *
+     * @return Etablissement
+     */
+    public function addTag(\MainBundle\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \MainBundle\Entity\Tag $tag
+     */
+    public function removeTag(\MainBundle\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Add user
+     *
+     * @param \MainBundle\Entity\User $user
+     *
+     * @return Etablissement
+     */
+    public function addUser(\MainBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \MainBundle\Entity\User $user
+     */
+    public function removeUser(\MainBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
     }
 }
