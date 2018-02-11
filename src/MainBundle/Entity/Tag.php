@@ -1,49 +1,88 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: omar
- * Date: 10/02/2018
- * Time: 22:34
- */
 
 namespace MainBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Etablissement;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * Tag
+ *
+ * @ORM\Table(name="tag")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\TagRepository")
  */
-class User extends BaseUser
+class Tag
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
      */
     private $etablissements;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=255, nullable=true)
+     */
+    private $name;
 
-    public function __construct()
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
     {
-        parent::__construct();
-        // your own logic
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Tag
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etablissements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Add etablissement
      *
      * @param Etablissement $etablissement
      *
-     * @return User
+     * @return Tag
      */
     public function addEtablissement(Etablissement $etablissement)
     {

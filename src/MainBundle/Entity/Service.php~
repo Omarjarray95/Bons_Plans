@@ -1,49 +1,79 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: omar
- * Date: 10/02/2018
- * Time: 22:34
- */
 
 namespace MainBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Etablissement;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * Service
+ *
+ * @ORM\Table(name="service")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\ServiceRepository")
  */
-class User extends BaseUser
+class Service
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
      */
     private $etablissements;
 
 
-    public function __construct()
+
+    /**
+     * @ORM\Column(name="type_service", type="string", columnDefinition="enum('Wifi', 'Parking','Espace kids','Utilites handicapes','Music','Espace fumeur','autre')")
+     */
+    private $typeService;
+
+    /**
+     * @return mixed
+     */
+    public function getTypeService()
     {
-        parent::__construct();
-        // your own logic
+        return $this->typeService;
+    }
+
+    /**
+     * @param mixed $typeService
+     */
+    public function setTypeService($typeService)
+    {
+        $this->typeService = $typeService;
+    }
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etablissements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Add etablissement
      *
      * @param Etablissement $etablissement
      *
-     * @return User
+     * @return Service
      */
     public function addEtablissement(Etablissement $etablissement)
     {
