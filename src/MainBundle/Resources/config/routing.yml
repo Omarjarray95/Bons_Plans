@@ -5,3 +5,15 @@ main_homepage:
 main_homepage_admin:
     path:     /HomeAdmin
     defaults: { _controller: MainBundle:Default:indexAdmin }
+
+_ajout:
+    path:     /Res/Ajout
+    defaults: { _controller: MainBundle:Reservation:Ajout }
+
+_supprimer:
+    path:     /Res/Supp
+    defaults: { _controller: MainBundle:Reservation:Supprimer }
+
+_modifier:
+    path:     /Res/Modif
+    defaults: { _controller: MainBundle:Reservation:Modifier }
