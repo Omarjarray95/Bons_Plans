@@ -13,13 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Loisirs extends Etablissement
 {
 
-
-
-
     /**
      * * @ORM\Column(name="type_loisirs", type="string", columnDefinition="enum('Cinema', 'Salle de sport','Parc d attraction','Spa','Salon de coiffure','Centre de beaute','Salle de jeux','Autre')")
      */
-    private $typeLoisirs;
+    protected $typeLoisirs;
 
     /**
      * @return mixed

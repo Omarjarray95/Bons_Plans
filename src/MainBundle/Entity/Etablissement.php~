@@ -3,6 +3,7 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\Tag;
 
 /**
  * Etablissement
@@ -19,47 +20,60 @@ class Etablissement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
      */
-    private $adresse;
+    protected $adresse;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Description", type="string", length=255)
      */
-    private $description;
+    protected $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Horaire", type="string", length=255)
      */
-    private $horaire;
+    protected $horaire;
+
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="id")
      */
-    private $services;
+    protected $services;
+
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="id")
      */
-    private $tags;
+    protected $tags;
+
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="id")
      */
-    private $users;
+    protected $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_etablissement")
+     */
+    protected $evaluations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_etablissement")
+     */
+    protected $reservations;
 
     /**
      * @return mixed

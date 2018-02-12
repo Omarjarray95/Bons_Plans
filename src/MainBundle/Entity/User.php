@@ -24,19 +24,28 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
-     */
-    private $etablissements;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="favoris")
+     */
+    protected $etablissements;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
+     */
+    protected $evaluations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_user")
+     */
+    protected $reservations;
 
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-
-
 
     /**
      * Add etablissement
@@ -70,5 +79,73 @@ class User extends BaseUser
     public function getEtablissements()
     {
         return $this->etablissements;
+    }
+
+    /**
+     * Add evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     *
+     * @return User
+     */
+    public function addEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations[] = $evaluation;
+
+        return $this;
+    }
+
+    /**
+     * Remove evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     */
+    public function removeEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations->removeElement($evaluation);
+    }
+
+    /**
+     * Get evaluations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvaluations()
+    {
+        return $this->evaluations;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     *
+     * @return User
+     */
+    public function addReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

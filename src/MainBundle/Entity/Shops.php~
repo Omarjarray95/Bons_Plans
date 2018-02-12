@@ -15,7 +15,7 @@ class Shops extends Etablissement
     /**
      * @ORM\Column(name="type_shops", type="string", columnDefinition="enum('Grande surface', 'Parfumerie','Boutique','Patisserie','Librairie','Fleuriste','Candy Shop','Autre')")
      */
-    private $typeShops;
+    protected $typeShops;
 
     /**
      * @return mixed

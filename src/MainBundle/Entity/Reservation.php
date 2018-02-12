@@ -22,13 +22,14 @@ class Reservation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User", inversedBy="reservations")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $id_user;
+
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="id_etablissement",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement", inversedBy="reservations")
+     * @ORM\JoinColumn(name="id_etablissement", referencedColumnName="id")
      */
     private $id_etablissement;
 

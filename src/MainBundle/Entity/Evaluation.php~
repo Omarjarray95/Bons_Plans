@@ -22,13 +22,14 @@ class Evaluation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User", inversedBy="evaluations")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $id_user;
+
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
-     * @ORM\JoinColumn(name="id_etablissement",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement", inversedBy="evaluations")
+     * @ORM\JoinColumn(name="id_etablissement", referencedColumnName="id")
      */
     private $id_etablissement;
 
@@ -47,6 +48,7 @@ class Evaluation
     {
         $this->nbrStars = $nbrStars;
     }
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -70,6 +72,7 @@ class Evaluation
     /**
      * @ORM\Column(type="string")
      */
+
     private $description;
 
     /**
