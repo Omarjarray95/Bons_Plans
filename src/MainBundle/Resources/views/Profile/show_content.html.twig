@@ -1,6 +1,32 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
+<<<<<<< HEAD
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+=======
+    <div>
+        <p><strong>Pseudonyme:</strong> {{ (app.user.username) }}</p>
+
+    </div>
+    <div>
+        <p><strong>E-Mail:</strong> {{ (app.user.email) }}</p>
+    </div>
+    <div>
+        <p><strong>Nom & Prénom:</strong> {{ (app.user.nom) }}</p>
+    </div>
+    <div>
+        <p><strong>Ville:</strong> {{ (app.user.ville) }}</p>
+    </div>
+    <div>
+        <p><strong>Date De Naissance:</strong> {{ (app.user.datedenaissance) }}</p>
+    </div>
+    <div>
+        <p><strong>Numéro De Téléphone:</strong> {{ (app.user.phone) }}</p>
+    </div>
+    <div>
+        <p><strong>Intro:</strong></p>
+        <p>{{ (app.user.intro) }}</p>
+    </div>
+>>>>>>> c7e5f16ceee2e8f272a87b591520a53ab727dcc0
 </div>

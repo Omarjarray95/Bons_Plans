@@ -4,8 +4,6 @@
     <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
 {% endblock %}
 
-
-
 {% block login %}
     <head>
         <!--===============================================================================================-->
@@ -31,7 +29,7 @@
 
     <body>
         <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% if is_granted("ROLE_USER") %}
             <div>
                 {% block fos_user_content1 %}
                 {% endblock %}
