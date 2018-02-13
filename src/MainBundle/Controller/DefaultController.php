@@ -15,4 +15,14 @@ class DefaultController extends Controller
     {
         return $this->render('MainBundle:Default:indexAdmin.html.twig');
     }
+
+    public function aproposAction()
+    {
+        return $this->render('MainBundle:Default:APropos.html.twig');
+    }
+
+    public function contactAction()
+    {
+        return $this->render('MainBundle:Default:Contact.html.twig');
+    }
 }
