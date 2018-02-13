@@ -30,7 +30,6 @@ class User extends BaseUser
      * @ORM\Column(type="string")
      */
     protected $nom;
-
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
      * @ORM\JoinTable(name="favoris")

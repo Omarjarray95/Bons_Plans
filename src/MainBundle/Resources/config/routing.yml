@@ -16,3 +16,18 @@ contact:
 
 
 
+_ajout:
+    path:     /AjoutRes
+    defaults: { _controller: MainBundle:Reservation:Ajout }
+
+_update:
+    path:     /UpdateRes
+    defaults: { _controller: MainBundle:Reservation:Update }
+
+_delete:
+    path:     /DeleteRes
+    defaults: { _controller: MainBundle:Reservation:Delete }
+
+_affiche:
+    path:     /AfficheRes
+    defaults: { _controller: MainBundle:Reservation:Affiche }
