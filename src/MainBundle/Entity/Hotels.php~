@@ -112,4 +112,76 @@ class Hotels extends Etablissement
     {
         return $this->reservations;
     }
+
+    /**
+     * Set typeLoisirs
+     *
+     * @param string $typeLoisirs
+     *
+     * @return Hotels
+     */
+    public function setTypeLoisirs($typeLoisirs)
+    {
+        $this->typeLoisirs = $typeLoisirs;
+
+        return $this;
+    }
+
+    /**
+     * Get typeLoisirs
+     *
+     * @return string
+     */
+    public function getTypeLoisirs()
+    {
+        return $this->typeLoisirs;
+    }
+
+    /**
+     * Set typeShops
+     *
+     * @param string $typeShops
+     *
+     * @return Hotels
+     */
+    public function setTypeShops($typeShops)
+    {
+        $this->typeShops = $typeShops;
+
+        return $this;
+    }
+
+    /**
+     * Get typeShops
+     *
+     * @return string
+     */
+    public function getTypeShops()
+    {
+        return $this->typeShops;
+    }
+
+    /**
+     * Set typeResto
+     *
+     * @param string $typeResto
+     *
+     * @return Hotels
+     */
+    public function setTypeResto($typeResto)
+    {
+        $this->typeResto = $typeResto;
+
+        return $this;
+    }
+
+    /**
+     * Get typeResto
+     *
+     * @return string
+     */
+    public function getTypeResto()
+    {
+        return $this->typeResto;
+    }
 }

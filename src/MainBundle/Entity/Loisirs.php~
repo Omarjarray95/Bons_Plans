@@ -102,4 +102,76 @@ class Loisirs extends Etablissement
     {
         return $this->reservations;
     }
+
+    /**
+     * Set typeShops
+     *
+     * @param string $typeShops
+     *
+     * @return Loisirs
+     */
+    public function setTypeShops($typeShops)
+    {
+        $this->typeShops = $typeShops;
+
+        return $this;
+    }
+
+    /**
+     * Get typeShops
+     *
+     * @return string
+     */
+    public function getTypeShops()
+    {
+        return $this->typeShops;
+    }
+
+    /**
+     * Set nbrStars
+     *
+     * @param integer $nbrStars
+     *
+     * @return Loisirs
+     */
+    public function setNbrStars($nbrStars)
+    {
+        $this->nbrStars = $nbrStars;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrStars
+     *
+     * @return integer
+     */
+    public function getNbrStars()
+    {
+        return $this->nbrStars;
+    }
+
+    /**
+     * Set typeResto
+     *
+     * @param string $typeResto
+     *
+     * @return Loisirs
+     */
+    public function setTypeResto($typeResto)
+    {
+        $this->typeResto = $typeResto;
+
+        return $this;
+    }
+
+    /**
+     * Get typeResto
+     *
+     * @return string
+     */
+    public function getTypeResto()
+    {
+        return $this->typeResto;
+    }
 }
