@@ -60,7 +60,17 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
      * @ORM\JoinTable(name="favoris")
      */
-    protected $etablissements;
+    protected $etablissements_fav;
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="wishlist")
+     */
+    protected $etablissements_wish;
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="visited")
+     */
+    protected $etablissements_visited;
 
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
