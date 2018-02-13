@@ -1,13 +1,15 @@
 {% extends 'Base.html.twig' %}
 
+{% block user %}
+    <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
+{% endblock %}
+
+
+
 {% block login %}
     <head>
-        <title>Login V10</title>
-
         <!--===============================================================================================-->
         <link rel="icon" type="image/png" href="{{ asset('bundles/main/Login/images/icons/favicon.ico') }}"/>
-        <!--===============================================================================================-->
-
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
         <!--===============================================================================================-->
@@ -28,43 +30,35 @@
     </head>
 
     <body>
-
-
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
+            <div>
+                {% block fos_user_content1 %}
+                {% endblock %}
+            </div>
 
             {% else %}
                 <div class="limiter">
                     <div class="container-login100">
                         <div class="wrap-login100 p-t-50 p-b-90">
 
+                            {% block title %}
                                 <span class="login100-form-title p-b-51">
-						        Login
+						        Se Connecter
 					            </span>
+                            {% endblock %}
 
                             <div>
                                 {% block fos_user_content %}
                                 {% endblock fos_user_content %}
                             </div>
 
-                            <form class="login100-form validate-form flex-sb flex-w">
-                                <div class="flex-sb-m w-full p-t-3 p-b-24">
-                                    <div class="contact100-form-checkbox">
-                                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                                        <label class="label-checkbox100" for="ckb1">
-                                            Remember me
-                                        </label>
-                                    </div>
 
-                                    <div>
-                                        <a href="#" class="txt1">
-                                            Forgot?
-                                        </a>
-                                    </div>
+                            <div>
+                                {% block rememberme_forgot %}
+                                {% endblock %}
+                            </div>
+
                                 </div>
                             </form>
                         </div>
@@ -72,6 +66,8 @@
                 </div>
             {% endif %}
         </div>
+
+
 
 
             <script src="{{ asset('bundles/main/Login/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
@@ -88,8 +84,10 @@
 
             <script src="{{ asset('bundles/main/Login/vendor/countdowntime/countdowntime.js')}}"></script>
 
-            <script src="{{ asset('bundles/main/Login/js/main.js')}}"></script> -->
+            <script src="{{ asset('bundles/main/Login/js/main.js')}}"></script>
 
     </body>
 </html>
 {% endblock %}
+
+

@@ -1,5 +1,15 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "MainBundle::layout.html.twig" %}
 
-{% block fos_user_content %}
+{% block fos_user_content1 %}
+<section id="reservation" class="reservation_section bg-grey">
+    <div class="container padding">
+        <div class="col-sm-8 col-sm-offset-2 align-left">
+            <div class="reserv_form">
+                <div class="section_heading mb-40">
 {% include "@FOSUser/Profile/show_content.html.twig" %}
-{% endblock fos_user_content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock fos_user_content1 %}

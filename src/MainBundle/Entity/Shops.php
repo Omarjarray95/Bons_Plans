@@ -102,4 +102,76 @@ class Shops extends Etablissement
     {
         return $this->reservations;
     }
+
+    /**
+     * Set typeLoisirs
+     *
+     * @param string $typeLoisirs
+     *
+     * @return Shops
+     */
+    public function setTypeLoisirs($typeLoisirs)
+    {
+        $this->typeLoisirs = $typeLoisirs;
+
+        return $this;
+    }
+
+    /**
+     * Get typeLoisirs
+     *
+     * @return string
+     */
+    public function getTypeLoisirs()
+    {
+        return $this->typeLoisirs;
+    }
+
+    /**
+     * Set nbrStars
+     *
+     * @param integer $nbrStars
+     *
+     * @return Shops
+     */
+    public function setNbrStars($nbrStars)
+    {
+        $this->nbrStars = $nbrStars;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrStars
+     *
+     * @return integer
+     */
+    public function getNbrStars()
+    {
+        return $this->nbrStars;
+    }
+
+    /**
+     * Set typeResto
+     *
+     * @param string $typeResto
+     *
+     * @return Shops
+     */
+    public function setTypeResto($typeResto)
+    {
+        $this->typeResto = $typeResto;
+
+        return $this;
+    }
+
+    /**
+     * Get typeResto
+     *
+     * @return string
+     */
+    public function getTypeResto()
+    {
+        return $this->typeResto;
+    }
 }
