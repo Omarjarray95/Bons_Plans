@@ -78,3 +78,6 @@ fos_user:
     from_email:
         address: "omar9jarray@gmail.com"
         sender_name: "omar"
+    registration:
+        form:
+            type: MainBundle\Form\RegistrationType

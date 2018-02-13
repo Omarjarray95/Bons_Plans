@@ -26,6 +26,12 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $nom;
+
+    /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
      * @ORM\JoinTable(name="favoris")
      */
@@ -147,5 +153,29 @@ class User extends BaseUser
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return User
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }

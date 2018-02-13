@@ -1,5 +1,11 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
+{% block title %}
+    <span class="login100-form-title p-b-51">
+						        S'Inscrire
+					            </span>
+{% endblock %}
+
 {% block fos_user_content %}
 {% include "@FOSUser/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}
