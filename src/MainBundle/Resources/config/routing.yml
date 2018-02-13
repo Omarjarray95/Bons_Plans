@@ -14,3 +14,10 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
+main_bundle_get_notif:
+    path:     /notifications/get
+    defaults: { _controller: MainBundle:Notifications:get }
+
+main_bundle_show_notif:
+    path:     /notifications/show
+    defaults: { _controller: MainBundle:Notifications:show }

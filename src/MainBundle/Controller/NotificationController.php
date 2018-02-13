@@ -14,11 +14,11 @@ class NotificationController extends Controller
         // Get the entity manager
         $em = $this->getDoctrine()->getManager();
         // Find the user notifications
-        $notifications = $em->getRepository('SocialProDefaultBundle:Notification')->getUnseenNotifications($user);
+        $notifications = $em->getRepository('MainBundle:Notification')->getUnseenNotifications($user);
         // Check the notifications availability
         $response = "";
         if($notifications == null)
-            $response = "<p style=\"padding: 4%\" align=\"center\"><strong>No new notifications</strong></p>";
+            $response = "<p style=\"padding: 4%\" align=\"center\"><strong>Pas de nouveaux notifications</strong></p>";
         else
         {
             // Loop through all the notifications
