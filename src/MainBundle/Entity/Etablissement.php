@@ -3,6 +3,7 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\Tag;
 
 /**
  * Etablissement
@@ -19,47 +20,81 @@ class Etablissement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
      */
-    private $adresse;
+    protected $adresse;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Description", type="string", length=255)
      */
-    private $description;
+    protected $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Horaire", type="string", length=255)
      */
-    private $horaire;
+    protected $horaire;
+
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="id")
      */
-    private $services;
+    protected $services;
+
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="id")
      */
-    private $tags;
+    protected $tags;
+
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="id")
      */
-    private $users;
+    protected $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_etablissement")
+     */
+    protected $evaluations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_etablissement")
+     */
+    protected $reservations;
+
+    /**
+     * * @ORM\Column(name="type_loisirs", type="string", columnDefinition="enum('Cinema', 'Salle de sport','Parc d attraction','Spa','Salon de coiffure','Centre de beaute','Salle de jeux','Autre')", nullable=TRUE)
+     */
+    protected $typeLoisirs;
+
+    /**
+     * @ORM\Column(name="type_shops", type="string", columnDefinition="enum('Grande surface', 'Parfumerie','Boutique','Patisserie','Librairie','Fleuriste','Candy Shop','Autre')", nullable=TRUE)
+     */
+    protected $typeShops;
+
+    /**
+     * @var int
+     * @ORM\Column(name="nbrStars", type="integer", nullable=TRUE)
+     */
+    protected $nbrStars;
+
+    /**
+     * @ORM\Column(name="type_resto", type="string", columnDefinition="enum('Restaurant', 'Bar','Cafe','Fast-Food','Autre')", nullable=TRUE)
+     */
+    protected $typeResto;
 
     /**
      * @return mixed
@@ -293,5 +328,73 @@ class Etablissement
     public function removeUser(\MainBundle\Entity\User $user)
     {
         $this->users->removeElement($user);
+    }
+
+    /**
+     * Add evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     *
+     * @return Etablissement
+     */
+    public function addEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations[] = $evaluation;
+
+        return $this;
+    }
+
+    /**
+     * Remove evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     */
+    public function removeEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations->removeElement($evaluation);
+    }
+
+    /**
+     * Get evaluations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvaluations()
+    {
+        return $this->evaluations;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     *
+     * @return Etablissement
+     */
+    public function addReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

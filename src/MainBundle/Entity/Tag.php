@@ -15,20 +15,20 @@ class Tag
 {
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="etablissements_tags")
      */
     private $etablissements;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="Name", type="string", length=255, nullable=true)
      */
     private $name;

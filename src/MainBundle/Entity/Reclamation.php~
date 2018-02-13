@@ -42,6 +42,11 @@ class Reclamation
      */
     private $contenuReclamation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     */
+    private $id_user;
 
     /**
      * Get id
