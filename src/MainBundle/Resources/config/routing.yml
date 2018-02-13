@@ -14,4 +14,8 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
+ajouter_etablissement:
+    path:     /AjouterEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
 
