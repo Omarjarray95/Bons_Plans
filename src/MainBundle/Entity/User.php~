@@ -24,19 +24,28 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
-     */
-    private $etablissements;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="favoris")
+     */
+    protected $etablissements;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
+     */
+    protected $evaluations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_user")
+     */
+    protected $reservations;
 
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-
-
 
     /**
      * Add etablissement

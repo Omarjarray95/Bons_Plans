@@ -18,7 +18,7 @@ class Restauration extends Etablissement
      * @return int
      * @ORM\Column(name="type_resto", type="string", columnDefinition="enum('Restaurant', 'Bar','Cafe','Fast-Food','Autre')")
      */
-    private $typeResto;
+    protected $typeResto;
 
     /**
      * @return mixed

@@ -42,6 +42,11 @@ class Reclamation
      */
     private $contenuReclamation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     */
+    private $id_user;
 
     /**
      * Get id
@@ -123,5 +128,29 @@ class Reclamation
     public function getContenuReclamation()
     {
         return $this->contenuReclamation;
+    }
+
+    /**
+     * Set idUser
+     *
+     * @param \MainBundle\Entity\User $idUser
+     *
+     * @return Reclamation
+     */
+    public function setIdUser(\MainBundle\Entity\User $idUser = null)
+    {
+        $this->id_user = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * Get idUser
+     *
+     * @return \MainBundle\Entity\User
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
     }
 }

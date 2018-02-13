@@ -18,7 +18,7 @@ class Restauration extends Etablissement
      * @return int
      * @ORM\Column(name="type_resto", type="string", columnDefinition="enum('Restaurant', 'Bar','Cafe','Fast-Food','Autre')")
      */
-    private $typeResto;
+    protected $typeResto;
 
     /**
      * @return mixed
@@ -36,4 +36,72 @@ class Restauration extends Etablissement
         $this->typeResto = $typeResto;
     }
 
+
+    /**
+     * Add evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     *
+     * @return Restauration
+     */
+    public function addEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations[] = $evaluation;
+
+        return $this;
+    }
+
+    /**
+     * Remove evaluation
+     *
+     * @param \MainBundle\Entity\Evaluation $evaluation
+     */
+    public function removeEvaluation(\MainBundle\Entity\Evaluation $evaluation)
+    {
+        $this->evaluations->removeElement($evaluation);
+    }
+
+    /**
+     * Get evaluations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvaluations()
+    {
+        return $this->evaluations;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     *
+     * @return Restauration
+     */
+    public function addReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \MainBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\MainBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
 }

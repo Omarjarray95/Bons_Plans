@@ -6,3 +6,13 @@ main_homepage_admin:
     path:     /HomeAdmin
     defaults: { _controller: MainBundle:Default:indexAdmin }
 
+a_propos:
+    path:     /APropos
+    defaults: { _controller: MainBundle:Default:apropos }
+
+contact:
+    path:     /Contact
+    defaults: { _controller: MainBundle:Default:contact }
+
+
+
