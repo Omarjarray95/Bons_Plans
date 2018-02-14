@@ -14,9 +14,16 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
+<<<<<<< HEAD
+ajouter_etablissement:
+    path:     /AjouterEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
+=======
 main_bundle_get_notif:
     path:     /notifications/get
     defaults: { _controller: MainBundle:Notifications:get }
+>>>>>>> 4871a2adc786c4f28433e34b776349e2c19ad793
 
 
 _ajout:
