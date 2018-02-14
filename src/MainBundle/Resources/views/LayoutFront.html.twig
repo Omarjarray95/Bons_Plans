@@ -67,9 +67,9 @@
     <div class="container">
         <div class="col-sm-6">
             <div class="about_content">
-                <h2 class="mb-15">Partagez vos expériences</h2>
-                <p> Connectez-vous pour découvrir des endroits que tes amis et experts apprécient</p>
-                <p> Trouver les meilleurs endroits pour manger, boire un café, faire les magasins...</p>
+                <h2>Faites vous aider dans votre choix</h2>
+                <p>Vous hésitez? Faites confiance aux notes et commentaires des internautes!</p>
+
                 <img src="{{ asset('bundles/main/img/digi.png') }}" alt="">
             </div>
         </div>
@@ -87,23 +87,22 @@
 <section id="menu" class="menu_section bd-bottom padding">
     <div class="container">
         <div class="section_heading align-center mb-40">
-            <h2>Our Special Menu</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
         </div><!-- /.section_heading -->
         <div class="menu_items">
             <ul class="tab_menu mb-30">
-                <li class="active"><a href="#breakfast" data-toggle="tab">Breakfast</a></li>
-                <li><a href="#dessert" data-toggle="tab">Dessert</a></li>
-                <li><a href="#fastfood" data-toggle="tab">Fastfood</a></li>
-                <li><a href="#lunch" data-toggle="tab">Lunch</a></li>
-                <li><a href="#package" data-toggle="tab">Package</a></li>
-                <li><a href="#dinner" data-toggle="tab">Dinner</a></li>
+                <li><a href="#dinner" data-toggle="tab">Evenements</a></li>
+                <li><a href="#dessert" data-toggle="tab">Shops</a></li>
+                <li><a href="#fastfood" data-toggle="tab">Restaurants</a></li>
+                <li><a href="#lunch" data-toggle="tab">Hotels</a></li>
+                <li><a href="#package" data-toggle="tab">Loisirs</a></li>
+
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade tab_content in active" id="breakfast">
                     <div class="col-sm-3 col-xs-6 xs-padding">
                         <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-1.jpg') }}" alt="food">
+                            <img src="{{ asset('bundles/main/img/f-1.png') }}" alt="food">
                             <h3>Double Grape Martani</h3>
                             <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
                             <h4 class="price">$499</h4>
@@ -111,7 +110,7 @@
                     </div>
                     <div class="col-sm-3 col-xs-6 xs-padding">
                         <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-2.jpg') }}" alt="food">
+                            <img src="{{ asset('bundles/main/img/f-2.png') }}" alt="food">
                             <h3>Seafood Paella</h3>
                             <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
                             <h4 class="price">$499</h4>
@@ -119,7 +118,7 @@
                     </div>
                     <div class="col-sm-3 col-xs-6 xs-padding">
                         <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-3.jpg') }}" alt="food">
+                            <img src="{{ asset('bundles/main/img/f-3.png') }}" alt="food">
                             <h3>Masala Dosa</h3>
                             <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
                             <h4 class="price">$499</h4>
@@ -127,7 +126,7 @@
                     </div>
                     <div class="col-sm-3 col-xs-6 xs-padding">
                         <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-4.jpg')}}" alt="food">
+                            <img src="{{ asset('bundles/main/img/f-4.png')}}" alt="food">
                             <h3>Buttered Popcorn</h3>
                             <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
                             <h4 class="price">$499</h4>
@@ -418,8 +417,7 @@
         <div class="col-sm-8 col-sm-offset-2 align-center">
             <div class="reserv_form">
                 <div class="section_heading mb-40">
-                    <h2>Make Online Reservation</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>It has survived not only five centuries.</p>
+                    <h2>Passer vos réservations</h2>
                 </div>
                 <form action="http://wowthemez.com/templates/hangout/reg.php" method="post" id="reserv_form" class="form-horizontal">
                     <div class="form-group">
@@ -495,4 +493,5 @@
     </div>
 </section><!-- /.blog_section -->
 {% endblock %}
+
 

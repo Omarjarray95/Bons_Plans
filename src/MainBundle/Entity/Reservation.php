@@ -34,6 +34,12 @@ class Reservation
     private $id_etablissement;
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $nom;
+
+    /**
      * @return string
      */
     public function getNom()
@@ -48,11 +54,6 @@ class Reservation
     {
         $this->nom = $nom;
     }
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    private $nom;
 
     /**
      * @var \DateTime
