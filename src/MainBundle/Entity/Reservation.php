@@ -38,6 +38,12 @@ class Reservation
      * @ORM\Column(type="string")
      */
     private $nom;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_de_reservation", type="date")
+     */
+    private $date_de_reservation;
 
     /**
      * @return string
@@ -55,12 +61,7 @@ class Reservation
         $this->nom = $nom;
     }
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_de_reservation", type="date")
-     */
-    private $date_de_reservation;
+
 
     /**
      * @return \DateTime
