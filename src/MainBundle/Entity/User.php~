@@ -57,12 +57,6 @@ class User extends BaseUser
     protected $intro;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
-     * @ORM\JoinTable(name="favoris")
-     */
-    protected $etablissements;
-
-    /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
      */
     protected $evaluations;
@@ -76,40 +70,6 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
-    }
-
-    /**
-     * Add etablissement
-     *
-     * @param Etablissement $etablissement
-     *
-     * @return User
-     */
-    public function addEtablissement(Etablissement $etablissement)
-    {
-        $this->etablissements[] = $etablissement;
-
-        return $this;
-    }
-
-    /**
-     * Remove etablissement
-     *
-     * @param Etablissement $etablissement
-     */
-    public function removeEtablissement(Etablissement $etablissement)
-    {
-        $this->etablissements->removeElement($etablissement);
-    }
-
-    /**
-     * Get etablissements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
     }
 
     /**
@@ -275,4 +235,30 @@ class User extends BaseUser
     {
         return $this->phone;
     }
+
+    /**
+     * Set intro
+     *
+     * @param string $intro
+     *
+     * @return User
+     */
+    public function setIntro($intro)
+    {
+        $this->intro = $intro;
+
+        return $this;
+    }
+
+    /**
+     * Get intro
+     *
+     * @return string
+     */
+    public function getIntro()
+    {
+        return $this->intro;
+    }
+
+
 }

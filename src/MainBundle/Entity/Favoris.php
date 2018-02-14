@@ -30,6 +30,17 @@ class Favoris
     private $favoris;
 
     /**
+     * Favoris constructor.
+     * @param $user
+     * @param $favoris
+     */
+    public function __construct($user, $favoris)
+    {
+        $this->user = $user;
+        $this->favoris = $favoris;
+    }
+
+    /**
      * @return mixed
      */
     public function getUser()
@@ -72,4 +83,3 @@ class Favoris
         return $this->id;
     }
 }
-

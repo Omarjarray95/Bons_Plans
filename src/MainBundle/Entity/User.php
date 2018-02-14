@@ -19,12 +19,14 @@ use MainBundle\Entity\Etablissement;
  */
 class User extends BaseUser
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
 
     /**
      * @var string
@@ -57,22 +59,6 @@ class User extends BaseUser
     protected $intro;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
-     * @ORM\JoinTable(name="favoris")
-     */
-    protected $etablissements_fav;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
-     * @ORM\JoinTable(name="wishlist")
-     */
-    protected $etablissements_wish;
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
-     * @ORM\JoinTable(name="visited")
-     */
-    protected $etablissements_visited;
-
-    /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
      */
     protected $evaluations;
@@ -87,40 +73,15 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-
     /**
-     * Add etablissement
-     *
-     * @param Etablissement $etablissement
-     *
-     * @return User
+     * @return mixed
      */
-    public function addEtablissement(Etablissement $etablissement)
+    public function getId()
     {
-        $this->etablissements[] = $etablissement;
-
-        return $this;
+        return $this->id;
     }
 
-    /**
-     * Remove etablissement
-     *
-     * @param Etablissement $etablissement
-     */
-    public function removeEtablissement(Etablissement $etablissement)
-    {
-        $this->etablissements->removeElement($etablissement);
-    }
 
-    /**
-     * Get etablissements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
-    }
 
     /**
      * Add evaluation
@@ -309,4 +270,6 @@ class User extends BaseUser
     {
         return $this->intro;
     }
+
+
 }

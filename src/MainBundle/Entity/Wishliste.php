@@ -5,12 +5,12 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Favoris
+ * Wishliste
  *
- * @ORM\Table(name="favoris")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\FavorisRepository")
+ * @ORM\Table(name="wishliste")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\WishlisteRepository")
  */
-class Favoris
+class Wishliste
 {
     /**
      * @var int
@@ -72,4 +72,3 @@ class Favoris
         return $this->id;
     }
 }
-

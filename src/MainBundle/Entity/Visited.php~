@@ -5,12 +5,12 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Favoris
+ * Visited
  *
- * @ORM\Table(name="favoris")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\FavorisRepository")
+ * @ORM\Table(name="visited")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\VisitedRepository")
  */
-class Favoris
+class Visited
 {
     /**
      * @var int
