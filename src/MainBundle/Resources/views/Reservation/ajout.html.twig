@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}MainBundle:Reservation:Ajout{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Reservation:Ajout page</h1>
+    {{ form(Form) }}
+
+    {{ form_errors(Form) }}
+{% endblock %}

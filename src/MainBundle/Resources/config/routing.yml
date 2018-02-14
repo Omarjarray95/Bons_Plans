@@ -14,17 +14,32 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
-<<<<<<< HEAD
+
 ajouter_etablissement:
     path:     /AjouterEtablissement
     defaults: { _controller: MainBundle:Etablissement:Ajout }
 
-=======
-main_bundle_get_notif:
+$main_bundle_get_notif:
     path:     /notifications/get
     defaults: { _controller: MainBundle:Notifications:get }
->>>>>>> 4871a2adc786c4f28433e34b776349e2c19ad793
+
+_ajout:
+    path:     /AjoutRes
+    defaults: { _controller: MainBundle:Reservation:Ajout }
+
+_update:
+    path:     /UpdateRes
+    defaults: { _controller: MainBundle:Reservation:Update }
+
+_delete:
+    path:     /DeleteRes
+    defaults: { _controller: MainBundle:Reservation:Delete }
+
+_affiche:
+    path:     /AfficheRes
+    defaults: { _controller: MainBundle:Reservation:Affiche }
 
 main_bundle_show_notif:
     path:     /notifications/show
     defaults: { _controller: MainBundle:Notifications:show }
+

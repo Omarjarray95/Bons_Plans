@@ -33,7 +33,6 @@ class User extends BaseUser
      * @ORM\Column(type="string")
      */
     protected $nom;
-
     /**
      * @var \DateTime
      * @ORM\Column(type="date", nullable=TRUE)
