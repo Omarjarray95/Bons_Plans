@@ -275,4 +275,130 @@ class User extends BaseUser
     {
         return $this->phone;
     }
+
+    /**
+     * Set intro
+     *
+     * @param string $intro
+     *
+     * @return User
+     */
+    public function setIntro($intro)
+    {
+        $this->intro = $intro;
+
+        return $this;
+    }
+
+    /**
+     * Get intro
+     *
+     * @return string
+     */
+    public function getIntro()
+    {
+        return $this->intro;
+    }
+
+    /**
+     * Add etablissementsFav
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsFav
+     *
+     * @return User
+     */
+    public function addEtablissementsFav(\MainBundle\Entity\Etablissement $etablissementsFav)
+    {
+        $this->etablissements_fav[] = $etablissementsFav;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissementsFav
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsFav
+     */
+    public function removeEtablissementsFav(\MainBundle\Entity\Etablissement $etablissementsFav)
+    {
+        $this->etablissements_fav->removeElement($etablissementsFav);
+    }
+
+    /**
+     * Get etablissementsFav
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtablissementsFav()
+    {
+        return $this->etablissements_fav;
+    }
+
+    /**
+     * Add etablissementsWish
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsWish
+     *
+     * @return User
+     */
+    public function addEtablissementsWish(\MainBundle\Entity\Etablissement $etablissementsWish)
+    {
+        $this->etablissements_wish[] = $etablissementsWish;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissementsWish
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsWish
+     */
+    public function removeEtablissementsWish(\MainBundle\Entity\Etablissement $etablissementsWish)
+    {
+        $this->etablissements_wish->removeElement($etablissementsWish);
+    }
+
+    /**
+     * Get etablissementsWish
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtablissementsWish()
+    {
+        return $this->etablissements_wish;
+    }
+
+    /**
+     * Add etablissementsVisited
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsVisited
+     *
+     * @return User
+     */
+    public function addEtablissementsVisited(\MainBundle\Entity\Etablissement $etablissementsVisited)
+    {
+        $this->etablissements_visited[] = $etablissementsVisited;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissementsVisited
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsVisited
+     */
+    public function removeEtablissementsVisited(\MainBundle\Entity\Etablissement $etablissementsVisited)
+    {
+        $this->etablissements_visited->removeElement($etablissementsVisited);
+    }
+
+    /**
+     * Get etablissementsVisited
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtablissementsVisited()
+    {
+        return $this->etablissements_visited;
+    }
 }

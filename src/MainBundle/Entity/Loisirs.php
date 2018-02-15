@@ -174,4 +174,28 @@ class Loisirs extends Etablissement
     {
         return $this->typeResto;
     }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Loisirs
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

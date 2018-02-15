@@ -31,6 +31,12 @@ class Etablissement
 
     /**
      * @var string
+     * @ORM\Column(name="Type", type="string", length=255)
+     */
+    protected $type;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
      */
@@ -51,17 +57,17 @@ class Etablissement
     protected $horaire;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="etablissements")
      */
     protected $services;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="etablissements")
      */
     protected $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="etablissements")
      */
     protected $users;
 

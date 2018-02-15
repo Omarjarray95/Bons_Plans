@@ -24,10 +24,15 @@ class Etablissement
 
     /**
      * @var string
-     *
      * @ORM\Column(name="Nom", type="string", length=255)
      */
     protected $nom;
+
+    /**
+     * @var string
+     * @ORM\Column(name="Type", type="string", length=255)
+     */
+    protected $type;
 
     /**
      * @var string
@@ -51,17 +56,17 @@ class Etablissement
     protected $horaire;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="etablissements")
      */
     protected $services;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="etablissements")
      */
     protected $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="etablissements")
      */
     protected $users;
 
@@ -492,5 +497,29 @@ class Etablissement
     public function getTypeResto()
     {
         return $this->typeResto;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Etablissement
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }
