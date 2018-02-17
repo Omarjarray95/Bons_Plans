@@ -38,5 +38,52 @@ class GoingEvent
     {
         return $this->id;
     }
-}
 
+    /**
+     * Set user
+     *
+     * @param \MainBundle\Entity\User $user
+     *
+     * @return GoingEvent
+     */
+    public function setUser(\MainBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \MainBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set event
+     *
+     * @param \MainBundle\Entity\Evenement $event
+     *
+     * @return GoingEvent
+     */
+    public function setEvent(\MainBundle\Entity\Evenement $event = null)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return \MainBundle\Entity\Evenement
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+}

@@ -1,0 +1,31 @@
+
+{% extends 'Base.html.twig' %}
+{% block ListOffre %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <h2>Vos offres</h2>
+                        <br>
+                        <table >
+
+                            <tr>
+                                <th width="30%">Offre</th><th width="30%">Date début</th><th width="30%">Date fin</th><th width="30%">Modifier</th><th width="30%">Supprimer</th>
+                            </tr>
+                            {% for Offre in e %}
+                                <tr>
+                                    <td>{{Offre.offre }}</td>
+                                    <td>{{Offre.dateDebut|date("m/d/Y")  }}</td>
+                                    <td>{{Offre.dateFin|date("m/d/Y")  }}</td>
+                                    <td><a href="{{ path('update_offre',{'id':Offre.id}) }}">Modifier</a></td>
+                                    <td><a href="{{ path('delete_offre',{'id':Offre.id}) }}">Supprimer</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

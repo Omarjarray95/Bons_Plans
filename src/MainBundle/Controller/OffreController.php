@@ -2,26 +2,26 @@
 
 namespace MainBundle\Controller;
 
-use MainBundle\Entity\Evenement;
-use MainBundle\Form\EvenementType;
+use MainBundle\Entity\Offre;
+use MainBundle\Form\OffreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class EvenementController extends Controller
+class OffreController extends Controller
 {
     public function AjoutAction(Request $request,$id_etab){
-        $event=new Evenement();
-        $Form=$this->createForm(EvenementType::class,$event);
+        $Offre=new Offre();
+        $Form=$this->createForm(OffreType::class,$Offre);
         $Form->handleRequest($request);
         if ($Form->isValid()){
             $em=$this->getDoctrine()->getManager();
             $etab=$em->getRepository("MainBundle:Etablissement")->find($id_etab);
-            $event->setEtablissement($etab);
-            $em->persist($event);
+            $Offre->setEtablissement($etab);
+            $em->persist($Offre);
             $em->flush();
             return $this->redirectToRoute('main_homepage');
         }
-        return $this->render('MainBundle:Evenement:ajout.html.twig',array(
+        return $this->render('MainBundle:Offre:ajout.html.twig',array(
             'form'=>$Form->createView()
         ));
 
@@ -30,8 +30,8 @@ class EvenementController extends Controller
     public function RemoveAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $event=$em->getRepository("MainBundle:Evenement")->find($id);
-        $em->remove($event);
+        $Offre=$em->getRepository("MainBundle:Offre")->find($id);
+        $em->remove($Offre);
         $em->flush();
         return $this->redirectToRoute('main_homepage');
     }
@@ -39,37 +39,36 @@ class EvenementController extends Controller
     public function afficheallAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $event=$em->getRepository("MainBundle:Evenement")->findAll();
+        $Offre=$em->getRepository("MainBundle:Offre")->findAll();
 
-        return $this->render('MainBundle:Evenement:eventsListe.html.twig',
+        return $this->render('MainBundle:Offre:OffreListe.html.twig',
             array(
-                'e'=>$event
+                'e'=>$Offre
             ));
     }
     public function afficheAction($id_etab)
     {
         $em=$this->getDoctrine()->getManager();
-        $event=$em->getRepository("MainBundle:Evenement")->findBy(array('etablissement'=>$id_etab));
+        $Offre=$em->getRepository("MainBundle:Offre")->findBy(array('etablissement'=>$id_etab));
         /*je vais creer une fonction list by all this week events et je vais la remplacer par findBy */
 
-        return $this->render('MainBundle:Evenement:eventsByEtab.html.twig',
+        return $this->render('MainBundle:Offre:OffreByEtab.html.twig',
             array(
-                'e'=>$event
+                'e'=>$Offre
             ));
     }
     public function UpdateAction(Request $request,$id){
         $em=$this->getDoctrine()->getManager();
-            $event=$em->getRepository("MainBundle:Evenement")->find($id);
-        $Form=$this->createForm(EvenementType::class,$event);
+        $Offre=$em->getRepository("MainBundle:Offre")->find($id);
+        $Form=$this->createForm(OffreType::class,$Offre);
         $Form->handleRequest($request);
         if ($Form->isValid() && $Form->isSubmitted()){
-            $em->persist($event);
+            $em->persist($Offre);
             $em->flush();
             return $this->redirectToRoute('main_homepage');
         }
-        return $this->render("MainBundle:Evenement:update.html.twig",
+        return $this->render("MainBundle:Offre:update.html.twig",
             array('form'=>$Form->createView()));
 
     }
-
 }

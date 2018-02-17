@@ -18,10 +18,6 @@ ajouter_etablissement:
     path:     /AjouterEtablissement
     defaults: { _controller: MainBundle:Etablissement:Ajout }
 
-main_bundle_get_notif:
-    path:     /notifications/get
-    defaults: { _controller: MainBundle:Notifications:get }
-
 _ajout:
     path:     /AjoutRes
     defaults: { _controller: MainBundle:Reservation:Ajout }
@@ -38,9 +34,6 @@ _affiche:
     path:     /AfficheRes
     defaults: { _controller: MainBundle:Reservation:Affiche }
 
-main_bundle_show_notif:
-    path:     /notifications/show
-    defaults: { _controller: MainBundle:Notifications:show }
 
 all_events:
     path:     /events
@@ -115,3 +108,22 @@ affiche_visited:
       path:     /VoirVisited
       defaults: { _controller: MainBundle:Visited:Affiche }
 
+all_offre:
+    path:     /offres
+    defaults: { _controller: MainBundle:Offre:afficheall }
+
+etab_offre:
+    path:     /offresEtab/{id_etab}
+    defaults: { _controller: MainBundle:Offre:Affiche }
+
+update_offre:
+    path:     /offreUpdate/{id}
+    defaults: { _controller: MainBundle:Offre:Update }
+
+delete_offre:
+    path:     /offreDelete/{id}
+    defaults: { _controller: MainBundle:Offre:Remove }
+
+add_offre:
+    path:     /offreAdd/{id_etab}
+    defaults: { _controller: MainBundle:Offre:Ajout }
