@@ -10,4 +10,18 @@ namespace MainBundle\Repository;
  */
 class FavorisRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function countFavoris($etabid,$userid){
+
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery(
+            'SELECT count(f)
+        FROM MainBundle:Favoris f
+        WHERE f.user = :usr
+        AND f.favoris = :fav'
+        )->setParameter('usr', $userid)
+        ->setParameter('fav',$etabid);
+
+        return $query->getSingleScalarResult();
+    }
 }

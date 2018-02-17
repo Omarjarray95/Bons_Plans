@@ -13,11 +13,14 @@ class WishlistController extends Controller
         $id_user = $user->getId();
         $em=$this->getDoctrine()->getManager();
         $etab=$em->getRepository("MainBundle:Etablissement")->find($id);
-        $Wishlist=new Wishliste();
-        $Wishlist->setUser($user);
-        $Wishlist->setFavoris($etab);
-        $em->persist($Wishlist);
-        $em->flush();
+        $exist=$em->getRepository("MainBundle:Wishliste")->countWishliste($etab,$user);
+        if ($exist==0){
+            $Wishlist=new Wishliste();
+            $Wishlist->setUser($user);
+            $Wishlist->setFavoris($etab);
+            $em->persist($Wishlist);
+            $em->flush();}
+
 
         return $this->redirectToRoute('main_homepage');
 

@@ -10,4 +10,18 @@ namespace MainBundle\Repository;
  */
 class VisitedRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function countVisited($etabid,$userid){
+
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery(
+            'SELECT count(f)
+        FROM MainBundle:Visited f
+        WHERE f.user = :usr
+        AND f.favoris = :fav'
+        )->setParameter('usr', $userid)
+            ->setParameter('fav',$etabid);
+
+        return $query->getSingleScalarResult();
+    }
 }

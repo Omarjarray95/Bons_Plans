@@ -3,18 +3,18 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 /**
  * Offre
- *
+ * @Notifiable(name="offre")
  * @ORM\Table(name="offre")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\OffreRepository")
  */
-class Offre
+class Offre implements NotifiableInterface
 {
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

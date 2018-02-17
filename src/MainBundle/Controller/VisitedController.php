@@ -6,6 +6,10 @@ use MainBundle\Entity\GoingEvent;
 use MainBundle\Entity\Visited;
 use MainBundle\Entity\VisitedEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class VisitedController extends Controller
 {
@@ -15,12 +19,13 @@ class VisitedController extends Controller
         $id_user = $user->getId();
         $em=$this->getDoctrine()->getManager();
         $etab=$em->getRepository("MainBundle:Etablissement")->find($id);
-        $visited=new Visited();
-        $visited->setUser($user);
-        $visited->setFavoris($etab);
-        $em->persist($visited);
-        $em->flush();
-
+        $exist=$em->getRepository("MainBundle:Visited")->countVisited($etab,$user);
+        if ($exist==0){
+            $visited=new Visited();
+            $visited->setUser($user);
+            $visited->setFavoris($etab);
+            $em->persist($visited);
+            $em->flush();}
         return $this->redirectToRoute('main_homepage');
 
     }
@@ -43,11 +48,13 @@ class VisitedController extends Controller
         $id_user = $user->getId();
         $em=$this->getDoctrine()->getManager();
         $event=$em->getRepository("MainBundle:Evenement")->find($id);
+        $exist=$em->getRepository("MainBundle:VisitedEvent")->countVisitedEvent($event,$user);
+        if($exist==0){
         $visited=new VisitedEvent();
         $visited->setUser($user);
         $visited->setEvent($event);
         $em->persist($visited);
-        $em->flush();
+        $em->flush();}
 
         return $this->redirectToRoute('main_homepage');
 
@@ -58,7 +65,7 @@ class VisitedController extends Controller
         $user = $this->getUser();
         $id = $user->getId();
         $em=$this->getDoctrine()->getManager();
-        $visited=$em->getRepository("MainBundle:VisitedEvent")->find($id_event);;
+        $visited=$em->getRepository("MainBundle:VisitedEvent")->find($id_event);
         $em->remove($visited);
         $em->flush();
         return $this->redirectToRoute('main_homepage');
@@ -70,11 +77,13 @@ class VisitedController extends Controller
         $id_user = $user->getId();
         $em=$this->getDoctrine()->getManager();
         $event=$em->getRepository("MainBundle:Evenement")->find($id);
+        $exist=$em->getRepository("MainBundle:GoingEvent")->countGoingEvent($event,$user);
+        if ($exist==0){
         $visited=new GoingEvent();
         $visited->setUser($user);
         $visited->setEvent($event);
         $em->persist($visited);
-        $em->flush();
+        $em->flush();}
 
         return $this->redirectToRoute('main_homepage');
 

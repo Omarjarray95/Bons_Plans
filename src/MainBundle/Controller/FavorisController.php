@@ -15,18 +15,19 @@ class FavorisController extends Controller
 
     public function AjoutAction($id)
     {
-            $user = $this->getUser();
-            $id_user = $user->getId();
-            $em=$this->getDoctrine()->getManager();
-            $etab=$em->getRepository("MainBundle:Etablissement")->find($id);
+        $user = $this->getUser();
+        $id_user = $user->getId();
+        $em=$this->getDoctrine()->getManager();
+        $etab=$em->getRepository("MainBundle:Etablissement")->find($id);
+        $exist=$em->getRepository("MainBundle:Favoris")->countFavoris($etab,$user);
+        if($exist==0){
             $Favoris=new Favoris();
             $Favoris->setUser($user);
             $Favoris->setFavoris($etab);
             $em->persist($Favoris);
             $em->flush();
-
-            return $this->redirectToRoute('main_homepage');
-
+        }
+        return $this->redirectToRoute('main_homepage');
         }
 
     public function RemoveAction($id_etablissement)

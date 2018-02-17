@@ -10,4 +10,18 @@ namespace MainBundle\Repository;
  */
 class GoingEventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function countGoingEvent($eventid,$userid){
+
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery(
+            'SELECT count(f)
+        FROM MainBundle:GoingEvent f
+        WHERE f.user = :usr
+        AND f.event = :ev'
+        )->setParameter('usr', $userid)
+            ->setParameter('ev',$eventid);
+
+        return $query->getSingleScalarResult();
+    }
 }
