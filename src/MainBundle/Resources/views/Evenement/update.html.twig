@@ -1,0 +1,21 @@
+{% extends 'Base.html.twig' %}
+{% block UpdateEvent %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <h2>Modifier votre évenement</h2>
+                        <br>
+                        {{ form_start(form) }}
+                        {{ form_widget(form.nom) }}<br>
+                        {{ form_widget(form.date) }}<br>
+                        {{ form_widget(form.description) }}<br>
+                        {{ form_widget(form.Ajouter,{'label':'Modifier'}) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

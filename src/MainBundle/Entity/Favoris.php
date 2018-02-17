@@ -24,6 +24,7 @@ class Favoris
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
      */
     private $user;
+
     /**
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
      */
@@ -34,10 +35,9 @@ class Favoris
      * @param $user
      * @param $favoris
      */
-    public function __construct($user, $favoris)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->favoris = $favoris;
+
     }
 
     /**

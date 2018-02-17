@@ -24,10 +24,21 @@ class Favoris
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
      */
     private $user;
+
     /**
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
      */
     private $favoris;
+
+    /**
+     * Favoris constructor.
+     * @param $user
+     * @param $favoris
+     */
+    public function __construct()
+    {
+
+    }
 
     /**
      * @return mixed
@@ -72,4 +83,3 @@ class Favoris
         return $this->id;
     }
 }
-

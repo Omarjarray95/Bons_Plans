@@ -1,0 +1,12 @@
+<h1>Ma WishListe</h1>
+<table border="1">
+    <tr>
+        <th>Wish</th><th>Retirer de ma WishListe</th>
+    </tr>
+    {% for Wish in w %}
+        <tr>
+            <td>{{Wish.favoris.nom  }}</td>
+            <td><a href="{{ path('delete_wish',{'id_etablissement':Wish.id}) }}">Retirer</a></td>
+        </tr>
+    {% endfor %}
+</table>

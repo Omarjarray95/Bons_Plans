@@ -1,0 +1,30 @@
+
+{% extends 'Base.html.twig' %}
+{% block ListEvent %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <h2>Vos évenements</h2>
+                        <br>
+                        <table >
+
+                            <tr>
+                                <th width="30%">Evenement</th><th width="30%">Date</th><th width="30%">Modifier</th><th width="30%">Supprimer</th>
+                            </tr>
+                            {% for events in e %}
+                                <tr>
+                                    <td>{{events.nom  }}</td>
+                                    <td>{{events.date|date("m/d/Y")  }}</td>
+                                    <td><a href="{{ path('update_event',{'id':events.id}) }}">Modifier</a></td>
+                                    <td><a href="{{ path('delete_event',{'id':events.id}) }}">Supprimer</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

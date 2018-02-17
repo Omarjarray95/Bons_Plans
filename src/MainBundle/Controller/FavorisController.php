@@ -13,47 +13,44 @@ class FavorisController extends Controller
 {
 
 
-    public function AjoutAction( $id_etablissement){
-
+    public function AjoutAction($id)
+    {
             $user = $this->getUser();
-            $id_user = $user.getId();
+            $id_user = $user->getId();
             $em=$this->getDoctrine()->getManager();
-            $etab=$em->getRepository("MainBundleBundle:Etablissement")->find($id_etablissement);
+            $etab=$em->getRepository("MainBundle:Etablissement")->find($id);
             $Favoris=new Favoris();
-            $Favoris->setUser($id_user);
+            $Favoris->setUser($user);
             $Favoris->setFavoris($etab);
             $em->persist($Favoris);
             $em->flush();
 
-            return $this->render('MainBundle:Etablissement:profile.html.twig',array(
-
-            ));
+            return $this->redirectToRoute('main_homepage');
 
         }
 
     public function RemoveAction($id_etablissement)
     {
         $user = $this->getUser();
-        $id = $user.getId();
+        $id = $user->getId();
         $em=$this->getDoctrine()->getManager();
-        $favoris=$em->getRepository("MainBundle:Favoris")->findBy(array('user'=>$id,'favoris'=>$id_etablissement));;
+        $favoris=$em->getRepository("MainBundle:Favoris")->find($id_etablissement);;
         $em->remove($favoris);
         $em->flush();
-        return $this->render('MainBundle:Etablissement:profile.html.twig',array(
-
-        ));
+        return $this->redirectToRoute('main_homepage');
     }
 
-    public function afficheAction()
+    public function AfficheAction()
     {
         $user = $this->getUser();
-        $id = $user.getId();
+        $id = $user->getId();
         $em=$this->getDoctrine()->getManager();
-        $favoris=$em->getRepository("MainBundle:Favoris")->findBy(array('user'=>$id);
+        $favoris=$em->getRepository("MainBundle:Favoris")->findBy(array('user'=>$user));
 
-        return $this->render('MainBundle:Profile:show.html.twig',
+
+        return $this->render('MainBundle:Favoris:show.html.twig',
             array(
-                'f'=>$favoris
+                'f' => $favoris
             ));
     }
 

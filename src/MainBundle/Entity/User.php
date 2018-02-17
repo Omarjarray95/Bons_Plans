@@ -41,19 +41,19 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=TRUE)
      */
     protected $ville;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=TRUE)
      */
     protected $phone;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=TRUE)
      */
     protected $intro;
 
@@ -61,6 +61,10 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
      */
     protected $evaluations;
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Etablissement", mappedBy="id_user")
+     */
+    protected $etablissements;
 
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_user")
@@ -78,6 +82,22 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtablissements()
+    {
+        return $this->etablissements;
+    }
+
+    /**
+     * @param mixed $etablissements
+     */
+    public function setEtablissements($etablissements)
+    {
+        $this->etablissements = $etablissements;
     }
 
 
@@ -271,4 +291,28 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Add etablissement
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissement
+     *
+     * @return User
+     */
+    public function addEtablissement(\MainBundle\Entity\Etablissement $etablissement)
+    {
+        $this->etablissements[] = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * Remove etablissement
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissement
+     */
+    public function removeEtablissement(\MainBundle\Entity\Etablissement $etablissement)
+    {
+        $this->etablissements->removeElement($etablissement);
+    }
 }

@@ -14,12 +14,11 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
-
 ajouter_etablissement:
     path:     /AjouterEtablissement
     defaults: { _controller: MainBundle:Etablissement:Ajout }
 
-$main_bundle_get_notif:
+main_bundle_get_notif:
     path:     /notifications/get
     defaults: { _controller: MainBundle:Notifications:get }
 
@@ -42,4 +41,77 @@ _affiche:
 main_bundle_show_notif:
     path:     /notifications/show
     defaults: { _controller: MainBundle:Notifications:show }
+
+all_events:
+    path:     /events
+    defaults: { _controller: MainBundle:Evenement:afficheall }
+
+etab_events:
+    path:     /eventsEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:Affiche }
+
+update_event:
+    path:     /eventUpdate/{id}
+    defaults: { _controller: MainBundle:Evenement:Update }
+
+delete_event:
+    path:     /eventDelete/{id}
+    defaults: { _controller: MainBundle:Evenement:Remove }
+
+add_event:
+    path:     /eventAdd/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:Ajout }
+
+ajouter_favoris:
+    path:     /AjouterFavoris/{id}
+    defaults: { _controller: MainBundle:Favoris:Ajout }
+
+delete_favoris:
+      path:     /RetirerFavoris/{id_etablissement}
+      defaults: { _controller: MainBundle:Favoris:Remove }
+
+affiche_favoris:
+      path:     /VoirFavoris
+      defaults: { _controller: MainBundle:Favoris:Affiche }
+
+ajouter_wish:
+    path:     /AjouterWish/{id}
+    defaults: { _controller: MainBundle:Wishlist:Ajout }
+
+delete_wish:
+      path:     /RetirerWish/{id_etablissement}
+      defaults: { _controller: MainBundle:Wishlist:Remove }
+
+affiche_wish:
+      path:     /VoirWish
+      defaults: { _controller: MainBundle:Wishlist:Affiche }
+
+ajouter_visited:
+    path:     /AjouterVisited/{id}
+    defaults: { _controller: MainBundle:Visited:Ajout }
+
+delete_visited:
+      path:     /RetirerVisited/{id_etablissement}
+      defaults: { _controller: MainBundle:Visited:Remove }
+
+ajouter_visited_event:
+    path:     /AjouterVisitedEvent/{id}
+    defaults: { _controller: MainBundle:Visited:AjoutEvent }
+
+delete_visited_event:
+      path:     /RetirerGoingEvent/{id_etablissement}
+      defaults: { _controller: MainBundle:Visited:RemoveEvent }
+
+delete_going_event:
+      path:     /RetirerVisitedEvent/{id_event}
+      defaults: { _controller: MainBundle:Visited:RemoveGoing }
+
+ajouter_going_event:
+    path:     /AjouterGoingEvent/{id}
+    defaults: { _controller: MainBundle:Visited:AjoutGoing }
+
+
+affiche_visited:
+      path:     /VoirVisited
+      defaults: { _controller: MainBundle:Visited:Affiche }
 

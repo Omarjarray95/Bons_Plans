@@ -5,12 +5,12 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Visited
+ * VisitedEvent
  *
- * @ORM\Table(name="visited")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\VisitedRepository")
+ * @ORM\Table(name="visited_event")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\VisitedEventRepository")
  */
-class Visited
+class VisitedEvent
 {
     /**
      * @var int
@@ -25,9 +25,9 @@ class Visited
      */
     private $user;
     /**
- * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
- */
-    private $favoris;
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Evenement")
+     */
+    private $event;
 
     /**
      * @return mixed
@@ -48,19 +48,18 @@ class Visited
     /**
      * @return mixed
      */
-    public function getFavoris()
+    public function getEvent()
     {
-        return $this->favoris;
+        return $this->event;
     }
 
     /**
-     * @param mixed $favoris
+     * @param mixed $event
      */
-    public function setFavoris($favoris)
+    public function setEvent($event)
     {
-        $this->favoris = $favoris;
+        $this->event = $event;
     }
-
 
     /**
      * Get id
