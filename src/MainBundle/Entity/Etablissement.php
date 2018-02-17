@@ -4,6 +4,7 @@ namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Tag;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Etablissement
@@ -51,9 +52,44 @@ class Etablissement
     /**
      * @var string
      *
-     * @ORM\Column(name="Horaire", type="string", length=255)
+     * @ORM\Column(name="Horaire_Ouverture", type="string", length=255)
      */
-    protected $horaire;
+    protected $horaireOuverture;
+
+    /**
+     * @var
+     * @ORM\Column(name="Horaire_Fermeture")
+     */
+    protected $horaireFermeture;
+
+    /**
+     * @var
+     * @ORM\Column(name="Numero")
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8
+     * )
+     */
+    protected $numTel;
+
+    /**
+     * @ORM\Column(type="string", nullable=TRUE)
+     * @Assert\NotBlank(message="Please, upload the image as a PNG file.")
+     * @Assert\File(mimeTypes={ "image/png","image/jpeg","image/jpg","image/gif" })
+     */
+    protected $imagePrincipale;
+
+    /**
+     * @var
+     * @ORM\Column(name="URL", nullable=TRUE)
+     */
+    protected $URL;
+
+    /**
+     * @var
+     * @ORM\Column(name="Budget_Moyen", nullable=TRUE)
+     */
+    protected $budgetmoyen;
 
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="etablissements")
@@ -521,5 +557,149 @@ class Etablissement
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set horaireOuverture
+     *
+     * @param string $horaireOuverture
+     *
+     * @return Etablissement
+     */
+    public function setHoraireOuverture($horaireOuverture)
+    {
+        $this->horaireOuverture = $horaireOuverture;
+
+        return $this;
+    }
+
+    /**
+     * Get horaireOuverture
+     *
+     * @return string
+     */
+    public function getHoraireOuverture()
+    {
+        return $this->horaireOuverture;
+    }
+
+    /**
+     * Set horaireFermeture
+     *
+     * @param string $horaireFermeture
+     *
+     * @return Etablissement
+     */
+    public function setHoraireFermeture($horaireFermeture)
+    {
+        $this->horaireFermeture = $horaireFermeture;
+
+        return $this;
+    }
+
+    /**
+     * Get horaireFermeture
+     *
+     * @return string
+     */
+    public function getHoraireFermeture()
+    {
+        return $this->horaireFermeture;
+    }
+
+    /**
+     * Set numTel
+     *
+     * @param string $numTel
+     *
+     * @return Etablissement
+     */
+    public function setNumTel($numTel)
+    {
+        $this->numTel = $numTel;
+
+        return $this;
+    }
+
+    /**
+     * Get numTel
+     *
+     * @return string
+     */
+    public function getNumTel()
+    {
+        return $this->numTel;
+    }
+
+    /**
+     * Set imagePrincipale
+     *
+     * @param string $imagePrincipale
+     *
+     * @return Etablissement
+     */
+    public function setImagePrincipale($imagePrincipale)
+    {
+        $this->imagePrincipale = $imagePrincipale;
+
+        return $this;
+    }
+
+    /**
+     * Get imagePrincipale
+     *
+     * @return string
+     */
+    public function getImagePrincipale()
+    {
+        return $this->imagePrincipale;
+    }
+
+    /**
+     * Set uRL
+     *
+     * @param string $uRL
+     *
+     * @return Etablissement
+     */
+    public function setURL($uRL)
+    {
+        $this->URL = $uRL;
+
+        return $this;
+    }
+
+    /**
+     * Get uRL
+     *
+     * @return string
+     */
+    public function getURL()
+    {
+        return $this->URL;
+    }
+
+    /**
+     * Set budgetmoyen
+     *
+     * @param string $budgetmoyen
+     *
+     * @return Etablissement
+     */
+    public function setBudgetmoyen($budgetmoyen)
+    {
+        $this->budgetmoyen = $budgetmoyen;
+
+        return $this;
+    }
+
+    /**
+     * Get budgetmoyen
+     *
+     * @return string
+     */
+    public function getBudgetmoyen()
+    {
+        return $this->budgetmoyen;
     }
 }

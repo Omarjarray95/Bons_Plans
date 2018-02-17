@@ -1,92 +1,82 @@
-{% extends 'Base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block AjouterEtablissement %}
-    <section id="reservation" class="reservation_section bg-grey">
-    <div class="container padding">
+{% block Ajouter_Etablissement %}
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12 col-sm-offset-0">
                     <section class="panel" id="ABC">
                         <header class="panel-heading col-sm-offset-0" id="ABCDE">
-                            <strong>Ajouter Un Etablissement</strong>
+                            <strong>{{nom}}</strong>
                         </header>
                         <header class="panel-heading">
-                            {{ form_start(e) }}
+                            {{ form_start(et) }}
                             <table>
                                 <tr class="">
                                     <td>
-                                        {{ form_label(e.nom) }}
+                                        {{ form_label(et.nom) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(e.nom) }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        {{ form_label(e.type) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(e.type) }}
+                                        {{ form_widget(et.nom) }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        {{ form_label(e.adresse) }}
+                                        {{ form_label(et.type) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(e.adresse) }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        {{ form_label(e.description) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(e.description) }}
+                                        {{ form_widget(et.type) }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        {{ form_label(e.horaire_ouverture) }}
+                                        {{ form_label(et.adresse) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(et.adresse) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(et.description) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(et.description) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(et.horaire_ouverture) }}
                                     </td>
                                     <td>
                                         <div>
-                                            {{ form_widget(e.horaire_ouverture) }}{{ form_widget(e.horaire_fermeture) }}
+                                            {{ form_widget(et.horaire_ouverture) }}{{ form_widget(et.horaire_fermeture) }}
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        {{ form_label(e.num_tel) }}
+                                        {{ form_label(et.num_tel) }}
                                     </td>
                                     <td>
 
-                                        {{ form_widget(e.num_tel) }}
+                                        {{ form_widget(et.num_tel) }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        {{ form_label(e.url) }}
+                                        {{ form_label(et.url) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(e.url) }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        {{ form_label(e.budgetmoyen) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(e.budgetmoyen) }} <strong>DT</strong>
+                                        {{ form_widget(et.url) }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        {{ form_label(e.image_principale) }}
+                                        {{ form_label(et.budgetmoyen) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(e.image_principale) }}
+                                        {{ form_widget(et.budgetmoyen) }} <strong>DT</strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,7 +84,7 @@
 
                                     </td>
                                     <td hidden id="TypeLoisirs">
-                                        {{ form_widget(e.typeLoisirs) }}
+                                        {{ form_widget(et.typeLoisirs) }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -102,7 +92,7 @@
 
                                     </td>
                                     <td>
-                                        {{ form_end(e) }}
+                                        {{ form_end(et) }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -110,9 +100,8 @@
 
                                     </td>
                                     <td>
-                                        <strong><input value="Ajouter Un Etablissement" class="btn btn-shadow btn-success" type="submit"></strong>
+                                        <strong><input value="Confirmer Les Changements" class="btn btn-shadow btn-success" type="submit"></strong>
                                     </td>
-
                                 </tr>
                             </table>
                         </header>
@@ -120,7 +109,5 @@
                 </div>
             </div>
         </section>
-    </section>
-    </div>
     </section>
 {% endblock %}

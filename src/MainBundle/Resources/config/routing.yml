@@ -14,7 +14,47 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
-ajouter_etablissement:
+Ajouter_Etablissement_Admin:
+    path:     /AjouterEtablissementAdmin
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
+Afficher_Etablissement_Admin:
+    path:     /AfficherEtablissementAdmin
+    defaults: { _controller: MainBundle:Etablissement:Affiche }
+
+Modifier_Etablissement_Admin:
+    path:     /ModifierEtablissementAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:Modif }
+
+Afficher_Etablissement_ParId_Admin:
+    path:     /AfficherEtablissementParIdAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheId }
+
+Supprimer_Etablissement_Admin:
+    path:     /SupprimerEtablissementAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:Supp }
+
+Modifier_Etablissement_Photo_Admin:
+    path:     /ModifierEtablissementPhotoAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:ModifPhoto }
+
+Filtrer_Etablissement:
+    path:     /FiltrerEtablissement/{critere}
+    defaults: { _controller: MainBundle:Etablissement:Filtre }
+
+Trier_Etablissement:
+    path:     /TrierEtablissement/{critere}
+    defaults: { _controller: MainBundle:Etablissement:Tri }
+
+Rechercher_Etablissement:
+    path:     /RechercherEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Recherche }
+
+Ajouter_Etablissement_Client:
+    path:     /AjouterEtablissementClient
+    defaults: { _controller: MainBundle:Etablissement:AjoutC }
+
+Ajouter_Etablissement:
     path:     /AjouterEtablissement
     defaults: { _controller: MainBundle:Etablissement:Ajout }
 

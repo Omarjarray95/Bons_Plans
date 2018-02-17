@@ -13,7 +13,7 @@ class DefaultController extends Controller
 
     public function indexAdminAction()
     {
-        return $this->render('MainBundle:Default:indexAdmin.html.twig');
+        return $this->render('baseAdmin.html.twig');
     }
 
     public function aproposAction()
