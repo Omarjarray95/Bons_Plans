@@ -1,22 +1,6 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "MainBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
     {{ include('@FOSUser/Security/login_content.html.twig') }}
 {% endblock fos_user_content %}
 
-{% block rememberme_forgot %}
-<form class="login100-form validate-form flex-sb flex-w">
-    <div class="flex-sb-m w-full p-t-3 p-b-24">
-        <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-                Se Souvenir De Moi
-            </label>
-        </div>
-
-        <div>
-            <a href="#" class="txt1">
-                Mot De Passe Oublié?
-            </a>
-        </div>
-        {% endblock %}

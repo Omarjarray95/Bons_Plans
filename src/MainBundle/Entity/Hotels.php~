@@ -328,4 +328,28 @@ class Hotels extends Etablissement
     {
         return $this->URL;
     }
+
+    /**
+     * Set budgetmoyen
+     *
+     * @param string $budgetmoyen
+     *
+     * @return Hotels
+     */
+    public function setBudgetmoyen($budgetmoyen)
+    {
+        $this->budgetmoyen = $budgetmoyen;
+
+        return $this;
+    }
+
+    /**
+     * Get budgetmoyen
+     *
+     * @return string
+     */
+    public function getBudgetmoyen()
+    {
+        return $this->budgetmoyen;
+    }
 }

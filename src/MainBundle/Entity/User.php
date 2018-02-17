@@ -33,6 +33,12 @@ class User extends BaseUser
     protected $nom;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", name="Sexe")
+     */
+    protected $sexe;
+
+    /**
      * @var \DateTime
      * @ORM\Column(type="date", nullable=TRUE)
      */
@@ -51,8 +57,14 @@ class User extends BaseUser
     protected $phone;
 
     /**
+     * @var
+     * @ORM\Column(name="URL", nullable=TRUE)
+     */
+    protected $url;
+
+    /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=TRUE)
      */
     protected $intro;
 
@@ -400,5 +412,53 @@ class User extends BaseUser
     public function getEtablissementsVisited()
     {
         return $this->etablissements_visited;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return User
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return User
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }
