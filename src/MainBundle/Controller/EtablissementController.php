@@ -79,7 +79,7 @@ class EtablissementController extends Controller
             $etablissement->setImagePrincipale($imageName);
             $em->persist($etablissement);
             $em->flush();
-            return $this->redirectToRoute('Afficher_Etablissement_ParId_Admin', array('id' => $id));
+            return $this->redirectToRoute('Afficher_Etablissement_Client', array('id' => $id));
         }
         return $this->render('MainBundle:Representant:Modifier_Etablissement_Representant.html.twig',
             array('et' => $form->createView(),'nom'=>$etablissement->getNom()));
@@ -101,7 +101,7 @@ class EtablissementController extends Controller
             $etablissement->setImagePrincipale($imageName);
             $em->persist($etablissement);
             $em->flush();
-            return $this->redirectToRoute('Afficher_Etablissement_ParId_Admin', array('id' => $id));
+            return $this->redirectToRoute('Afficher_Etablissement_Client', array('id' => $id));
         }
         return $this->render('MainBundle:Representant:Modifier_Etablissement_Photo.html.twig',
             array('etabl' => $form->createView(),'nom'=>$etablissement->getNom()));
@@ -180,5 +180,21 @@ class EtablissementController extends Controller
 
         return $this->render('MainBundle:Etablissement:ajouter.html.twig',
             array('e' => $form->createView()));
+    }
+
+    public function AfficheAccueilAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->findAll();
+        return $this->render('MainBundle::LayoutFront.html.twig',
+            array('eta'=>$etablissement));
+    }
+
+    public function AfficheCAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+        return $this->render('MainBundle:Etablissement:afficher.html.twig',
+            array('etab'=>$etablissement));
     }
 }

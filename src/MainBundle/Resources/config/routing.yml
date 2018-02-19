@@ -54,17 +54,13 @@ Ajouter_Etablissement_Client:
     path:     /AjouterEtablissementClient
     defaults: { _controller: MainBundle:Etablissement:AjoutC }
 
-Ajouter_Etablissement:
-    path:     /AjouterEtablissement
-    defaults: { _controller: MainBundle:Etablissement:Ajout }
+Afficher_Etablissement_Client:
+    path:     /AfficherEtablissementClient/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheC }
 
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }
-
-afficher_etablissement:
-    path:     /AfficherEtablissement/{id}
-    defaults: { _controller: MainBundle:Etablissement:Affiche }
 
 supprimer_etablissement:
     path:     /SupprimerEtablissement/{id}

@@ -1,6 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<head>
 <link href="{{ asset('bundles/main/BackEnd/css/style.css')}}" rel="stylesheet">
 <link href="{{ asset('bundles/main/BackEnd/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
@@ -22,7 +21,6 @@
         font-weight: 500;
     }
 </style>
-</head>
 
 <section id="reservation" class="reservation_section bg-grey">
     <div class="container col-sm-offset-0 col-lg-6">
@@ -30,34 +28,34 @@
         <!-- page start-->
         <div class="row">
             <aside class="profile-info col-lg-12">
-                    <button type="button" class="btn btn-default"><a href="javascript:history.go(0)"><i class="fa fa-user"></i> Page </a></button>
-                    <button class="btn btn-default"><a href="#"><i class="fa fa-thumb-tack"></i> Favoris </a></button>
+                    <button type="button" class="default_btn"><a href="javascript:history.go(0)" style="color:#ffffff"><i class="fa fa-user"></i> Page </a></button>
+                    <button class="default_btn"><a href="#" style="color:#ffffff "><i class="fa fa-thumb-tack"></i> Favoris </a></button>
                 <section class="panel">
                     <div class="panel-body bio-graph-info">
                         <div class="row">
                             <div class="bio-row BAC">
-                                <p><span><strong>Pseudo</strong></span>: {{ user.username }}</p>
+                                <p><span><strong><i class="fa fa-user"></i> Pseudo</strong></span>: {{ user.username }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>E-Mail</strong></span>: {{ user.email }}</p>
+                                <p><span><strong><i class="fa fa-envelope"></i> E-Mail</strong></span>: {{ user.email }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Nom & Prénom</strong></span>: {{ user.nom }}</p>
+                                <p><span><strong><i class="fa fa-credit-card"></i> Nom & Prénom</strong></span>: {{ user.nom }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Sexe</strong></span>: {{ user.sexe }}</p>
+                                <p><span><strong><i class="fa fa-female"></i><i class="fa fa-male"></i> Sexe</strong></span>: {{ user.sexe }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Date De Naissance</strong></span>: {{ user.datedenaissance | date('y-m-d') }}</p>
+                                <p><span><strong><i class="fa fa-calendar"></i> Date De Naissance</strong></span>: {{ user.datedenaissance | date('y-m-d') }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Ville</strong></span>: {{ user.ville }}</p>
+                                <p><span><strong><i class="fa fa-map-marker"></i> Ville</strong></span>: {{ user.ville }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Numéro</strong></span>: {{ user.phone }}</p>
+                                <p><span><strong><i class="fa fa-phone"></i> Numéro</strong></span>: {{ user.phone }}</p>
                             </div>
                             <div class="bio-row BAC">
-                                <p><span><strong>Site Web/Blog</strong></span>:<a href="{{ user.url }}">{{ user.url }}</a></p>
+                                <p><span><strong><i class="fa fa-globe"></i> Site Web/Blog</strong></span>:<a href="{{ user.url }}">{{ user.url }}</a></p>
                             </div>
                         </div>
                     </div>
