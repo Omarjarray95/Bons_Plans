@@ -11,6 +11,9 @@
         <p><strong>Nom:</strong> {{ (eta.nom) }}</p>
     </div>
     <div>
+        <p><strong href="{{ path('ajout_reservation',{'id':eta.id}) }}">Réserver</strong></p>
+    </div>
+    <div>
         <p><strong>Adresse:</strong> {{ (eta.adresse) }}</p>
     </div>
     <div>
