@@ -39,7 +39,7 @@ class EvenementController extends Controller
     public function afficheallAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $event=$em->getRepository("MainBundle:Evenement")->findAll();
+        $event=$em->getRepository("MainBundle:Evenement")->findRecent();
 
         return $this->render('MainBundle:Evenement:eventsListe.html.twig',
             array(
@@ -49,9 +49,8 @@ class EvenementController extends Controller
     public function afficheAction($id_etab)
     {
         $em=$this->getDoctrine()->getManager();
-        $event=$em->getRepository("MainBundle:Evenement")->findBy(array('etablissement'=>$id_etab));
-        /*je vais creer une fonction list by all this week events et je vais la remplacer par findBy */
-
+        $etab=$em->getRepository("MainBundle:Etablissement")->find($id_etab);
+        $event=$em->getRepository("MainBundle:Evenement")->findRecentEtab($etab);
         return $this->render('MainBundle:Evenement:eventsByEtab.html.twig',
             array(
                 'e'=>$event

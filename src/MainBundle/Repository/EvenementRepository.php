@@ -10,4 +10,30 @@ namespace MainBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findRecent(){
+
+        $em = $this->getEntityManager();
+        $currentdate = new \DateTime('now');
+        $query = $em->createQuery(
+            'SELECT e
+        FROM MainBundle:Evenement e
+        WHERE e.date >= :date'
+        )->setParameter('date', $currentdate);
+
+        return $query->getResult();
+    }
+    public function findRecentEtab($idEtab){
+
+        $em = $this->getEntityManager();
+        $currentdate = new \DateTime('now');
+        $query = $em->createQuery(
+            'SELECT e
+        FROM MainBundle:Evenement e
+        WHERE e.date >= :date
+        AND e.etablissement = :etab'
+        )->setParameter('date', $currentdate)
+            ->setParameter('etab', $idEtab);;
+
+        return $query->getResult();
+    }
 }

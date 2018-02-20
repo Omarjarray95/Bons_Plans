@@ -7,8 +7,30 @@ use MainBundle\Form\OffreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
+
 class OffreController extends Controller
 {
+    /**
+     * @Route("/send-notification", name="send_notification")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function sendNotificationAction(Request $request)
+    {
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->createNotification('Hello world !');
+        $notif->setMessage('This a notification.');
+        $notif->setLink('http://symfony.com/');
+        // or the one-line method :
+        // $manager->createNotification('Notification subject','Some random text','http://google.fr');
+
+        // you can add a notification to a list of entities
+        // the third parameter ``$flush`` allows you to directly flush the entities
+        $manager->addNotification(array($this->getUser()), $notif, true);
+
+        return $this->redirectToRoute('main_homepage');
+    }
     public function AjoutAction(Request $request,$id_etab){
         $Offre=new Offre();
         $Form=$this->createForm(OffreType::class,$Offre);
@@ -39,7 +61,7 @@ class OffreController extends Controller
     public function afficheallAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $Offre=$em->getRepository("MainBundle:Offre")->findAll();
+        $Offre=$em->getRepository("MainBundle:Offre")->findRecent();
 
         return $this->render('MainBundle:Offre:OffreListe.html.twig',
             array(
@@ -49,8 +71,8 @@ class OffreController extends Controller
     public function afficheAction($id_etab)
     {
         $em=$this->getDoctrine()->getManager();
-        $Offre=$em->getRepository("MainBundle:Offre")->findBy(array('etablissement'=>$id_etab));
-        /*je vais creer une fonction list by all this week events et je vais la remplacer par findBy */
+        $etab=$em->getRepository("MainBundle:Etablissement")->find($id_etab);
+        $Offre=$em->getRepository("MainBundle:Offre")->findRecentEtab($etab);
 
         return $this->render('MainBundle:Offre:OffreByEtab.html.twig',
             array(

@@ -127,3 +127,6 @@ delete_offre:
 add_offre:
     path:     /offreAdd/{id_etab}
     defaults: { _controller: MainBundle:Offre:Ajout }
+add_offre:
+    path:     /sendnotification
+    defaults: { _controller: MainBundle:Offre:sendNotification }
