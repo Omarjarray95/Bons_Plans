@@ -77,3 +77,19 @@ main_bundle_get_notif:
 main_bundle_show_notif:
     path:     /notifications/show
     defaults: { _controller: MainBundle:Notifications:show }
+
+ajout_reservation:
+    path:     /AjoutRes
+    defaults: { _controller: MainBundle:Reservation:Ajout }
+
+affiche_reservation:
+    path:     /AfficheRes
+    defaults: { _controller: MainBundle:Reservation:Affiche }
+
+delete_reservation:
+    path:     /DeleteRes
+    defaults: { _controller: MainBundle:Reservation:Delete }
+
+update_reservation:
+    path:     /UpdateRes
+    defaults: { _controller: MainBundle:Reservation:Update }

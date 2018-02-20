@@ -32,7 +32,50 @@ class Reservation
      * @ORM\JoinColumn(name="id_etablissement", referencedColumnName="id")
      */
     private $id_etablissement;
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=TRUE)
+     */
+    private $nom;
 
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateDeReservation()
+    {
+        return $this->date_de_reservation;
+    }
+
+    /**
+     * @param \DateTime $date_de_reservation
+     */
+    public function setDateDeReservation($date_de_reservation)
+    {
+        $this->date_de_reservation = $date_de_reservation;
+    }
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_de_reservation", type="date")
+     */
+    private $date_de_reservation;
     /**
      * @return mixed
      */
