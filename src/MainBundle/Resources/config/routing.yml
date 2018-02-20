@@ -58,6 +58,10 @@ Afficher_Etablissement_Client:
     path:     /AfficherEtablissementClient/{id}
     defaults: { _controller: MainBundle:Etablissement:AfficheC }
 
+Rechercher_Etablissement_Client:
+    path:     /RechercherEtablissementClient/{critere}
+    defaults: { _controller: MainBundle:Etablissement:RechercherC }
+
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }

@@ -186,8 +186,9 @@ class EtablissementController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $etablissement=$em->getRepository("MainBundle:Etablissement")->findAll();
+        $etablissementr=$em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>'Resto_Café'));
         return $this->render('MainBundle::LayoutFront.html.twig',
-            array('eta'=>$etablissement));
+            array('eta'=>$etablissement,'eta1'=>$etablissementr));
     }
 
     public function AfficheCAction($id)
@@ -196,5 +197,12 @@ class EtablissementController extends Controller
         $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
         return $this->render('MainBundle:Etablissement:afficher.html.twig',
             array('etab'=>$etablissement));
+    }
+
+    public function RechercherCAction($critere)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissements=$em->getRepository("MainBundle:Etablissement")->FiltrerDQL($critere);
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements));
     }
 }

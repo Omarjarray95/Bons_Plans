@@ -33,7 +33,7 @@
                     <i class="icon_phone"></i> <strong>{{ etab.numtel }}</strong><br>
                     <i class="fa fa-money"></i> <strong>{{ etab.budgetmoyen }}</strong><br>
                 <i class="fa fa-globe"></i> <a href="{{ etab.url }}">{{ etab.url }}</a><br>
-            <img style="margin-bottom: 40px;" src="{{ asset('img/' ~ etab.imagePrincipale) }}">
+            <a href="{{ path('Modifier_Etablissement_Photo_Admin',{'id':etab.id}) }}"><img class="col-sm-offset-4" style="margin-bottom: 40px;" src="{{ asset('img/' ~ etab.imagePrincipale) }}"></a>
                 <p style="margin-bottom: -10px"><strong>Description :</strong></p><br>
                 <blockquote>
                     <p>{{ etab.description }}</p>
