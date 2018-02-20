@@ -1,35 +1,107 @@
 {% extends 'Base.html.twig' %}
 
+{% block Modifier_Etablissement_Representant %}
+    {% if is_granted('ROLE_REPRESENTANT') %}
+        <li><a style="color: #ffffff;font-size: 11px" href="{{ path('Modifier_Etablissement_Admin',{'id':etab.id})}}">Modifier Les Informations De {{ etab.nom }}</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block AfficherEtablissement %}
-    <section id="reservation" class="reservation_section bg-grey">
-    <div class="container padding">
-    <div class="col-sm-10 col-sm-offset-1 align-left">
-    <div class="reserv_form">
-    <div class="section_heading mb-40">
-<div class="fos_user_user_show">
-    <div>
-        <p><strong>Nom:</strong> {{ (eta.nom) }}</p>
-    </div>
-    <div>
-        <p><strong href="{{ path('ajout_reservation',{'id':eta.id}) }}">Réserver</strong></p>
-    </div>
-    <div>
-        <p><strong>Adresse:</strong> {{ (eta.adresse) }}</p>
-    </div>
-    <div>
-        <p><strong>Description:</strong> {{ (eta.description) }}</p>
-    </div>
-    <div>
-        <p><strong>Horaire:</strong> {{ (eta.horaire) }}</p>
-    </div>
-    <div>
-        <a href="{{ path('supprimer_etablissement',{'id':eta.id}) }}" class="default_btn">Supprimer</a>
-        <a href="{{ path('modifier_etablissement',{'id':eta.id}) }} " class="default_btn">Modifier</a>
-    </div>
-</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
+
+    <link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
+          xmlns="http://www.w3.org/1999/html"/>
+    <section class="page_header">
+        <div class="container">
+            <div class="display-table">
+                <div class="table-cell">
+                    <div class="page_content align-center">
+                        <h2 class="text-white">{{ etab.nom }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /.page_header -->
+
+    <section class="blog_single padding">
+        <div class="container">
+            <br class="blog_content">
+            <h2 style="margin-top: -80px">{{ etab.nom }}</h2>
+            <div>
+                <a href="{{ path('ajout_reservation',{'id1':etab.id,'id2':app.user.id})}}">Réserver</a>
+            </div>
+            <br class="single-meta-info mb-25">
+            <i class="fa fa-home"></i> <strong>{{ etab.adresse }}</strong><br>
+            <i class="icon-clock"></i> <strong>{{ etab.horaireouverture | date('H:i') }}-{{ etab.horairefermeture | date('H:i') }}</strong><br>
+            <i class="icon_phone"></i> <strong>{{ etab.numtel }}</strong><br>
+            <i class="fa fa-money"></i> <strong>{{ etab.budgetmoyen }}</strong><br>
+            <i class="fa fa-globe"></i> <a href="{{ etab.url }}">{{ etab.url }}</a><br>
+            <a href="{{ path('Modifier_Etablissement_Photo_Admin',{'id':etab.id}) }}"><img class="col-sm-offset-4" style="margin-bottom: 40px;" src="{{ asset('img/' ~ etab.imagePrincipale) }}"></a>
+            <p style="margin-bottom: -10px"><strong>Description :</strong></p><br>
+            <blockquote>
+                <p>{{ etab.description }}</p>
+            </blockquote>
+        </div><!-- /.blog_content -->
+
+        <div class="comments-wrap" style="padding-left: 100px">
+            <form class="form-horizontal coment-form">
+                <h2 class="mb-20">Partager Votre Avis :</h2>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea style="width: 1100px" class="form-control" rows="4" placeholder="Commenter"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="default_btn">Publier</button>
+                    </div>
+                </div>
+            </form>
+            <h2 class="mb-20" >3 Comments</h2>
+            <div class="comment-list mb-20">
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-left">
+                            <img class="media-object img-thumbnail" src="img/coment-1.jpg" alt="Profile Thumb">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">Jhonathan Smith</a></h4>
+                            <a href="#" class="coment-date">3 April, 2018</a>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object img-thumbnail" src="img/coment-2.jpg" alt="Profile Thumb">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">Cameroon White</a></h4>
+                                    <a href="#" class="coment-date">3 April, 2018</a>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object img-thumbnail" src="img/coment-3.jpg" alt="Profile Thumb">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">Angelina Rose</a></h4>
+                                    <a href="#" class="coment-date">3 April, 2018</a>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-left">
+                            <img class="media-object img-thumbnail" src="img/coment-4.jpg" alt="Profile Thumb">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">Amelie Roberts</a></h4>
+                            <a href="#" class="coment-date">3 April, 2018</a>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div><!-- /.comment-list -->
+        </div><!-- /.comments-wrap -->
+        </div>
+    </section><!-- /.blog_single -->
 {% endblock %}

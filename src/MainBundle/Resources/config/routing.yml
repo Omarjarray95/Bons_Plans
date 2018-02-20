@@ -54,17 +54,17 @@ Ajouter_Etablissement_Client:
     path:     /AjouterEtablissementClient
     defaults: { _controller: MainBundle:Etablissement:AjoutC }
 
-Ajouter_Etablissement:
-    path:     /AjouterEtablissement
-    defaults: { _controller: MainBundle:Etablissement:Ajout }
+Afficher_Etablissement_Client:
+    path:     /AfficherEtablissementClient/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheC }
+
+Rechercher_Etablissement_Client:
+    path:     /RechercherEtablissementClient/{critere}
+    defaults: { _controller: MainBundle:Etablissement:RechercherC }
 
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }
-
-afficher_etablissement:
-    path:     /AfficherEtablissement/{id}
-    defaults: { _controller: MainBundle:Etablissement:Affiche }
 
 supprimer_etablissement:
     path:     /SupprimerEtablissement/{id}
@@ -79,7 +79,7 @@ main_bundle_show_notif:
     defaults: { _controller: MainBundle:Notifications:show }
 
 ajout_reservation:
-    path:     /AjoutRes
+    path:     /AjoutRes/{id1}/{id2}
     defaults: { _controller: MainBundle:Reservation:Ajout }
 
 affiche_reservation:

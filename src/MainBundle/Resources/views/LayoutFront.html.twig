@@ -1,491 +1,365 @@
 {% extends 'Base.html.twig' %}
 
 {% block layoutfront %}
-<section class="slider_section">
-    <ul id="main-slider" class="owl-carousel main_slider">
-        <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-1.jpg') }});">
-            <div class="container">
-                <div class="display-table">
-                    <div class="table-cell">
-                        <div class="slider_content align-center">
+    <section class="slider_section">
+        <ul id="main-slider" class="owl-carousel main_slider">
+            <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-1.jpg') }});">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
 
-                            <h1 class="text-white">Partagez vos expériences</h1>
-                            <p class="text-white">Connectez-vous pour découvrir des endroits que tes amis et experts apprécient</p>
-                            <div class="btn_group">
-                                <a href="#" class="default_btn">S'inscrire</a>
-                                <a href="#" class="default_btn">Se connecter</a>
+                                <h1 class="text-white">Partagez vos expériences</h1>
+                                <p class="text-white">Connectez-vous pour découvrir des endroits que tes amis et experts apprécient</p>
+                                <div class="btn_group">
+                                    <a href="#" class="default_btn">S'inscrire</a>
+                                    <a href="#" class="default_btn">Se connecter</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-2.jpg') }})">
-            <div class="container">
-                <div class="display-table">
-                    <div class="table-cell">
-                        <div class="slider_content align-center">
+            </li>
+            <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-2.jpg') }})">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
 
-                            <h1 class="text-white">A la recherche d'une nouvelle expérience ?</h1>
-                            <p class="text-white">Trouver les meilleurs endroits pour manger, boire un café, faire les magasins....</p>
-                            <div class="btn_group">
-                                <a href="#" class="default_btn">A découvrir</a>
-                                <a href="#" class="default_btn">Réservation</a>
+                                <h1 class="text-white">A la recherche d'une nouvelle expérience ?</h1>
+                                <p class="text-white">Trouver les meilleurs endroits pour manger, boire un café, faire les magasins....</p>
+                                <div class="btn_group">
+                                    <a href="#" class="default_btn">A découvrir</a>
+                                    <a href="#" class="default_btn">Réservation</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-3.jpg') }});">
-            <div class="container">
-                <div class="display-table">
-                    <div class="table-cell">
-                        <div class="slider_content align-center">
+            </li>
+            <li class="main_slide" style="background-image: url({{ asset('bundles/main/img/slide-3.jpg') }});">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
 
-                            <h1 class="text-white">Rester informés!</h1>
-                            <p class="text-white">Actus, bons plans, sorties : Le meilleur de la Tunisie dans votre boîte mail</p>
-                            <div class="btn_group">
-                                <a href="#" class="default_btn">A découvrir</a>
-                                <a href="#" class="default_btn">Réservation</a>
+                                <h1 class="text-white">Rester informés!</h1>
+                                <p class="text-white">Actus, bons plans, sorties : Le meilleur de la Tunisie dans votre boîte mail</p>
+                                <div class="btn_group">
+                                    <a href="#" class="default_btn">A découvrir</a>
+                                    <a href="#" class="default_btn">Réservation</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-    </ul>
-</section><!-- /.slider_section -->
-
-<section id="about" class="about_section bg-grey bd-bottom padding">
-    <div class="container">
-        <div class="col-sm-6">
-            <div class="about_content">
-                <h2>Faites vous aider dans votre choix</h2>
-                <p>Vous hésitez? Faites confiance aux notes et commentaires des internautes!</p>
-
-                <img src="{{ asset('bundles/main/img/digi.png') }}" alt="">
-            </div>
-        </div>
-        <div class="col-sm-6 hidden-xs">
-            <div class="about_img">
-                <img src="{{ asset('bundles/main/img/about-bg-1.jpg') }}" alt="idea-images" class="about_img_1">
-                <img src="{{ asset('bundles/main/img/about-bg-2.jpg') }}" alt="idea-images" class="about_img_2">
-            </div>
-        </div>
-    </div>
-</section> <!--/.about_section -->
-
-
-
-<section id="menu" class="menu_section bd-bottom padding">
-    <div class="container">
-        <div class="section_heading align-center mb-40">
-
-        </div><!-- /.section_heading -->
-        <div class="menu_items">
-            <ul class="tab_menu mb-30">
-                <li><a href="#dinner" data-toggle="tab">Evenements</a></li>
-                <li><a href="#dessert" data-toggle="tab">Shops</a></li>
-                <li><a href="#fastfood" data-toggle="tab">Restaurants</a></li>
-                <li><a href="#lunch" data-toggle="tab">Hotels</a></li>
-                <li><a href="#package" data-toggle="tab">Loisirs</a></li>
-
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane fade tab_content in active" id="breakfast">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-1.png') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-2.png') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-3.png') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-4.png')}}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#breakfast -->
-                <div class="tab-pane fade tab_content" id="dessert">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-5.jpg') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-6.jpg') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-7.jpg') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-8.jpg') }}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#dessert -->
-                <div class="tab-pane fade tab_content" id="fastfood">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-1.jpg') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-2.jpg') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-3.jpg') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-4.jpg') }}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#fastfood -->
-                <div class="tab-pane fade tab_content" id="lunch">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-5.jpg') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-6.jpg') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-7.jpg') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-8.jpg') }}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#lunch -->
-                <div class="tab-pane fade tab_content" id="package">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-1.jpg') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 ">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-2.jpg') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-3.jpg') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-4.jpg') }}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#package -->
-                <div class="tab-pane fade tab_content" id="dinner">
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-5.jpg') }}" alt="food">
-                            <h3>Double Grape Martani</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-6.jpg') }}" alt="food">
-                            <h3>Seafood Paella</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-7.jpg') }}" alt="food">
-                            <h3>Masala Dosa</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 xs-padding">
-                        <div class="food_content align-center">
-                            <img src="{{ asset('bundles/main/img/f-8.jpg') }}" alt="food">
-                            <h3>Buttered Popcorn</h3>
-                            <p>Lorem Ipsum is simply dummy text printing and business restaurant industry.</p>
-                            <h4 class="price">$499</h4>
-                        </div>
-                    </div>
-                </div> <!-- /#dinner -->
-            </div>
-        </div>
-    </div>
-</section><!-- /.menu_section -->
-
-<section id="gallery" class="gallery_section bg-grey padding">
-    <div class="container">
-        <div class="section_heading align-center mb-40">
-            <h2>Food Gallery</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div><!-- /.section_heading -->
-    </div>
-    <div class="container-fluid no-padding">
-        <ul class="gallery_items">
-            <li class="col-sm-4 col-xs-6 single_item branding">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-1.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-1.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col-sm-4 col-xs-6 single_item photo">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-2.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-2.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col-sm-4 col-xs-6 single_item print branding">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-3.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-3.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col-sm-4 col-xs-6 single_item website photo">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-4.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-4.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col-sm-4 col-xs-6 single_item print photo">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-5.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-5.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col-sm-4 col-xs-6 single_item branding website">
-                <figure class="gallery_item">
-                    <img src="{{ asset('bundles/main/img/gallery-6.jpg') }}" alt="gallery Item">
-                    <figcaption class="overlay">
-                        <a href="{{ asset('bundles/main/img/gallery-6.jpg') }}" class="img_popup">
-                            <div class="table-cell">
-                                <h3>Delicious Foods</h3>
-                            </div>
-                        </a>
-                    </figcaption>
-                </figure>
-            </li>
-        </ul><!-- /.gallery_items -->
-    </div>
-</section><!-- /.gallery_section -->
-
-<section id="reviews" class="testimonial_section padding">
-    <div class="container">
-        <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
-            <li class="testimonial_item">
-                <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
-                <h4 class="text-white">Anita Tran, IT Solutions.</h4>
-            </li>
-            <li class="testimonial_item">
-                <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
-                <h4 class="text-white">Leslie Williamson, Developer.</h4>
-            </li>
-            <li class="testimonial_item">
-                <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
-                <h4 class="text-white">Fred Moody, Network Software.</h4>
             </li>
         </ul>
-    </div>
-</section><!-- /.testimonial_section -->
+    </section><!-- /.slider_section -->
 
-<section id="reservation" class="reservation_section bg-grey">
-    <div class="container padding">
-        <div class="col-sm-8 col-sm-offset-2 align-center">
-            <div class="reserv_form">
-                <div class="section_heading mb-40">
-                    <h2>Passer vos réservations</h2>
+    <section id="about" class="about_section bg-grey bd-bottom padding">
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="about_content">
+                    <h2>Faites vous aider dans votre choix</h2>
+                    <p>Vous hésitez? Faites confiance aux notes et commentaires des internautes!</p>
+
+                    <img src="{{ asset('bundles/main/img/digi.png') }}" alt="">
                 </div>
-                <form action="http://wowthemez.com/templates/hangout/reg.php" method="post" id="reserv_form" class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" id="res_name" name="name" class="form-control" placeholder="Name" required>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="email" id="res_email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="about_img">
+                    <img src="{{ asset('bundles/main/img/about-bg-1.jpg') }}" alt="idea-images" class="about_img_1">
+                    <img src="{{ asset('bundles/main/img/about-bg-2.jpg') }}" alt="idea-images" class="about_img_2">
+                </div>
+            </div>
+        </div>
+    </section> <!--/.about_section -->
+
+
+
+    <section id="menu" class="menu_section bd-bottom padding">
+        <div class="container">
+            <div class="section_heading align-center">
+            </div><!-- /.section_heading -->
+            <div class="menu_items">
+                <ul class="tab_menu mb-30">
+                    <li><a href="#Restaurants" data-toggle="tab">Restaurants</a></li>
+                    <li><a href="#Boutiques" data-toggle="tab">Shops</a></li>
+                    <li><a href="#Hotels" data-toggle="tab">Hotels</a></li>
+                    <li><a href="#Autres" data-toggle="tab">Autres</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade tab_content in active">
+                        {% for etablissements in eta | slice(0,4) %}
+                            <div class="col-sm-3 col-xs-6 xs-padding">
+                                <div class="food_content align-center">
+                                    <a href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}"><img src="{{ asset('img/' ~ etablissements.imagePrincipale) }}" alt="food" style="height: 200px;width: 230px;"></a>
+                                    <h3><a style="color: #303133" href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}">{{ etablissements.nom }}</a></h3>
+                                    <h4 class="price">{{ etablissements.budgetmoyen }} DT</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="tab-pane fade tab_content" id="Restaurants">
+                        {% for etablissements in eta1 | slice(0,3) | sort %}
+                            <div class="col-sm-3 col-xs-6 xs-padding">
+                                <div class="food_content align-center">
+                                    <a href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}"><img src="{{ asset('img/' ~ etablissements.imagePrincipale) }}" style="height: 200px;width: 230px;"></a>
+                                    <h3>{{ etablissements.nom }}</h3>
+                                    <h4 class="price">{{ etablissements.budgetmoyen }} DT</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="col-sm-3 col-xs-6 xs-padding">
+                            <div class="food_content align-center padding">
+                                <h3><a style="color: #303133;" href="{{ path('Rechercher_Etablissement_Client',{'critere':'Resto_Café'}) }}">Afficher Tout</a></h3>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" id="res_phone" name="phone" class="form-control" placeholder="Your Phone No" required>
-                        </div>
-                        <div class="col-xs-6">
-                            <select class="form-control" id="quantity" name="quantity">
-                                <option>1 Person</option>
-                                <option>2 Person</option>
-                                <option>3 Person</option>
-                                <option>4 Person</option>
-                                <option>5 Person</option>
-                                <option>6 Person</option>
-                            </select>
+
+                    <div class="tab-pane fade tab_content" id="Boutiques">
+                        {% for etablissements in eta2 | slice(0,3) %}
+                            <div class="col-sm-3 col-xs-6 xs-padding">
+                                <div class="food_content align-center">
+                                    <a href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}"><img src="{{ asset('img/' ~ etablissements.imagePrincipale) }}" style="height: 200px;width: 230px;"></a>
+                                    <h3>{{ etablissements.nom }}</h3>
+                                    <h4 class="price">{{ etablissements.budgetmoyen }} DT</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="col-sm-3 col-xs-6 xs-padding">
+                            <div class="food_content align-center padding">
+                                <h3><a style="color: #303133;" href="{{ path('Rechercher_Etablissement_Client',{'critere':'Shops'}) }}">Afficher Tout</a></h3>
+                            </div>
                         </div>
                     </div>
-                    <button id="res_submit" class="default_btn" type="submit">Reserve a Table</button>
-                    <div id="msg-status" class="alert" role="alert"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section><!-- /.reservation_Section -->
 
-<section id="news" class="blog_section bd-bottom padding">
-    <div class="container">
-        <div class="section_heading align-center mb-40">
-            <h2>Latest Blog Posts</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div><!-- /.section_heading -->
-        <div class="col-sm-4 col-xs-6 xs-padding">
-            <div class="blog_post">
-                <img src="{{ asset('bundles/main/img/blog-1.jpg') }}" alt="blog-image">
-                <div class="blog_content">
-                    <h4>Hangout Restaurant Latest News.</h4>
-                    <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
-                    <span class="post_meta"><strong>Posted by:</strong> Cameroon Smith</span>
-                    <a href="#" class="default_btn">Read More</a>
+                    <div class="tab-pane fade tab_content" id="Hotels">
+                        {% for etablissements in eta3 | slice(0,3) %}
+                            <div class="col-sm-3 col-xs-6 xs-padding">
+                                <div class="food_content align-center">
+                                    <a href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}"><img src="{{ asset('img/' ~ etablissements.imagePrincipale) }}" style="height: 200px;width: 230px;"></a>
+                                    <h3>{{ etablissements.nom }}</h3>
+                                    <h4 class="price">{{ etablissements.budgetmoyen }} DT</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="col-sm-3 col-xs-6 xs-padding">
+                            <div class="food_content align-center padding">
+                                <h3><a style="color: #303133;" href="{{ path('Rechercher_Etablissement_Client',{'critere':'hotels'}) }}">Afficher Tout</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade tab_content" id="Autres">
+                        {% for etablissements in eta4 | slice(0,3) %}
+                            <div class="col-sm-3 col-xs-6 xs-padding">
+                                <div class="food_content align-center">
+                                    <a href="{{ path('Afficher_Etablissement_Client',{'id':etablissements.id}) }}"><img src="{{ asset('img/' ~ etablissements.imagePrincipale) }}" style="height: 200px;width: 230px;"></a>
+                                    <h3>{{ etablissements.nom }}</h3>
+                                    <h4 class="price">{{ etablissements.budgetmoyen }} DT</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="col-sm-3 col-xs-6 xs-padding">
+                            <div class="food_content align-center padding">
+                                <h3><a style="color: #303133;" href="{{ path('Rechercher_Etablissement_Client',{'critere':'Autres'}) }}">Afficher Tout</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 col-xs-6 xs-padding">
-            <div class="blog_post">
-                <img src="{{ asset('bundles/main/img/blog-2.jpg') }}" alt="blog-image">
-                <div class="blog_content">
-                    <h4>Hangout Restaurant Latest News.</h4>
-                    <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
-                    <span class="post_meta"><strong>Posted by:</strong> Michel Clarke</span>
-                    <a href="#" class="default_btn">Read More</a>
+    </section><!-- /.menu_section -->
+
+    <section id="gallery" class="gallery_section bg-grey padding">
+        <div class="container">
+            <div class="section_heading align-center mb-40">
+                <h2>Food Gallery</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div><!-- /.section_heading -->
+        </div>
+        <div class="container-fluid no-padding">
+            <ul class="gallery_items">
+                <li class="col-sm-4 col-xs-6 single_item branding">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-1.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-1.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col-sm-4 col-xs-6 single_item photo">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-2.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-2.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col-sm-4 col-xs-6 single_item print branding">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-3.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-3.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col-sm-4 col-xs-6 single_item website photo">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-4.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-4.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col-sm-4 col-xs-6 single_item print photo">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-5.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-5.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col-sm-4 col-xs-6 single_item branding website">
+                    <figure class="gallery_item">
+                        <img src="{{ asset('bundles/main/img/gallery-6.jpg') }}" alt="gallery Item">
+                        <figcaption class="overlay">
+                            <a href="{{ asset('bundles/main/img/gallery-6.jpg') }}" class="img_popup">
+                                <div class="table-cell">
+                                    <h3>Delicious Foods</h3>
+                                </div>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul><!-- /.gallery_items -->
+        </div>
+    </section><!-- /.gallery_section -->
+
+    <section id="reviews" class="testimonial_section padding">
+        <div class="container">
+            <ul id="testimonial_carousel" class="testimonial_items owl-carousel">
+                <li class="testimonial_item">
+                    <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
+                    <h4 class="text-white">Anita Tran, IT Solutions.</h4>
+                </li>
+                <li class="testimonial_item">
+                    <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
+                    <h4 class="text-white">Leslie Williamson, Developer.</h4>
+                </li>
+                <li class="testimonial_item">
+                    <p>"There are design companies, and then there are main experience design interface design<br> professional. By far one of the worlds best known brands."</p>
+                    <h4 class="text-white">Fred Moody, Network Software.</h4>
+                </li>
+            </ul>
+        </div>
+    </section><!-- /.testimonial_section -->
+
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-8 col-sm-offset-2 align-center">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <h2>Passer vos réservations</h2>
+                    </div>
+                    <form action="http://wowthemez.com/templates/hangout/reg.php" method="post" id="reserv_form" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <input type="text" id="res_name" name="name" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="email" id="res_email" name="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <input type="text" id="res_phone" name="phone" class="form-control" placeholder="Your Phone No" required>
+                            </div>
+                            <div class="col-xs-6">
+                                <select class="form-control" id="quantity" name="quantity">
+                                    <option>1 Person</option>
+                                    <option>2 Person</option>
+                                    <option>3 Person</option>
+                                    <option>4 Person</option>
+                                    <option>5 Person</option>
+                                    <option>6 Person</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="res_submit" class="default_btn" type="submit">Reserve a Table</button>
+                        <div id="msg-status" class="alert" role="alert"></div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 col-xs-6 xs-padding">
-            <div class="blog_post">
-                <img src="{{ asset('bundles/main/img/blog-3.jpg') }}" alt="blog-image">
-                <div class="blog_content">
-                    <h4>Hangout Restaurant Latest News.</h4>
-                    <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
-                    <span class="post_meta"><strong>Posted by:</strong> Jeenifer Freman</span>
-                    <a href="#" class="default_btn">Read More</a>
+    </section><!-- /.reservation_Section -->
+
+    <section id="news" class="blog_section bd-bottom padding">
+        <div class="container">
+            <div class="section_heading align-center mb-40">
+                <h2>Latest Blog Posts</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div><!-- /.section_heading -->
+            <div class="col-sm-4 col-xs-6 xs-padding">
+                <div class="blog_post">
+                    <img src="{{ asset('bundles/main/img/blog-1.jpg') }}" alt="blog-image">
+                    <div class="blog_content">
+                        <h4>Hangout Restaurant Latest News.</h4>
+                        <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
+                        <span class="post_meta"><strong>Posted by:</strong> Cameroon Smith</span>
+                        <a href="#" class="default_btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6 xs-padding">
+                <div class="blog_post">
+                    <img src="{{ asset('bundles/main/img/blog-2.jpg') }}" alt="blog-image">
+                    <div class="blog_content">
+                        <h4>Hangout Restaurant Latest News.</h4>
+                        <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
+                        <span class="post_meta"><strong>Posted by:</strong> Michel Clarke</span>
+                        <a href="#" class="default_btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6 xs-padding">
+                <div class="blog_post">
+                    <img src="{{ asset('bundles/main/img/blog-3.jpg') }}" alt="blog-image">
+                    <div class="blog_content">
+                        <h4>Hangout Restaurant Latest News.</h4>
+                        <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit Ea ratione optio.</P>
+                        <span class="post_meta"><strong>Posted by:</strong> Jeenifer Freman</span>
+                        <a href="#" class="default_btn">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- /.blog_section -->
+    </section><!-- /.blog_section -->
 {% endblock %}
 
 

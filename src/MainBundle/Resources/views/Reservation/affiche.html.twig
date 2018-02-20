@@ -1,7 +1,37 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}MainBundle:Reservation:Affiche{% endblock %}
 
-{% block body %}
+{% block AfficherReservation %}
 <h1>Welcome to the Reservation:Affiche page</h1>
+<link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
+          xmlns="http://www.w3.org/1999/html"/>
+    <section class="page_header">
+        <div class="container">
+            <div class="display-table">
+                <div class="table-cell">
+                    <div class="page_content align-center">
+                        <h2 class="text-white">{{ etab.nom }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /.page_header -->
+
+    <section class="blog_single padding">
+        <div class="container">
+            <br class="blog_content">
+            <h2 style="margin-top: -80px">Réservation de{{ r.nom }}</h2>
+
+            <br class="single-meta-info mb-25">
+             <strong>{{ r.date|date }}</strong><br>
+
+            <a href="{{ path('update_reservation',{'id':r.id}) }}"></a><br>
+            <a href="{{ path('delete_reservation',{'id':r.id}) }}"></a><br>
+            <p style="margin-bottom: -10px"><strong>Description :</strong></p><br>
+
+        </div>
+        <!-- /.blog_content -->
+
+    </section>
+
 {% endblock %}
