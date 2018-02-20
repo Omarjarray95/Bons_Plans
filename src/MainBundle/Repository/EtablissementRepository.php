@@ -25,4 +25,13 @@ class EtablissementRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('no', '%'.$nom.'%');
         return $query->getResult();
     }
+
+    public function RechercherCNDQL($nom,$critere)
+    {
+        $query=$this->getEntityManager()->createQuery("SELECT et FROM MainBundle:Etablissement et WHERE et.nom like :no and et.type like :typ
+            order by et.nom ASC")
+            ->setParameter('no', '%'.$nom.'%')->setParameter('typ','%'.$critere.'%');
+        return $query->getResult();
+    }
+
 }

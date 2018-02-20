@@ -62,6 +62,14 @@ Rechercher_Etablissement_Client:
     path:     /RechercherEtablissementClient/{critere}
     defaults: { _controller: MainBundle:Etablissement:RechercherC }
 
+Trier_Etablissement_Client:
+    path:     /TrierEtablissementClient/{critere1}/{critere2}
+    defaults: { _controller: MainBundle:Etablissement:TriC }
+
+Rechercher_Etablissement_Nom:
+    path:     /RechercherEtablissementNom/{critere2}
+    defaults: { _controller: MainBundle:Etablissement:RechercheCN }
+
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }

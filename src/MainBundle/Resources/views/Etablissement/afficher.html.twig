@@ -10,7 +10,6 @@
 
     <link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
           xmlns="http://www.w3.org/1999/html"/>
-
     <section class="page_header">
         <div class="container">
             <div class="display-table">
@@ -27,6 +26,45 @@
         <div class="container">
             <br class="blog_content">
                 <h2 style="margin-top: -80px">{{ etab.nom }}</h2>
+            <div class="panel-body">
+                <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
+                    Form in Modal
+                </a>
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 class="modal-title">Form Tittle</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">File input</label>
+                                        <input type="file" id="exampleInputFile3">
+                                        <p class="help-block">Example block-level help text here.</p>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Check me out
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <br class="single-meta-info mb-25">
                 <i class="fa fa-home"></i> <strong>{{ etab.adresse }}</strong><br>
                     <i class="icon-clock"></i> <strong>{{ etab.horaireouverture | date('H:i') }}-{{ etab.horairefermeture | date('H:i') }}</strong><br>

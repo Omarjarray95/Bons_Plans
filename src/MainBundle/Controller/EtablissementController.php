@@ -203,6 +203,43 @@ class EtablissementController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $etablissements=$em->getRepository("MainBundle:Etablissement")->FiltrerDQL($critere);
-        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements));
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere));
+    }
+
+    public function TriCAction($critere1,$critere2)
+    {
+        $em=$this->getDoctrine()->getManager();
+        if ($critere1=='HOA')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('horaireOuverture'=>'ASC'));
+        }
+        elseif ($critere1=='HFD')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('horaireFermeture'=>'DESC'));
+        }
+        elseif ($critere1=='BMA')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('budgetmoyen'=>'ASC'));
+        }
+        elseif ($critere1=='BMD')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('budgetmoyen'=>'DESC'));
+        }
+        else
+        {
+            $etablissements=$em->getRepository("MainBundle:Etablissement")->findAll();
+        }
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere2));
+    }
+
+    public function RechercheCNAction(Request $request,$critere2)
+    {
+        $em=$this->getDoctrine()->getManager();
+        if ($request->isMethod('POST'))
+        {
+            $nom = $request->get('abc');
+            $etablissements=$em->getRepository("MainBundle:Etablissement")->RechercherCNDQL($nom,$critere2);
+            return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere2));
+        }
     }
 }
