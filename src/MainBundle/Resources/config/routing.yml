@@ -70,6 +70,18 @@ Rechercher_Etablissement_Nom:
     path:     /RechercherEtablissementNom/{critere2}
     defaults: { _controller: MainBundle:Etablissement:RechercheCN }
 
+Ajouter_Tag_Representant:
+    path:     /AjouterTag/{id}
+    defaults: { _controller: MainBundle:Tag:Ajout }
+
+Supprimer_Tag_Representant:
+    path:     /SupprimerTag/{id}/{id1}
+    defaults: { _controller: MainBundle:Tag:Supp }
+
+Rechercher_Etablissement_Tag:
+    path:     /RechercherEtablissementTag/{tag}
+    defaults: { _controller: MainBundle:Etablissement:RechercheT }
+
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }

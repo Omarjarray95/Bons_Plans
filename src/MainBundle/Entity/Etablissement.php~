@@ -92,14 +92,14 @@ class Etablissement
     protected $budgetmoyen;
 
     /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag", cascade={"persist"})
+     */
+    protected $tags;
+
+    /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Service",mappedBy="etablissements")
      */
     protected $services;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Tag",mappedBy="etablissements")
-     */
-    protected $tags;
 
     /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User", mappedBy="etablissements")
@@ -140,6 +140,38 @@ class Etablissement
     /**
      * @return mixed
      */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \MainBundle\Entity\Tag $tag
+     *
+     * @return Etablissement
+     */
+    public function addTag(\MainBundle\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \MainBundle\Entity\Tag $tag
+     */
+    public function removeTag(\MainBundle\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUsers()
     {
         return $this->users;
@@ -167,14 +199,6 @@ class Etablissement
     public function setServices($services)
     {
         $this->services = $services;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
 
     /**
@@ -321,30 +345,6 @@ class Etablissement
     public function removeService(\MainBundle\Entity\Service $service)
     {
         $this->services->removeElement($service);
-    }
-
-    /**
-     * Add tag
-     *
-     * @param \MainBundle\Entity\Tag $tag
-     *
-     * @return Etablissement
-     */
-    public function addTag(\MainBundle\Entity\Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Remove tag
-     *
-     * @param \MainBundle\Entity\Tag $tag
-     */
-    public function removeTag(\MainBundle\Entity\Tag $tag)
-    {
-        $this->tags->removeElement($tag);
     }
 
     /**

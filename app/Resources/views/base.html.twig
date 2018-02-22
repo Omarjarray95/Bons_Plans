@@ -95,6 +95,7 @@
                     {% block user1 %}
                     {% if is_granted('ROLE_USER') %}
                         <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></li>
+                        <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_logout') }}">Se Déconnecter</a></li>
                     {% else %}
                     <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
                     <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_registration_register') }}">S'Inscrire</a></li>
@@ -136,6 +137,9 @@
 {% endblock %}
 
 {% block Rechercher_Etablissement_Client %}
+{% endblock %}
+
+{% block Tag %}
 {% endblock %}
 
 <div class="sponsor_section bg-grey">
