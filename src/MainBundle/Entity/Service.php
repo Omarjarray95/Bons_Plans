@@ -21,12 +21,12 @@ class Service
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement",mappedBy="id")
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * * @ORM\JoinTable(name="etablissements_services")
      */
     private $etablissements;
-
-
 
     /**
      * @ORM\Column(name="type_service", type="string", columnDefinition="enum('Wifi', 'Parking','Espace kids','Utilites handicapes','Music','Espace fumeur','autre')")

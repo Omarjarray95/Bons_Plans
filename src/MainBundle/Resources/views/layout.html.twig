@@ -1,92 +1,20 @@
 {% extends 'Base.html.twig' %}
 
-{% block user %}
-    <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
-{% endblock %}
-
 {% block login %}
-    <head>
-        <!--===============================================================================================-->
-        <link rel="icon" type="image/png" href="{{ asset('bundles/main/Login/images/icons/favicon.ico') }}"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/vendor/animate/animate.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/vendor/css-hamburgers/hamburgers.min.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/vendor/animsition/css/animsition.min.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/vendor/select2/select2.min.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/vendor/daterangepicker/daterangepicker.css')}}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/css/util.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/main/Login/css/main.css')}}">
-    </head>
-
-    <body>
-        <div>
             {% if is_granted("ROLE_USER") %}
+
             <div>
                 {% block fos_user_content1 %}
                 {% endblock %}
             </div>
 
-
             {% else %}
-                <div class="limiter">
-                    <div class="container-login100">
-                        <div class="wrap-login100 p-t-50 p-b-90">
-
-                            {% block title %}
-                                <span class="login100-form-title p-b-51">
-						        Se Connecter
-					            </span>
-                            {% endblock %}
-
-                            <div>
-                                {% block fos_user_content %}
-                                {% endblock fos_user_content %}
-                            </div>
-
-
-                            <div>
-                                {% block rememberme_forgot %}
-                                {% endblock %}
-                            </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div>
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
                 </div>
+
             {% endif %}
-        </div>
-
-
-
-
-            <script src="{{ asset('bundles/main/Login/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/vendor/animsition/js/animsition.min.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/vendor/bootstrap/js/popper.js')}}"></script>
-            <script src="{{ asset('bundles/main/Login/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/vendor/select2/select2.min.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/vendor/daterangepicker/moment.min.js')}}"></script>
-            <script src="{{ asset('bundles/main/Login/vendor/daterangepicker/daterangepicker.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/vendor/countdowntime/countdowntime.js')}}"></script>
-
-            <script src="{{ asset('bundles/main/Login/js/main.js')}}"></script>
-
-    </body>
-</html>
 {% endblock %}
 
 

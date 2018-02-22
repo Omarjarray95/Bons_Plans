@@ -1,12 +1,28 @@
-<h1>Ma WishListe</h1>
-<table border="1">
-    <tr>
-        <th>Wish</th><th>Retirer de ma WishListe</th>
-    </tr>
-    {% for Wish in w %}
-        <tr>
-            <td>{{Wish.favoris.nom  }}</td>
-            <td><a href="{{ path('delete_wish',{'id_etablissement':Wish.id}) }}">Retirer</a></td>
-        </tr>
-    {% endfor %}
-</table>
+{% extends 'Base.html.twig' %}
+{% block ShowFav %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <h2>Ma wishliste</h2>
+                        <br>
+                        {% for favoris in w %}
+
+                            <fieldset>
+                                <legend>{{  favoris.favoris.nom  }}</legend>
+                                <img src="{{ asset('bundles/main/img/localisation.png') }}" width="20" height="20">{{favoris.favoris.adresse  }}
+                                <br>
+                                <a href="{{ path('main_homepage') }}">Visiter page</a><br>
+                                <a href="{{ path('delete_wish',{'id_etablissement':favoris.favoris.id}) }}">Retirer de mes favoris</a><br>
+                            </fieldset><br>
+
+                        {% endfor %}
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

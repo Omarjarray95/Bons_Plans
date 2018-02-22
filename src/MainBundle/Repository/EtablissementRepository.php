@@ -10,4 +10,19 @@ namespace MainBundle\Repository;
  */
 class EtablissementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function FiltrerDQL($critere)
+    {
+        $query=$this->getEntityManager()->createQuery("SELECT e FROM MainBundle:Etablissement e WHERE e.type like :typ 
+            order by e.nom ASC")
+            ->setParameter('typ', '%'.$critere.'%');
+        return $query->getResult();
+    }
+
+    public function RechercherDQL($nom)
+    {
+        $query=$this->getEntityManager()->createQuery("SELECT et FROM MainBundle:Etablissement et WHERE et.nom like :no 
+            order by et.nom ASC")
+            ->setParameter('no', '%'.$nom.'%');
+        return $query->getResult();
+    }
 }

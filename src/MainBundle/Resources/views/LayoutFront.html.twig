@@ -1,11 +1,5 @@
 {% extends 'Base.html.twig' %}
 
-{% if is_granted("ROLE_USER") %}
-            {% block user %}
-                <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
-            {% endblock %}
-{% endif %}
-
 {% block layoutfront %}
 <section class="slider_section">
     <ul id="main-slider" class="owl-carousel main_slider">
@@ -81,6 +75,8 @@
         </div>
     </div>
 </section> <!--/.about_section -->
+
+
 
 
 

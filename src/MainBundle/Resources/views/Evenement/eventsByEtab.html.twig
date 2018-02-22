@@ -11,12 +11,14 @@
                         <table >
 
                             <tr>
-                                <th width="30%">Evenement</th><th width="30%">Date</th><th width="30%">Modifier</th><th width="30%">Supprimer</th>
+                                <th width="30%">Evenement</th><th width="30%">Date</th><th width="30%">Going</th><th width="30%">Intéressés</th><th width="30%">Modifier</th><th width="30%">Supprimer</th>
                             </tr>
                             {% for events in e %}
                                 <tr>
                                     <td>{{events.nom  }}</td>
                                     <td>{{events.date|date("m/d/Y")  }}</td>
+                                    <td>{{events.nbr_personnes  }}</td>
+                                    <td>{{events.interesses }}</td>
                                     <td><a href="{{ path('update_event',{'id':events.id}) }}">Modifier</a></td>
                                     <td><a href="{{ path('delete_event',{'id':events.id}) }}">Supprimer</a></td>
                                 </tr>

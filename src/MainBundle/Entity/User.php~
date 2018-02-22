@@ -34,6 +34,12 @@ class User extends BaseUser
      */
     protected $nom;
     /**
+     * @var string
+     * @ORM\Column(type="string", name="Sexe")
+     */
+    protected $sexe;
+
+    /**
      * @var \DateTime
      * @ORM\Column(type="date", nullable=TRUE)
      */
@@ -52,19 +58,28 @@ class User extends BaseUser
     protected $phone;
 
     /**
+     * @var
+     * @ORM\Column(name="URL", nullable=TRUE)
+     */
+    protected $url;
+
+    /**
      * @var string
      * @ORM\Column(type="string", nullable=TRUE)
+     * @ORM\Column(type="string",nullable=TRUE)
      */
     protected $intro;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
+     * @ORM\JoinTable(name="favoris")
+     */
+    protected $etablissements;
 
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Evaluation", mappedBy="id_user")
      */
     protected $evaluations;
-    /**
-     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Etablissement", mappedBy="id_user")
-     */
-    protected $etablissements;
 
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_user")
@@ -292,6 +307,7 @@ class User extends BaseUser
 
 
 
+
     /**
      * Add etablissement
      *
@@ -302,6 +318,52 @@ class User extends BaseUser
     public function addEtablissement(\MainBundle\Entity\Etablissement $etablissement)
     {
         $this->etablissements[] = $etablissement;
+    }
+    /**
+     * Add etablissementsFav
+     *
+     * @param \MainBundle\Entity\Etablissement $etablissementsFav
+     *
+     * @return User
+     */
+
+
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return User
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return User
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
 
         return $this;
     }
@@ -313,6 +375,14 @@ class User extends BaseUser
      */
     public function removeEtablissement(\MainBundle\Entity\Etablissement $etablissement)
     {
-        $this->etablissements->removeElement($etablissement);
+        $this->etablissements->removeElement($etablissement);}
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

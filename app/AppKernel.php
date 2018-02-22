@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new MainBundle\MainBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new MailBundle\MailBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

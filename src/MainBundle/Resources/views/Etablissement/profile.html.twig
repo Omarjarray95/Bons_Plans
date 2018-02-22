@@ -1,0 +1,38 @@
+{% extends 'Base.html.twig' %}
+
+{% block AfficherEtablissementUser %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <div class="fos_user_user_show">
+                            <div>
+                                <p><strong>Nom:</strong> {{ (eta.nom) }}</p>
+                            </div>
+                            <div>
+                                <p><strong>Adresse:</strong> {{ (eta.adresse) }}</p>
+                            </div>
+                            <div>
+                                <p><strong>Description:</strong> {{ (eta.description) }}</p>
+                            </div>
+                            <div>
+
+                                <a href="{{ path('ajouter_wish',{'id':eta.id}) }} " class="default_btn">Ajouter a ma wishlist</a>
+                                <a href="{{ path('delete_wish',{'id_etablissement':eta.id}) }} " class="default_btn">Retirer de ma wishlist</a>
+                                <a href="{{ path('ajouter_visited',{'id':eta.id}) }} " class="default_btn">Marquer visité</a>
+
+                            </div><br>
+                            <div>
+                                <a href="{{ path('supprimer_etablissement',{'id':eta.id}) }}" class="default_btn">Supprimer</a>
+                                <a href="{{ path('modifier_etablissement',{'id':eta.id}) }} " class="default_btn">Modifier</a>
+                                <a href="{{ path('add_event',{'id_etab':eta.id}) }} " class="default_btn">Ajouter un événement</a>
+                                <a href="{{ path('add_offre',{'id_etab':eta.id}) }} " class="default_btn">Ajouter un offre</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

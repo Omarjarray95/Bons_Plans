@@ -14,6 +14,7 @@ contact:
     path:     /Contact
     defaults: { _controller: MainBundle:Default:contact }
 
+
 ajouter_etablissement:
     path:     /AjouterEtablissement
     defaults: { _controller: MainBundle:Etablissement:Ajout }
@@ -21,6 +22,84 @@ ajouter_etablissement:
 _ajout:
     path:     /AjoutRes
     defaults: { _controller: MainBundle:Reservation:Ajout }
+
+Ajouter_Etablissement_Admin:
+    path:     /AjouterEtablissementAdmin
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
+Afficher_Etablissement_Admin:
+    path:     /AfficherEtablissementAdmin
+    defaults: { _controller: MainBundle:Etablissement:Affiche }
+
+Modifier_Etablissement_Admin:
+    path:     /ModifierEtablissementAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:Modif }
+
+Afficher_Etablissement_ParId_Admin:
+    path:     /AfficherEtablissementParIdAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheId }
+
+Afficher_Etablissement_user:
+    path:     /etab/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheUser }
+
+
+Afficher_Evenement_Admin:
+    path:     /AfficherEvenementParAdmin
+    defaults: { _controller: MainBundle:Evenement:AfficheAdmin }
+
+Afficher_Evenement_ParId_Admin:
+    path:     /AfficherEvenementParAdmin/{id}
+    defaults: { _controller: MainBundle:Evenement:AfficheAdminId}
+
+Afficher_Evenement_ParId_Admin_etab:
+    path:     /AfficherEvenementParAdminEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:AfficheEtab}
+
+Supprimer_Etablissement_Admin:
+    path:     /SupprimerEtablissementAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:Supp }
+
+Supprimer_Evenement_Admin:
+    path:     /SupprimerEvenementtAdmin/{id}
+    defaults: { _controller: MainBundle:Evenement:RemoveAdmin }
+
+Modifier_Etablissement_Photo_Admin:
+    path:     /ModifierEtablissementPhotoAdmin/{id}
+    defaults: { _controller: MainBundle:Etablissement:ModifPhoto }
+
+Filtrer_Etablissement:
+    path:     /FiltrerEtablissement/{critere}
+    defaults: { _controller: MainBundle:Etablissement:Filtre }
+
+Trier_Etablissement:
+    path:     /TrierEtablissement/{critere}
+    defaults: { _controller: MainBundle:Etablissement:Tri }
+
+Rechercher_Etablissement:
+    path:     /RechercherEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Recherche }
+
+Ajouter_Etablissement_Client:
+    path:     /AjouterEtablissementClient
+    defaults: { _controller: MainBundle:Etablissement:AjoutC }
+
+Ajouter_Etablissement:
+    path:     /AjouterEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
+modifier_etablissement:
+    path:     /ModifierEtablissement/{id}
+    defaults: { _controller: MainBundle:Etablissement:Modif }
+
+afficher_etablissement:
+    path:     /AfficherEtablissement/{id}
+    defaults: { _controller: MainBundle:Etablissement:Affiche }
+
+supprimer_etablissement:
+    path:     /SupprimerEtablissement/{id}
+    defaults: { _controller: MainBundle:Etablissement:Supp }
+
 
 _update:
     path:     /UpdateRes
@@ -39,9 +118,13 @@ all_events:
     path:     /events
     defaults: { _controller: MainBundle:Evenement:afficheall }
 
+show_event:
+    path:     /event/{id_event}
+    defaults: { _controller: MainBundle:Evenement:Affiche }
+
 etab_events:
     path:     /eventsEtab/{id_etab}
-    defaults: { _controller: MainBundle:Evenement:Affiche }
+    defaults: { _controller: MainBundle:Evenement:AfficheEtab }
 
 update_event:
     path:     /eventUpdate/{id}
@@ -55,17 +138,7 @@ add_event:
     path:     /eventAdd/{id_etab}
     defaults: { _controller: MainBundle:Evenement:Ajout }
 
-ajouter_favoris:
-    path:     /AjouterFavoris/{id}
-    defaults: { _controller: MainBundle:Favoris:Ajout }
 
-delete_favoris:
-      path:     /RetirerFavoris/{id_etablissement}
-      defaults: { _controller: MainBundle:Favoris:Remove }
-
-affiche_favoris:
-      path:     /VoirFavoris
-      defaults: { _controller: MainBundle:Favoris:Affiche }
 
 ajouter_wish:
     path:     /AjouterWish/{id}
@@ -81,32 +154,40 @@ affiche_wish:
 
 ajouter_visited:
     path:     /AjouterVisited/{id}
-    defaults: { _controller: MainBundle:Visited:Ajout }
+    defaults: { _controller: MainBundle:Visited:AjoutVisited }
 
 delete_visited:
       path:     /RetirerVisited/{id_etablissement}
-      defaults: { _controller: MainBundle:Visited:Remove }
-
-ajouter_visited_event:
-    path:     /AjouterVisitedEvent/{id}
-    defaults: { _controller: MainBundle:Visited:AjoutEvent }
-
-delete_visited_event:
-      path:     /RetirerGoingEvent/{id_etablissement}
-      defaults: { _controller: MainBundle:Visited:RemoveEvent }
+      defaults: { _controller: MainBundle:Visited:RemoveVisited }
 
 delete_going_event:
       path:     /RetirerVisitedEvent/{id_event}
-      defaults: { _controller: MainBundle:Visited:RemoveGoing }
+      defaults: { _controller: MainBundle:Visited:RemoveGoingEvent }
 
-ajouter_going_event:
-    path:     /AjouterGoingEvent/{id}
-    defaults: { _controller: MainBundle:Visited:AjoutGoing }
-
+delete_interest_event:
+      path:     /RetirerInterestEvent/{id_event}
+      defaults: { _controller: MainBundle:Visited:RemoveInterestedEvent }
 
 affiche_visited:
       path:     /VoirVisited
-      defaults: { _controller: MainBundle:Visited:Affiche }
+      defaults: { _controller: MainBundle:Visited:AfficheVisited }
+
+affiche_going_event:
+      path:     /VoirVisited
+      defaults: { _controller: MainBundle:Visited:AfficheGoingEvent }
+
+ajouter_going_event:
+    path:     /AjouterGoingEvent/{id}
+    defaults: { _controller: MainBundle:Visited:AjoutGoingEvent }
+
+ajouter_interest_event:
+    path:     /AjouterInterestEvent/{id}
+    defaults: { _controller: MainBundle:Visited:AjoutInterestEvent }
+
+
+affiche_intrested_event:
+      path:     /VoirVisited
+      defaults: { _controller: MainBundle:Visited:AfficheInterestEvent }
 
 all_offre:
     path:     /offres
@@ -127,6 +208,4 @@ delete_offre:
 add_offre:
     path:     /offreAdd/{id_etab}
     defaults: { _controller: MainBundle:Offre:Ajout }
-add_offre:
-    path:     /sendnotification
-    defaults: { _controller: MainBundle:Offre:sendNotification }
+

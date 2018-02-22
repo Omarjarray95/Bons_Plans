@@ -174,4 +174,172 @@ class Shops extends Etablissement
     {
         return $this->typeResto;
     }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Shops
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set horaireOuverture
+     *
+     * @param string $horaireOuverture
+     *
+     * @return Shops
+     */
+    public function setHoraireOuverture($horaireOuverture)
+    {
+        $this->horaire_ouverture = $horaireOuverture;
+
+        return $this;
+    }
+
+    /**
+     * Get horaireOuverture
+     *
+     * @return string
+     */
+    public function getHoraireOuverture()
+    {
+        return $this->horaire_ouverture;
+    }
+
+    /**
+     * Set horaireFermeture
+     *
+     * @param string $horaireFermeture
+     *
+     * @return Shops
+     */
+    public function setHoraireFermeture($horaireFermeture)
+    {
+        $this->horaire_fermeture = $horaireFermeture;
+
+        return $this;
+    }
+
+    /**
+     * Get horaireFermeture
+     *
+     * @return string
+     */
+    public function getHoraireFermeture()
+    {
+        return $this->horaire_fermeture;
+    }
+
+    /**
+     * Set numTel
+     *
+     * @param string $numTel
+     *
+     * @return Shops
+     */
+    public function setNumTel($numTel)
+    {
+        $this->num_tel = $numTel;
+
+        return $this;
+    }
+
+    /**
+     * Get numTel
+     *
+     * @return string
+     */
+    public function getNumTel()
+    {
+        return $this->num_tel;
+    }
+
+    /**
+     * Set imagePrincipale
+     *
+     * @param string $imagePrincipale
+     *
+     * @return Shops
+     */
+    public function setImagePrincipale($imagePrincipale)
+    {
+        $this->image_principale = $imagePrincipale;
+
+        return $this;
+    }
+
+    /**
+     * Get imagePrincipale
+     *
+     * @return string
+     */
+    public function getImagePrincipale()
+    {
+        return $this->image_principale;
+    }
+
+    /**
+     * Set uRL
+     *
+     * @param string $uRL
+     *
+     * @return Shops
+     */
+    public function setURL($uRL)
+    {
+        $this->URL = $uRL;
+
+        return $this;
+    }
+
+    /**
+     * Get uRL
+     *
+     * @return string
+     */
+    public function getURL()
+    {
+        return $this->URL;
+    }
+
+    /**
+     * Set budgetmoyen
+     *
+     * @param string $budgetmoyen
+     *
+     * @return Shops
+     */
+    public function setBudgetmoyen($budgetmoyen)
+    {
+        $this->budgetmoyen = $budgetmoyen;
+
+        return $this;
+    }
+
+    /**
+     * Get budgetmoyen
+     *
+     * @return string
+     */
+    public function getBudgetmoyen()
+    {
+        return $this->budgetmoyen;
+    }
 }

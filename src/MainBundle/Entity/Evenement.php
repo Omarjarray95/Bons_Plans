@@ -7,11 +7,10 @@ use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
 /**
  * Evenement
- * @Notifiable(name="evenement")
  * @ORM\Table(name="evenement")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\EvenementRepository")
  */
-class Evenement implements NotifiableInterface
+class Evenement
 {
     /**
      * @var int
@@ -33,6 +32,7 @@ class Evenement implements NotifiableInterface
      *
      * @ORM\Column(name="description", type="string", length=255)
      */
+
     private $description;
 
     /**
@@ -41,11 +41,51 @@ class Evenement implements NotifiableInterface
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+    /**
+     * @return mixed
+     */
+    public function getInteresses()
+    {
+        return $this->interesses;
+    }
+
+    /**
+     * @param mixed $interesses
+     */
+    public function setInteresses($interesses)
+    {
+        $this->interesses = $interesses;
+    }
+    /**
+     * @ORM\Column(type="integer" ,nullable=TRUE)
+     */
+    public $interesses;
+
+    /**
+     * @return mixed
+     */
+    public function getNbrPersonnes()
+    {
+        return $this->nbr_personnes;
+    }
+
+    /**
+     * @param mixed $nbr_personnes
+     */
+    public function setNbrPersonnes($nbr_personnes)
+    {
+        $this->nbr_personnes = $nbr_personnes;
+    }
     /**
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
      * @ORM\JoinColumn(name="id_etablissement",referencedColumnName="id")
      */
     private $etablissement;
+    /**
+     * @ORM\Column(type="integer", nullable=TRUE)
+     */
+    public $nbr_personnes;
 
     /**
      * @return mixed

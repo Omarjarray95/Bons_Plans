@@ -13,14 +13,20 @@
                         <table >
                         <br>
                             <tr>
-                                <th width="30%">Evenement</th><th width="30%">Date</th><th width="30%">Localisation</th>
+                                <th width="30%">Evenement</th>
+                                <th width="30%">Date</th>
+                                <th width="30%">Localisation</th>
+                                <th width="30%">Going</th>
+                                <th width="30%">Intéressés</th>
+
                             </tr>
                             {% for events in e %}
                                 <tr>
-                                    <td>{{events.nom  }}</td>
+                                    <td><a href="{{ path('show_event',{'id_event':events.id}) }}">{{events.nom  }}</a></td>
                                     <td>{{events.date|date("m/d/Y")  }}</td>
                                     <td>{{events.etablissement.nom  }} , adresse: {{events.etablissement.adresse  }}</td>
-
+                                    <td>{{events.nbr_personnes  }}</td>
+                                    <td>{{events.interesses }}</td>
                                 </tr>
                             {% endfor %}
                         </table>

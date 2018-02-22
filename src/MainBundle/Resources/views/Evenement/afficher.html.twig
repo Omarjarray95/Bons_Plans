@@ -1,0 +1,36 @@
+
+{% extends 'Base.html.twig' %}
+{% block ListEvent %}
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <div>
+                            <p><strong>Nom: </strong> {{ (e.nom) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Date: </strong> {{ (e.date|date("m/d/Y") ) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Description: </strong> {{ (e.description) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Nombre de personnes intéressées: </strong> {{ (e.interesses ) }}</p>
+                        </div>
+
+                        <div>
+                            <p><strong>Nombre de personnes qui vont arriver: </strong> {{ (e.nbr_personnes) }}</p>
+                        </div>
+                        <div>
+                            <a href="{{ path('ajouter_interest_event',{'id':e.id}) }}">Marquer Intéressé(e)</a><br>
+                            <a href="{{ path('ajouter_going_event',{'id':e.id}) }}">Marquer Going</a><br>
+                            <a href="{{ path('delete_interest_event',{'id_event':e.id}) }}">Retirer Intéressé</a><br>
+                            <a href="{{ path('delete_going_event',{'id_event':e.id}) }}">Retirer Going</a><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

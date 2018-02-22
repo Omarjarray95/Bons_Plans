@@ -2440,7 +2440,7 @@ ul.inbox-pagination li {
 .bio-graph-heading {
     background: #41cac0;
     color: #fff;
-    text-align: center;
+    text-align: left;
     font-style: italic;
     padding: 40px 110px;
     border-radius: 4px 4px 0 0;

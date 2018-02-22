@@ -21,8 +21,8 @@ class WishlistController extends Controller
             $em->persist($Wishlist);
             $em->flush();}
 
-
-        return $this->redirectToRoute('main_homepage');
+        return $this->render('MainBundle:Etablissement:profile.html.twig',
+            array('eta'=>$etab));
 
     }
 
@@ -31,10 +31,12 @@ class WishlistController extends Controller
         $user = $this->getUser();
         $id = $user->getId();
         $em=$this->getDoctrine()->getManager();
-        $Wishlist=$em->getRepository("MainBundle:Wishliste")->find($id_etablissement);;
+        $etab=$em->getRepository('MainBundle:Etablissement')->find($id_etablissement);
+        $Wishlist=$em->getRepository("MainBundle:Wishliste")->findOneBy(array('favoris'=>$etab,'user'=>$user));
         $em->remove($Wishlist);
         $em->flush();
-        return $this->redirectToRoute('main_homepage');
+        return $this->render('MainBundle:Etablissement:profile.html.twig',
+            array('eta'=>$etab));
     }
 
     public function AfficheAction()
