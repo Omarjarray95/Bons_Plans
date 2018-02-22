@@ -26,6 +26,9 @@
         <div class="container">
             <br class="blog_content">
                 <h2 style="margin-top: -80px">{{ etab.nom }}</h2>
+            <div>
+                <a href="{{ path('ajout_reservation',{'id1':etab.id,'id2':app.user.id})}}">Passer une réservation</a>
+            </div>
             <div class="panel-body">
                 <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
                     Form in Modal

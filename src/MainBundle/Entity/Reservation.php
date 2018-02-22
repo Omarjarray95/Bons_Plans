@@ -25,29 +25,116 @@ class Reservation
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User", inversedBy="reservations")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
-    private $id_user;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement", inversedBy="reservations")
      * @ORM\JoinColumn(name="id_etablissement", referencedColumnName="id")
      */
-    private $id_etablissement;
+    private $etablissement;
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $nom;
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $numtel;
+
+    /**
+     * @return string
+     */
+    public function getNumtel()
+    {
+        return $this->numtel;
+    }
+
+    /**
+     * @param string $numtel
+     */
+    public function setNumtel($numtel)
+    {
+        $this->numtel = $numtel;
+    }
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nbrePersonnes;
 
     /**
      * @return mixed
      */
-    public function getIdEtablissement()
+    public function getNbrePersonnes()
     {
-        return $this->id_etablissement;
+        return $this->nbrePersonnes;
     }
 
     /**
-     * @param mixed $id_etablissement
+     * @param mixed $nbrePersonnes
      */
-    public function setIdEtablissement($id_etablissement)
+    public function setNbrePersonnes($nbrePersonnes)
     {
-        $this->id_etablissement = $id_etablissement;
+        $this->nbrePersonnes = $nbrePersonnes;
     }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_de_reservation", type="date")
+     */
+    private $datedereservation;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtablissement()
+    {
+        return $this->etablissement;
+    }
+
+    /**
+     * @param mixed $etablissement
+     */
+    public function setEtablissement($etablissement)
+    {
+        $this->etablissement = $etablissement;
+    }
+
     /**
      * Get id
      *
@@ -58,19 +145,28 @@ class Reservation
         return $this->id;
     }
 
+
     /**
-     * @return mixed
+     * Set datedereservation
+     *
+     * @param \DateTime $datedereservation
+     *
+     * @return Reservation
      */
-    public function getIdUser()
+    public function setDatedereservation($datedereservation)
     {
-        return $this->id_user;
+        $this->datedereservation = $datedereservation;
+
+        return $this;
     }
 
     /**
-     * @param mixed $id_user
+     * Get datedereservation
+     *
+     * @return \DateTime
      */
-    public function setIdUser($id_user)
+    public function getDatedereservation()
     {
-        $this->id_user = $id_user;
+        return $this->datedereservation;
     }
 }
