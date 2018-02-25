@@ -19,7 +19,6 @@ use MainBundle\Entity\Etablissement;
  */
 class User extends BaseUser
 {
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -27,12 +26,12 @@ class User extends BaseUser
      */
     protected $id;
 
-
     /**
      * @var string
      * @ORM\Column(type="string")
      */
     protected $nom;
+
     /**
      * @var string
      * @ORM\Column(type="string", name="Sexe")
@@ -47,13 +46,13 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(type="string", nullable=TRUE)
+     * @ORM\Column(type="string")
      */
     protected $ville;
 
     /**
      * @var string
-     * @ORM\Column(type="string", nullable=TRUE)
+     * @ORM\Column(type="string")
      */
     protected $phone;
 
@@ -65,8 +64,7 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(type="string", nullable=TRUE)
-     * @ORM\Column(type="string",nullable=TRUE)
+     * @ORM\Column(type="string",nullable=TRUE,length=2000)
      */
     protected $intro;
 
@@ -91,31 +89,40 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
     /**
-     * @return mixed
+     * Add etablissement
+     *
+     * @param Etablissement $etablissement
+     *
+     * @return User
      */
-    public function getId()
+    public function addEtablissement(Etablissement $etablissement)
     {
-        return $this->id;
+        $this->etablissements[] = $etablissement;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove etablissement
+     *
+     * @param Etablissement $etablissement
+     */
+    public function removeEtablissement(Etablissement $etablissement)
+    {
+        $this->etablissements->removeElement($etablissement);
+    }
+
+    /**
+     * Get etablissements
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEtablissements()
     {
         return $this->etablissements;
     }
-
-    /**
-     * @param mixed $etablissements
-     */
-    public function setEtablissements($etablissements)
-    {
-        $this->etablissements = $etablissements;
-    }
-
-
 
     /**
      * Add evaluation
@@ -305,20 +312,6 @@ class User extends BaseUser
         return $this->intro;
     }
 
-
-
-
-    /**
-     * Add etablissement
-     *
-     * @param \MainBundle\Entity\Etablissement $etablissement
-     *
-     * @return User
-     */
-    public function addEtablissement(\MainBundle\Entity\Etablissement $etablissement)
-    {
-        $this->etablissements[] = $etablissement;
-    }
     /**
      * Add etablissementsFav
      *
@@ -364,18 +357,9 @@ class User extends BaseUser
     {
         $this->url = $url;
 
-
         return $this;
     }
 
-    /**
-     * Remove etablissement
-     *
-     * @param \MainBundle\Entity\Etablissement $etablissement
-     */
-    public function removeEtablissement(\MainBundle\Entity\Etablissement $etablissement)
-    {
-        $this->etablissements->removeElement($etablissement);}
     /**
      * Get url
      *

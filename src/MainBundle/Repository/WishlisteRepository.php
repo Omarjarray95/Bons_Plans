@@ -1,7 +1,7 @@
 <?php
 
 namespace MainBundle\Repository;
-
+use MainBundle\Entity\User;
 /**
  * WishlisteRepository
  *
@@ -10,6 +10,18 @@ namespace MainBundle\Repository;
  */
 class WishlisteRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function isWished($etab, User $user)
+    {
+        return
+            $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.favoris = :fav')
+                ->setParameter('fav', $etab)
+                ->setParameter('user', $user)
+                ->getQuery()->getResult();
+
+    }
     public function countWishliste($etabid,$userid){
 
         $em = $this->getEntityManager();

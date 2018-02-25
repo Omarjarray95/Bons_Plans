@@ -29,7 +29,10 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 success_handler: authentication.handler.login_success_handler
 
-            logout:       true
+            logout:
+                path:   /logout
+                target: /BonsPlans/Home
+
             anonymous:    true
             # activate different ways to authenticate
 
@@ -43,3 +46,14 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/HomeAdmin, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/AjouterEtablissementAdmin, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/AfficherEtablissementAdmin, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/ModifierEtablissementAdmin/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/AfficherEtablissementParIdAdmin/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/SupprimerEtablissementAdmin/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/ModifierEtablissementPhotoAdmin/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/FiltrerEtablissement/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/TrierEtablissement/, role: ROLE_ADMIN }
+        - { path: ^/BonsPlans/RechercherEtablissement, role: ROLE_ADMIN }
+

@@ -38,7 +38,7 @@ class MailType extends AbstractType
             ->add('tel', IntegerType::class)
             ->add('email', EmailType::class)
             ->add('text', TextareaType::class)
-            ->add('valider', SubmitType::class) ;
+            ->add('Envoyer', SubmitType::class) ;
     }
     public function getName()
     {

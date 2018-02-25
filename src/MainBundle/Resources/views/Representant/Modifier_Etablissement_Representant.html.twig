@@ -1,6 +1,8 @@
-{% extends 'baseAdmin.html.twig' %}
+{% extends 'Base.html.twig' %}
 
-{% block Ajouter_Etablissement %}
+{% block AjouterEtablissement %}
+    <section id="reservation" class="reservation_section bg-grey">
+    <div class="container padding">
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
@@ -12,8 +14,8 @@
                         <header class="panel-heading">
                             {{ form_start(et) }}
                             <table>
-                                <tr class="">
-                                    <td>
+                                <tr>
+                                    <td width="200px">
                                         {{ form_label(et.nom) }}
                                     </td>
                                     <td>
@@ -50,7 +52,7 @@
                                     </td>
                                     <td>
                                         <div>
-                                            {{ form_widget(et.horaire_ouverture) }}{{ form_widget(et.horaire_fermeture) }}
+                                            {{ form_widget(et.horaire_ouverture) }} - {{ form_widget(et.horaire_fermeture) }}
                                         </div>
                                     </td>
                                 </tr>
@@ -100,7 +102,7 @@
 
                                     </td>
                                     <td>
-                                        <strong><input value="Confirmer Les Changements" class="btn btn-shadow btn-success" type="submit"></strong>
+                                        <strong><input value="Confirmer Les Changements" class="default_btn" type="submit"></strong>
                                     </td>
                                 </tr>
                             </table>
@@ -109,5 +111,7 @@
                 </div>
             </div>
         </section>
+    </section>
+    </div>
     </section>
 {% endblock %}

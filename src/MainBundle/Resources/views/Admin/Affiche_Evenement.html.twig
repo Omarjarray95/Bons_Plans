@@ -1,7 +1,7 @@
 {% extends 'baseAdmin.html.twig' %}
 
 {% block Afficher_evenements_Tout %}
-    <li><a href="{{ path('Afficher_Evenement_Admin') }}">Afficher Tout</a></li>
+    <li><a href="{{ path('all_events_Admin') }}">Afficher Tout</a></li>
 {% endblock %}
 
 {% block Trier %}
@@ -30,14 +30,13 @@
                                         <div class="media-body">
                                             <h4>{{ ev.nom }}</h4>
 
-                                            <address>
+
                                                 <strong><p class="A">{{ev.etablissement.nom  }} , adresse: {{ev.etablissement.adresse  }}</p></strong><br>
                                                 <p class="A"> <strong>Date : </strong>{{ev.date|date("m/d/Y")  }}</p><br>
                                                 <p class="A"> <strong>Personnes qui vont visiter : </strong>{{ev.nbr_personnes  }}</p><br>
                                                 <p class="A"> <strong>Personnes intéressés : </strong>{{ev.interesses  }}</p><br>
-                                                <a href="{{ path('Afficher_Evenement_ParId_Admin',{'id':ev.id}) }}" class="btn btn-success"><i class="fa fa-eye"></i> Afficher Détails </a>
-                                                <a href="{{ path('Supprimer_Evenement_Admin',{'id':ev.id}) }}" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer </a>
-                                            </address>
+                                                <a href="{{ path('profile_event_admin',{'id':ev.id}) }}" class="btn btn-success"><i class="fa fa-eye"></i> Afficher Détails </a>
+                                                <a href="{{ path('delete_event_admin',{'id':ev.id}) }}" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer </a>
 
                                         </div>
                                     </div>

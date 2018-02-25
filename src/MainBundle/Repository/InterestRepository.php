@@ -1,7 +1,7 @@
 <?php
 
 namespace MainBundle\Repository;
-
+use MainBundle\Entity\User;
 /**
  * InterestRepository
  *
@@ -10,6 +10,17 @@ namespace MainBundle\Repository;
  */
 class InterestRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function isInterested($event, User $user)
+    {
+        return
+            $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.event = :fav')
+                ->setParameter('fav', $event)
+                ->setParameter('user', $user)
+                ->getQuery()->getResult();
+
+    }
     public function countInterestEvent($eventid,$userid){
 
         $em = $this->getEntityManager();

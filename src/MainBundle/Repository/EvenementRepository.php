@@ -36,4 +36,23 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getResult();
     }
+    public function NbrParType($type){
+        $query=$this->getEntityManager()->createQuery("SELECT count(ev) FROM MainBundle:Evenement ev WHERE ev.type like :no 
+            order by et.nom ASC")
+            ->setParameter('no', $type);
+        return $query->getScalarResult();
+    }
+
+    public function booool($idevent){
+
+        $em = $this->getEntityManager();
+        $currentdate = new \DateTime('now');
+        $query = $em->createQuery(
+            'SELECT e.date > :date
+        FROM MainBundle:Evenement e
+        WHERE e.id = :id'
+        )->setParameter('date', $currentdate)->setParameter('id',$idevent);
+
+        return $query->getResult();
+    }
 }

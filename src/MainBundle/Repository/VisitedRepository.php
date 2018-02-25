@@ -1,6 +1,8 @@
 <?php
 
 namespace MainBundle\Repository;
+use MainBundle\Entity\Etablissement;
+use MainBundle\Entity\User;
 
 /**
  * VisitedRepository
@@ -10,7 +12,21 @@ namespace MainBundle\Repository;
  */
 class VisitedRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function countVisited($etabid,$userid){
+
+    public function isVisited($etab, User $user)
+    {
+        return
+            $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.favoris = :fav')
+                ->setParameter('fav', $etab)
+                ->setParameter('user', $user)
+                ->getQuery()->getResult();
+
+    }
+
+    public function countVisited($etabid, $userid)
+    {
 
         $em = $this->getEntityManager();
 
@@ -20,7 +36,7 @@ class VisitedRepository extends \Doctrine\ORM\EntityRepository
         WHERE f.user = :usr
         AND f.favoris = :fav'
         )->setParameter('usr', $userid)
-            ->setParameter('fav',$etabid);
+            ->setParameter('fav', $etabid);
 
         return $query->getSingleScalarResult();
     }

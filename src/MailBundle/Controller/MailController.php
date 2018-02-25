@@ -31,7 +31,7 @@ class MailController extends Controller
             $this->get('mailer')->send($message);
             return $this->redirect($this->generateUrl('mail_accuse'));
         }
-        return $this->render('MailBundle:Mail:index.html.twig',
+        return $this->render('MainBundle:Default:Contact.html.twig',
             array('form'=>$form->createView()));
     }
     public function successAction(){

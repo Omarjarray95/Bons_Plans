@@ -15,10 +15,13 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new AppBundle\AppBundle(),
             new MainBundle\MainBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new MailBundle\MailBundle(),
+            new GrapheBundle\GrapheBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

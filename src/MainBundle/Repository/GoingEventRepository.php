@@ -1,6 +1,7 @@
 <?php
 
 namespace MainBundle\Repository;
+use MainBundle\Entity\User;
 
 /**
  * GoingEventRepository
@@ -10,6 +11,18 @@ namespace MainBundle\Repository;
  */
 class GoingEventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function isGoing($event, User $user)
+    {
+        return
+            $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.event = :fav')
+                ->setParameter('fav', $event)
+                ->setParameter('user', $user)
+                ->getQuery()->getResult();
+
+    }
+
     public function countGoingEvent($eventid,$userid){
 
         $em = $this->getEntityManager();

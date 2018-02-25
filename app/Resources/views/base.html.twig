@@ -85,8 +85,8 @@
                     <li><a href="{{ path('a_propos') }}">A Propos</a></li>
                     <li><a href="{{ path('main_homepage')}}">Actualités</a>
                         <ul>
-                            <li><a href="{{ path('all_events')}}">Evenements</a></li>
-                            <li><a href="{{ path('all_offre')}}">Offres</a></li>
+                            <li><a href="{{ path('all_events_user')}}">Evenements</a></li>
+                            <li><a href="{{ path('all_offres_user')}}">Offres</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ path('contact') }}">Contact</a></li>
@@ -130,7 +130,19 @@
 {% block AfficherEtablissementUser %}
 {% endblock %}
 
-{% block ListEvent %}
+{% block EventRep %}
+{% endblock %}
+
+{% block EtabEvent %}
+{% endblock %}
+
+{% block Profileoffre %}
+{% endblock %}
+
+{% block OfferRep %}
+{% endblock %}
+
+{% block ProfileEvent %}
 {% endblock %}
 
 {% block AjouterEvent %}
@@ -140,6 +152,9 @@
 {% endblock %}
 
 {% block ListOffre %}
+{% endblock %}
+
+{% block ListEvent %}
 {% endblock %}
 
 {% block AjouterOffre %}
@@ -173,7 +188,7 @@
                 <h3 class="text-white">Contacts</h3>
                 <p>ADRESSE: Z.I. Chotrana II B.P. 160
                     Pôle Technologique El Ghazela - Ariana 2083
-                    <br>Email: digiminds@esprit.tn</p>
+                    <br>Email: bonsplans.esprit@gmail.tn</p>
                 <ul class="widget_social">
                     <li><a href="#"><i class="social_facebook"></i></a></li>
                     <li><a href="#"><i class="social_twitter"></i></a></li>
@@ -202,11 +217,12 @@
                 <div class="subscribe_form">
                     <form action="#" class="subscribe_form">
 
-                        <a href="{{ path('mail_homepage')}}">S'inscrire</a>
+                        <a href="{{ path('contact')}}">S'inscrire</a>
 
 
 
                     </form>
+                    <br>
                     <p class="align-left">Vous recevrez régulièrement toutes nos actualités sur votre boîte de réception</p>
 
                 </div><!-- Subscribe Form -->
@@ -254,7 +270,8 @@
 <script src="{{ asset('bundles/main/js/contact.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('bundles/main/js/main.js') }}"></script>
-
+{% block javascript %}
+{% endblock %}
 </body>
 
 <!-- Mirrored from wowthemez.com/templates/hangout/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Feb 2018 22:50:36 GMT -->

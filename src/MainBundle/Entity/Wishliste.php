@@ -21,10 +21,14 @@ class Wishliste
      */
     private $id;
     /**
+     *
+     * @var User $user
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
      */
     private $user;
     /**
+     * @var Etablissement $favoris
+     *
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Etablissement")
      */
     private $favoris;

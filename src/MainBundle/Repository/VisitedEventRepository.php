@@ -1,6 +1,7 @@
 <?php
 
 namespace MainBundle\Repository;
+use MainBundle\Entity\User;
 
 /**
  * VisitedEventRepository
@@ -10,6 +11,19 @@ namespace MainBundle\Repository;
  */
 class VisitedEventRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function isVisited($event, User $user)
+    {
+        return
+            $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.event = :event')
+                ->setParameter('event', $event)
+                ->setParameter('user', $user)
+                ->getQuery()->getResult();
+
+    }
+
     public function countVisitedEvent($eventid,$userid){
 
         $em = $this->getEntityManager();

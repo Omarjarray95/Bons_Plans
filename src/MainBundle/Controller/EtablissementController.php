@@ -63,10 +63,18 @@ class EtablissementController extends Controller
     }
     public function AfficheUserAction($id)
     {
-        $em=$this->getDoctrine()->getManager();
-        $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+        $user = $this->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+        $etablissement = $em->getRepository("MainBundle:Etablissement")->find($id);
+
+        $exist_v = $em->getRepository("MainBundle:Visited")->countVisited($etablissement, $user);
+        $exist_w = $em->getRepository("MainBundle:Wishliste")->countWishliste($etablissement, $user);
+
+
+
         return $this->render('MainBundle:Etablissement:profile.html.twig',
-            array('eta'=>$etablissement));
+            array('eta' => $etablissement , 'exist_v' => $exist_v == 0,'exist_w'=>$exist_w==0));
     }
 
 
@@ -87,7 +95,7 @@ class EtablissementController extends Controller
             $etablissement->setImagePrincipale($imageName);
             $em->persist($etablissement);
             $em->flush();
-            return $this->redirectToRoute('Afficher_Etablissement_ParId_Admin', array('id' => $id));
+            return $this->redirectToRoute('Afficher_Etablissement_Client', array('id' => $id));
         }
         return $this->render('MainBundle:Representant:Modifier_Etablissement_Representant.html.twig',
             array('et' => $form->createView(),'nom'=>$etablissement->getNom()));
@@ -109,20 +117,30 @@ class EtablissementController extends Controller
             $etablissement->setImagePrincipale($imageName);
             $em->persist($etablissement);
             $em->flush();
-            return $this->redirectToRoute('Afficher_Etablissement_ParId_Admin', array('id' => $id));
+            return $this->redirectToRoute('Afficher_Etablissement_Client', array('id' => $id));
         }
         return $this->render('MainBundle:Representant:Modifier_Etablissement_Photo.html.twig',
             array('etabl' => $form->createView(),'nom'=>$etablissement->getNom()));
     }
 
     public function SuppAction($id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
-        $em->remove($etablissement);
+{
+    $em=$this->getDoctrine()->getManager();
+    $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+    $visited=$em->getRepository('MainBundle:Visited')->findBy(array('favoris'=>$etablissement));
+    foreach ($visited as $in){
+        $em->remove($in);
         $em->flush();
-        return $this->redirectToRoute('Afficher_Etablissement_Admin');
     }
+    $wishs=$em->getRepository('MainBundle:Wishliste')->findBy(array('favoris'=>$etablissement));
+    foreach ($wishs as $in){
+        $em->remove($in);
+        $em->flush();
+    }
+    $em->remove($etablissement);
+    $em->flush();
+    return $this->redirectToRoute('Afficher_Etablissement_Admin');
+}
 
     public function FiltreAction($critere)
     {
@@ -188,5 +206,78 @@ class EtablissementController extends Controller
 
         return $this->render('MainBundle:Etablissement:ajouter.html.twig',
             array('e' => $form->createView()));
+    }
+
+    public function AfficheAccueilAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->findAll();
+        $etablissementr=$em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>'Resto_Café'));
+        return $this->render('MainBundle::LayoutFront.html.twig',
+            array('eta'=>$etablissement,'eta1'=>$etablissementr));
+    }
+
+    public function AfficheCAction($id)
+    {
+        $user=$this->getUser();
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+        $tags=$em->getRepository("MainBundle:Tag")->RechercherTagDQL($id);
+        $exist_v = $em->getRepository("MainBundle:Visited")->countVisited($etablissement, $user);
+        $exist_w = $em->getRepository("MainBundle:Wishliste")->countWishliste($etablissement, $user);
+
+        return $this->render('MainBundle:Etablissement:afficher.html.twig',
+            array('etab'=>$etablissement,'t'=>$tags,'exist_v' => $exist_v == 0,'exist_w'=>$exist_w==0));
+    }
+
+    public function RechercherCAction($critere)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissements=$em->getRepository("MainBundle:Etablissement")->FiltrerDQL($critere);
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere));
+    }
+
+    public function TriCAction($critere1,$critere2)
+    {
+        $em=$this->getDoctrine()->getManager();
+        if ($critere1=='HOA')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('horaireOuverture'=>'ASC'));
+        }
+        elseif ($critere1=='HFD')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('horaireFermeture'=>'DESC'));
+        }
+        elseif ($critere1=='BMA')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('budgetmoyen'=>'ASC'));
+        }
+        elseif ($critere1=='BMD')
+        {
+            $etablissements = $em->getRepository("MainBundle:Etablissement")->findBy(array('type'=>$critere2),array('budgetmoyen'=>'DESC'));
+        }
+        else
+        {
+            $etablissements=$em->getRepository("MainBundle:Etablissement")->findAll();
+        }
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere2));
+    }
+
+    public function RechercheCNAction(Request $request,$critere2)
+    {
+        $em=$this->getDoctrine()->getManager();
+        if ($request->isMethod('POST'))
+        {
+            $nom = $request->get('abc');
+            $etablissements=$em->getRepository("MainBundle:Etablissement")->RechercherCNDQL($nom,$critere2);
+            return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere2));
+        }
+    }
+
+    public function RechercheTAction($tag)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->RechercherT($tag);
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Tag.html.twig", array('eta'=>$etablissement));
     }
 }

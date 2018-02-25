@@ -65,8 +65,12 @@ class User extends BaseUser
 
     /**
      * @var string
+<<<<<<< HEAD
      * @ORM\Column(type="string", nullable=TRUE)
      * @ORM\Column(type="string",nullable=TRUE)
+=======
+     * @ORM\Column(type="string",nullable=TRUE,length=2000)
+>>>>>>> be65281b38db47c90efdde6d6b1aa9439ad33021
      */
     protected $intro;
 
