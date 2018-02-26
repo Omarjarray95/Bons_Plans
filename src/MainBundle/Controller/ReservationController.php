@@ -27,6 +27,7 @@ class ReservationController extends Controller
         return $this->render('MainBundle:Reservation:ajout.html.twig', array('Form'=>$Form->createView()));
     }
 
+
     public function AfficheAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -34,11 +35,12 @@ class ReservationController extends Controller
         return $this->render('MainBundle:Reservation:affiche.html.twig', array('r' => $reservation));
     }
 
-    public function DeleteAction($id)
+    public function DeleteAction($id1, $id2)
     {
         $em=$this->getDoctrine()->getManager();
-        $reservation=$em->getRepository("MainBundle:Reservation")->find($id);
-        $em->remove($reservation);
+        $reservation=$em->getRepository("MainBundle:Reservation")->find($id1);
+        $etab=$em->getRepository("MainBundle:Etablissement")->find($id2);
+        $etab->remove($reservation);
         $em->flush();
         return $this->redirectToRoute('affiche_reservation');
 
@@ -58,7 +60,7 @@ class ReservationController extends Controller
             $em->flush();
             return $this->redirectToRoute('affiche_reservation');
         }
-        return $this->render('MainBundle:Reservation:update.html.twig', array('Form'=>$Form->createView()));
+        return $this->render('MainBundle:Reservation:ajout.html.twig', array('Form'=>$Form->createView()));
     }
 
 }

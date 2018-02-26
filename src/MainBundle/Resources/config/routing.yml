@@ -70,6 +70,18 @@ Rechercher_Etablissement_Nom:
     path:     /RechercherEtablissementNom/{critere2}
     defaults: { _controller: MainBundle:Etablissement:RechercheCN }
 
+Ajouter_Tag_Representant:
+    path:     /AjouterTag/{id}
+    defaults: { _controller: MainBundle:Tag:Ajout }
+
+Supprimer_Tag_Representant:
+    path:     /SupprimerTag/{id}/{id1}
+    defaults: { _controller: MainBundle:Tag:Supp }
+
+Rechercher_Etablissement_Tag:
+    path:     /RechercherEtablissementTag/{tag}
+    defaults: { _controller: MainBundle:Etablissement:RechercheT }
+
 modifier_etablissement:
     path:     /ModifierEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Modif }
@@ -95,9 +107,25 @@ affiche_reservation:
     defaults: { _controller: MainBundle:Reservation:Affiche }
 
 delete_reservation:
-    path:     /DeleteRes
+    path:     /DeleteRes{id1}/{id2}
     defaults: { _controller: MainBundle:Reservation:Delete }
 
 update_reservation:
     path:     /UpdateRes{id1}/{id2}
     defaults: { _controller: MainBundle:Reservation:Update }
+
+ajout_experience:
+    path:     /AjoutEx
+    defaults: { _controller: MainBundle:SharedExperience:Ajout }
+
+delete_experience:
+    path:     /DeleteEx
+    defaults: { _controller: MainBundle:SharedExperience:Delete }
+
+update_experience:
+    path:     /UpdateEx
+    defaults: { _controller: MainBundle:SharedExperience:Update }
+
+affiche_experience:
+    path:     /AfficheEx
+    defaults: { _controller: MainBundle:SharedExperience:Affiche }

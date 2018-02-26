@@ -16,11 +16,20 @@
                             <td>{{ form_widget(Form.nom) }}</td></tr>
                     </div>
                     <div class="col-xs-6">
+                        <tr><td>{{ form_label(Form.prenom) }}</td>
+                            <td>{{ form_widget(Form.prenom) }}</td></tr>
+                    </div><br>
+                    <div class="col-xs-6">
                         <tr><td>{{ form_label(Form.user)}}</td><td>{{ form_widget(Form.user)}}</td></tr></div>
                     <div class="col-xs-6">
-                        <tr><td >{{ form_label(Form.datedereservation) }}</td>
-                            <td>{{ form_widget(Form.datedereservation) }}</td></tr>
-                    </div>
+                        <tr><td>{{ form_label(Form.numtel)}}</td><td>{{ form_widget(Form.numtel)}}</td></tr></div><br>
+                    <tr><td>{{ form_label(Form.nbrePersonnes)}}</td><td>{{ form_widget(Form.nbrePersonnes) }}</td><br>
+                    <tr><td >{{ form_label(Form.datedereservation) }}</td>
+                        <td>{{ form_widget(Form.datedereservation) }}</td></tr><br>
+                    <tr><td >{{ form_label(Form.heuredereservation) }}</td>
+                        <td>{{ form_widget(Form.heuredereservation) }}</td></tr><br>
+                    {{ form_end(Form) }}
+                </div>
                     <div>{{ form_widget(Form.AjoutRes,{'label':'Modifier'}) }}</div>
                     {{ form_end(Form) }}
                     <div class="form-group">

@@ -3,6 +3,8 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Reservation
@@ -41,10 +43,79 @@ class Reservation
      * @var string
      * @ORM\Column(type="string")
      */
+    private $prenom;
+    /**
+     * @var
+     * @ORM\Column(name="Numero")
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8
+     * )
+     */
     private $numtel;
+    /**
+     * @var int
+     * @ORM\Column(name="nbre_chambres", type="integer", nullable=TRUE)
+     */
+    private $nbreChambres;
+    /**
+     * @var int
+     * @ORM\Column(name="nbre_adultes", type="integer", nullable=TRUE)
+     */
+    private $nbreAdultes;
+    /**
+     * @var int
+     * @ORM\Column(name="nbre_enfants", type="integer", nullable=TRUE)
+     */
+    private $nbreEnfants;
+
 
     /**
+     * @ORM\Column(name="nbre_personnes",type="integer",nullable=TRUE)
+     */
+    private $nbrePersonnes;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_de_reservation", type="date",nullable=TRUE)
+     */
+    private $datedereservation;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="arrivée", type="date",nullable=TRUE)
+     */
+    private $arrivée;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="heuredereservation", type="string", length=255, nullable=TRUE)
+     */
+    private $heuredereservation;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="départ", type="date",nullable=TRUE)
+     */
+    private $départ;
+    /**
      * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return mixed
      */
     public function getNumtel()
     {
@@ -52,16 +123,111 @@ class Reservation
     }
 
     /**
-     * @param string $numtel
+     * @param mixed $numtel
      */
     public function setNumtel($numtel)
     {
         $this->numtel = $numtel;
     }
+
     /**
-     * @ORM\Column(type="integer")
+     * @return int
      */
-    private $nbrePersonnes;
+    public function getNbreChambres()
+    {
+        return $this->nbreChambres;
+    }
+
+    /**
+     * @param int $nbreChambres
+     */
+    public function setNbreChambres($nbreChambres)
+    {
+        $this->nbreChambres = $nbreChambres;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHeuredereservation()
+    {
+        return $this->heuredereservation;
+    }
+
+    /**
+     * @param string $heuredereservation
+     */
+    public function setHeuredereservation($heuredereservation)
+    {
+        $this->heuredereservation = $heuredereservation;
+    }
+
+    /**
+     * @return \DateTime
+     */
+
+    public function getArrivée()
+    {
+        return $this->arrivée;
+    }
+
+    /**
+     * @param \DateTime $arrivée
+     */
+    public function setArrivée($arrivée)
+    {
+        $this->arrivée = $arrivée;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDépart()
+    {
+        return $this->départ;
+    }
+
+    /**
+     * @param \DateTime $départ
+     */
+    public function setDépart($départ)
+    {
+        $this->départ = $départ;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getNbreAdultes()
+    {
+        return $this->nbreAdultes;
+    }
+
+    /**
+     * @param int $nbreAdultes
+     */
+    public function setNbreAdultes($nbreAdultes)
+    {
+        $this->nbreAdultes = $nbreAdultes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbreEnfants()
+    {
+        return $this->nbreEnfants;
+    }
+
+    /**
+     * @param int $nbreEnfants
+     */
+    public function setNbreEnfants($nbreEnfants)
+    {
+        $this->nbreEnfants = $nbreEnfants;
+    }
+
 
     /**
      * @return mixed
@@ -94,14 +260,6 @@ class Reservation
     {
         $this->nom = $nom;
     }
-
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_de_reservation", type="date")
-     */
-    private $datedereservation;
 
     /**
      * @return mixed

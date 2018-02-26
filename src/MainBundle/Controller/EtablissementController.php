@@ -108,13 +108,13 @@ class EtablissementController extends Controller
     }
 
     public function SuppAction($id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
-        $em->remove($etablissement);
-        $em->flush();
-        return $this->redirectToRoute('Afficher_Etablissement_Admin');
-    }
+{
+    $em=$this->getDoctrine()->getManager();
+    $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+    $em->remove($etablissement);
+    $em->flush();
+    return $this->redirectToRoute('Afficher_Etablissement_Admin');
+}
 
     public function FiltreAction($critere)
     {
@@ -195,8 +195,9 @@ class EtablissementController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+        $tags=$em->getRepository("MainBundle:Tag")->RechercherTagDQL($id);
         return $this->render('MainBundle:Etablissement:afficher.html.twig',
-            array('etab'=>$etablissement));
+            array('etab'=>$etablissement,'t'=>$tags));
     }
 
     public function RechercherCAction($critere)
@@ -241,5 +242,12 @@ class EtablissementController extends Controller
             $etablissements=$em->getRepository("MainBundle:Etablissement")->RechercherCNDQL($nom,$critere2);
             return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Client.html.twig", array('eta'=>$etablissements,'critere'=>$critere2));
         }
+    }
+
+    public function RechercheTAction($tag)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $etablissement=$em->getRepository("MainBundle:Etablissement")->RechercherT($tag);
+        return $this->render("MainBundle:Etablissement:Rechercher_Etablissement_Tag.html.twig", array('eta'=>$etablissement));
     }
 }

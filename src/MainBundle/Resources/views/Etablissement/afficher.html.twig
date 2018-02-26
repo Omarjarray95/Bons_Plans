@@ -31,50 +31,47 @@
             </div>
             <div class="panel-body">
                 <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
-                    Form in Modal
+                    Form in Modal</a>
+
+                <a href="#myModal" data-toggle="modal" class="default_btn mb-15" style="margin-top: 5px;color: #ffffff">
+                    <strong>Tags</strong>
                 </a>
                 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                <h4 class="modal-title">Form Tittle</h4>
+                                <h4 class="modal-title">Tags</h4>
                             </div>
                             <div class="modal-body">
-
-                                <form role="form">
+                                <form role="form" action="{{ path('Ajouter_Tag_Representant',{'id':etab.id}) }}" method="POST">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                                        {% for tags in etab.tags %}
+                                        <div class="default_btn mb-20 alert fade in">{{ tags.name }}<a aria-hidden="true" data-dismiss="alert" class="close" style="margin-right: -20px" href="{{ path('Supprimer_Tag_Representant',{'id':tags.id,'id1':etab.id}) }}">×</a></div>
+                                        {% endfor %}<br>
+                                        <label for="exampleInputEmail1">Ajouter Un Tag</label>
+                                        <input type="text" class="form-control" name="tag">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                                    {% for tag in t %}
+                                    <div class="default_btn mb-20 alert fade in"><a href="{{ path('Rechercher_Etablissement_Tag',{'tag':tag.name}) }}">{{ tag.name }}</a></div>
+                                    {% endfor %}
+                                    <div>
+                                        <button type="submit" class="btn btn-default">Ajouter Un Tag</button>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">File input</label>
-                                        <input type="file" id="exampleInputFile3">
-                                        <p class="help-block">Example block-level help text here.</p>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Check me out
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-default">Submit</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+
                 <br class="single-meta-info mb-25">
                 <i class="fa fa-home"></i> <strong>{{ etab.adresse }}</strong><br>
                     <i class="icon-clock"></i> <strong>{{ etab.horaireouverture | date('H:i') }}-{{ etab.horairefermeture | date('H:i') }}</strong><br>
                     <i class="icon_phone"></i> <strong>{{ etab.numtel }}</strong><br>
-                    <i class="fa fa-money"></i> <strong>{{ etab.budgetmoyen }}</strong><br>
+                    <i class="fa fa-money"></i> <strong>{{ etab.budgetmoyen }} DT</strong><br>
                 <i class="fa fa-globe"></i> <a href="{{ etab.url }}">{{ etab.url }}</a><br>
-            <a href="{{ path('Modifier_Etablissement_Photo_Admin',{'id':etab.id}) }}"><img class="col-sm-offset-4" style="margin-bottom: 40px;" src="{{ asset('img/' ~ etab.imagePrincipale) }}"></a>
+            <a href="{{ path('Modifier_Etablissement_Photo_Admin',{'id':etab.id}) }}"><img style="margin-bottom: 40px;margin-top: 40px;padding-left: 30%;width: 600px;height: 250px" src="{{ asset('img/' ~ etab.imagePrincipale) }}"></a>
                 <p style="margin-bottom: -10px"><strong>Description :</strong></p><br>
                 <blockquote>
                     <p>{{ etab.description }}</p>

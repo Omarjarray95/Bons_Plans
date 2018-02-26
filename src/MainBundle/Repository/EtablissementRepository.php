@@ -34,4 +34,11 @@ class EtablissementRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+    public function RechercherT($tag)
+    {
+        $SQB1 = $this->getEntityManager()->createQueryBuilder()->select('et')->from("MainBundle:Etablissement",'et')
+            ->join('et.tags','et_tags')->where('et_tags.name=:t')->setParameter('t',$tag);
+        return $SQB1->getQuery()->getResult();
+    }
+
 }

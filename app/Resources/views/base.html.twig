@@ -95,6 +95,7 @@
                     {% block user1 %}
                     {% if is_granted('ROLE_USER') %}
                         <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></li>
+                        <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_logout') }}">Se Déconnecter</a></li>
                     {% else %}
                     <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
                     <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_registration_register') }}">S'Inscrire</a></li>
@@ -138,6 +139,7 @@
 {% block Rechercher_Etablissement_Client %}
 {% endblock %}
 
+<<<<<<< HEAD
 {% block AfficherReservation %}
 {% endblock %}
 
@@ -146,6 +148,11 @@
 
 {% block UpdateReservation %}
 {% endblock %}
+=======
+{% block Tag %}
+{% endblock %}
+
+>>>>>>> be65281b38db47c90efdde6d6b1aa9439ad33021
 <div class="sponsor_section bg-grey">
     <div class="container">
         <ul id="sponsor_carousel" class="sponsor_items owl-carousel">

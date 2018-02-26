@@ -83,6 +83,10 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="id_user")
      */
     protected $reservations;
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\SharedExperience", mappedBy="id_user")
+     */
+    protected $sharedExperiences;
 
     public function __construct()
     {

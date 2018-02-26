@@ -3,7 +3,6 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MainBundle\Entity\Etablissement;
 
 /**
  * Tag
@@ -20,12 +19,6 @@ class Tag
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\Etablissement", inversedBy="id")
-     * @ORM\JoinTable(name="etablissements_tags")
-     */
-    private $etablissements;
 
     /**
      * @var string
@@ -67,47 +60,11 @@ class Tag
         return $this->name;
     }
 
-
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->etablissements = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add etablissement
-     *
-     * @param Etablissement $etablissement
-     *
-     * @return Tag
-     */
-    public function addEtablissement(Etablissement $etablissement)
-    {
-        $this->etablissements[] = $etablissement;
-
-        return $this;
-    }
-
-    /**
-     * Remove etablissement
-     *
-     * @param Etablissement $etablissement
-     */
-    public function removeEtablissement(Etablissement $etablissement)
-    {
-        $this->etablissements->removeElement($etablissement);
-    }
-
-    /**
-     * Get etablissements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEtablissements()
-    {
-        return $this->etablissements;
     }
 }

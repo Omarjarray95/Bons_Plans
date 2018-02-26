@@ -14,63 +14,52 @@
                 <div class="col-xs-6">
                     <tr><td>{{ form_label(Form.nom) }}</td>
                         <td>{{ form_widget(Form.nom) }}</td></tr>
-                </div>
+                </div><br>
                 <div class="col-xs-6">
-                    <tr><td>{{ form_label(Form.numtel)}}</td><td>{{ form_widget(Form.numtel)}}</td></tr></div>
-                <tr><td>{{ form_label(Form.nbrePersonnes)}}</td><td>{{ form_widget(Form.nbrePersonnes) }}
+                    <tr><td>{{ form_label(Form.prenom) }}</td>
+                        <td>{{ form_widget(Form.prenom) }}</td></tr>
+                </div><br>
+                <div class="col-xs-6">
+                    <tr><td>{{ form_label(Form.numtel)}}</td><td>{{ form_widget(Form.numtel)}}</td></tr></div><br>
+                <tr><td>{{ form_label(Form.nbrePersonnes)}}</td><td>{{ form_widget(Form.nbrePersonnes) }}</td><br>
                     <tr><td >{{ form_label(Form.datedereservation) }}</td>
-                        <td>{{ form_widget(Form.datedereservation) }}</td></tr>
-                </div>
+                        <td>{{ form_widget(Form.datedereservation) }}</td></tr><br>
+                <tr><td >{{ form_label(Form.heuredereservation) }}</td>
+                    <td>{{ form_widget(Form.heuredereservation) }}</td></tr><br>
                 {{ form_end(Form) }}
+            </div>
+
                 <div class="form-group">
-                    <div class="col-xs-6">
-                        <select class="form-control" id="quantity" name="quantity">
-                            <option>1 Personne</option>
-                            <option>2 Personnes</option>
-                            <option>3 Personnes</option>
-                            <option>4 Personnes</option>
-                            <option>5 Personnes</option>
-                            <option>6 Personnes</option>
-                        </select>
-                    </div>
                 </div>
                 <div id="msg-status" class="alert" role="alert"></div>
 
             </div>
-        </div>
+
         <div class="col-sm-4 hidden-xs">
             <div class="reservation_img">
                 <img src="{{ asset('img/fathers-day-button.png') }}" alt="reservation">
             </div>
         </div>
     </div>
+
 </section>
     <div class="sponsor_section bg-grey">
         <div class="container">
             <ul id="sponsor_carousel" class="sponsor_items owl-carousel">
                 <li class="sponsor_item">
-                    <img src="img/sponsor-1.png" alt="sponsor-image">
+                    <img src="{{ asset('img/sponsor-1.png')}}" alt="sponsor-image">
                 </li>
                 <li class="sponsor_item">
-                    <img src="img/sponsor-2.png" alt="sponsor-image">
+                    <img src="{{ asset('img/sponsor-2.png')}}" alt="sponsor-image">
                 </li>
                 <li class="sponsor_item">
-                    <img src="img/sponsor-3.png" alt="sponsor-image">
+                    <img src="{{ asset('img/sponsor-3.png')}}" alt="sponsor-image">
                 </li>
                 <li class="sponsor_item">
-                    <img src="img/sponsor-4.png" alt="sponsor-image">
+                    <img src="{{ asset('img/sponsor-4.png')}}" alt="sponsor-image">
                 </li>
                 <li class="sponsor_item">
-                    <img src="img/sponsor-5.png" alt="sponsor-image">
-                </li>
-                <li class="sponsor_item">
-                    <img src="img/sponsor-1.png" alt="sponsor-image">
-                </li>
-                <li class="sponsor_item">
-                    <img src="img/sponsor-2.png" alt="sponsor-image">
-                </li>
-                <li class="sponsor_item">
-                    <img src="img/sponsor-3.png" alt="sponsor-image">
+                    <img src="{{ asset('img/sponsor-5.png')}}" alt="sponsor-image">
                 </li>
             </ul>
         </div>
