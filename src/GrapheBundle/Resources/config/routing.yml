@@ -1,0 +1,3 @@
+graphePie:
+ path: /pie
+ defaults: { _controller: GrapheBundle:Default:Type}

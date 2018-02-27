@@ -10,4 +10,11 @@ namespace MainBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function RechercherDQL($nom)
+    {
+        $query=$this->getEntityManager()->createQuery("SELECT r FROM MainBundle:Reservation r WHERE r.nom like :n 
+            order by et.nom ASC")
+            ->setParameter('no', '%'.$nom.'%');
+        return $query->getResult();
+    }
 }

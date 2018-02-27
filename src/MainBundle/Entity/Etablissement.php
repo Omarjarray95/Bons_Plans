@@ -706,4 +706,5 @@ class Etablissement
     {
         return $this->budgetmoyen;
     }
+
 }

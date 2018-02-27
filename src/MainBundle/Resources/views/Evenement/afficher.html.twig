@@ -1,0 +1,53 @@
+{% set path_interet = exist_interet != true ? path('delete_interest' , {'id' : e.id}) : path('ajouter_interest' , {'id' : e.id}) %}
+{% set state_interet = exist_interet != true ? 'Interested' : 'Marquer intéressé' %}
+
+{% set path_going = exist_going != true ? path('delete_going' , {'id' : e.id}) : path('ajouter_going' , {'id' : e.id}) %}
+{% set state_going = exist_going != true ? 'Going' : 'Marquer Going' %}
+{% extends 'Base.html.twig' %}
+
+{% block ProfileEvent %}
+
+
+
+
+
+    <section id="reservation" class="reservation_section bg-grey">
+        <div class="container padding">
+            <div class="col-sm-10 col-sm-offset-1 align-left">
+                <div class="reserv_form">
+                    <div class="section_heading mb-40">
+                        <div>
+
+                            <p><strong>Nom: </strong> {{ (e.nom) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Date: </strong> {{ (e.date|date("m/d/Y") ) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Description: </strong> {{ (e.description) }}</p>
+                        </div>
+                        <div>
+                            <p><strong>Nombre de personnes intéressées: </strong> {{ (e.interesses ) }}</p>
+                        </div>
+
+                        <div>
+                            <p><strong>Nombre de personnes qui vont arriver: </strong> {{ (e.nbr_personnes) }}</p>
+                        </div>
+                        <div>
+
+                            <a href="{{ path_going }}" class="default_btn" id="js-going">{{ state_going }}</a>
+                            <a href="{{ path_interet }}" class="default_btn" id="js-interested">{{ state_interet }}</a>
+
+                        </div>
+                        {% block EventRep %}
+                            <li><a href="{{ path('update_event',{'id':e.id})}}">Modifier </a></li>
+                            <li><a href="{{ path('delete_event',{'id':e.id})}}">Supprimer </a></li>
+                        {% endblock %}
+                        <br><br><br>
+                        {{ socialButtons() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

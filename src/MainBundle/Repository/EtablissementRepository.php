@@ -40,5 +40,10 @@ class EtablissementRepository extends \Doctrine\ORM\EntityRepository
             ->join('et.tags','et_tags')->where('et_tags.name=:t')->setParameter('t',$tag);
         return $SQB1->getQuery()->getResult();
     }
+    public function NbrParType($type){
+        $query=$this->getEntityManager()->createQuery("SELECT count(et) FROM MainBundle:Etablissement et WHERE et.type like :no ")
+            ->setParameter('no', $type);
+        return $query->getScalarResult();
+    }
 
 }

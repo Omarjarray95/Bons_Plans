@@ -61,6 +61,22 @@ class EtablissementController extends Controller
         return $this->render('MainBundle:Admin:Afficher_Etablissement_ParId.html.twig',
             array('etab'=>$etablissement));
     }
+    public function AfficheUserAction($id)
+    {
+        $user = $this->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+        $etablissement = $em->getRepository("MainBundle:Etablissement")->find($id);
+
+        $exist_v = $em->getRepository("MainBundle:Visited")->countVisited($etablissement, $user);
+        $exist_w = $em->getRepository("MainBundle:Wishliste")->countWishliste($etablissement, $user);
+
+
+
+        return $this->render('MainBundle:Etablissement:profile.html.twig',
+            array('eta' => $etablissement , 'exist_v' => $exist_v == 0,'exist_w'=>$exist_w==0));
+    }
+
 
     public function ModifAction(Request $request,$id)
     {
@@ -111,6 +127,16 @@ class EtablissementController extends Controller
 {
     $em=$this->getDoctrine()->getManager();
     $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
+    $visited=$em->getRepository('MainBundle:Visited')->findBy(array('favoris'=>$etablissement));
+    foreach ($visited as $in){
+        $em->remove($in);
+        $em->flush();
+    }
+    $wishs=$em->getRepository('MainBundle:Wishliste')->findBy(array('favoris'=>$etablissement));
+    foreach ($wishs as $in){
+        $em->remove($in);
+        $em->flush();
+    }
     $em->remove($etablissement);
     $em->flush();
     return $this->redirectToRoute('Afficher_Etablissement_Admin');
@@ -193,11 +219,15 @@ class EtablissementController extends Controller
 
     public function AfficheCAction($id)
     {
+        $user=$this->getUser();
         $em=$this->getDoctrine()->getManager();
         $etablissement=$em->getRepository("MainBundle:Etablissement")->find($id);
         $tags=$em->getRepository("MainBundle:Tag")->RechercherTagDQL($id);
+        $exist_v = $em->getRepository("MainBundle:Visited")->countVisited($etablissement, $user);
+        $exist_w = $em->getRepository("MainBundle:Wishliste")->countWishliste($etablissement, $user);
+
         return $this->render('MainBundle:Etablissement:afficher.html.twig',
-            array('etab'=>$etablissement,'t'=>$tags));
+            array('etab'=>$etablissement,'t'=>$tags,'exist_v' => $exist_v == 0,'exist_w'=>$exist_w==0));
     }
 
     public function RechercherCAction($critere)

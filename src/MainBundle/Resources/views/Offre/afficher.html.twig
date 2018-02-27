@@ -1,0 +1,34 @@
+{% extends 'Base.html.twig' %}
+
+{% block Profileoffre %}
+
+
+
+    {
+<section id="reservation" class="reservation_section bg-grey">
+    <div class="container padding">
+        <div class="col-sm-10 col-sm-offset-1 align-left">
+            <div class="reserv_form">
+                <div class="section_heading mb-40">
+                    <div>
+                        <p><strong>Offre: </strong> {{ (offre.offre) }}</p>
+                    </div>
+                    <div>
+                        <p><strong>Date début: </strong>{{offre.dateDebut|date("m/d/Y")  }}</p>
+                    </div>
+                    <div>
+                        <p><strong>Date fin: </strong> {{offre.dateFin|date("m/d/Y")  }}</p>
+                    </div>
+                </div>
+                <br><br>
+                {% block OfferRep %}
+                    <li><a  href="{{ path('update_offre',{'id':offre.id})}}">Modifier </a></li>
+                    <li><a  href="{{ path('delete_offre',{'id':offre.id})}}">Supprimer </a></li>
+                {% endblock %}
+                <br><br><br>
+                {{ socialButtons() }}
+            </div>
+        </div>
+    </div>
+</section>
+    {% endblock %}

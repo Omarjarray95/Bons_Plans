@@ -19,6 +19,7 @@
                                             </ul>
                                             <address>
                                                 <p class="A">{{ reservations.datedereservation|date('Y-m-d') }}</p> <br>
+                                                <p class="A" >{{ reservations.heuredereservation|date }}</p><br>
                                                 <p class="A">{{ reservations.numtel }}</p> <br>
                                                 <p class="A">{{ reservations.nbrePersonnes }}</p> <br>
                                                 <a href="{{ path('update_reservation',{'id1':reservations.id,'id2':app.user.id})}}" class="btn btn-success"><i class="fa fa-eye"></i> Modifier votre reservation </a>

@@ -1,6 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block AjouterReservation %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <h1>Welcome to the Reservation:Ajout page</h1>
     <section id="reservation" class="bd-bottom reservation_section">
     <div class="container padding">
@@ -26,6 +27,7 @@
                         <td>{{ form_widget(Form.datedereservation) }}</td></tr><br>
                 <tr><td >{{ form_label(Form.heuredereservation) }}</td>
                     <td>{{ form_widget(Form.heuredereservation) }}</td></tr><br>
+                <div class="g-recaptcha" data-sitekey="6LfpCkkUAAAAAPBixIl5U7KP7AOa-gtKKufFJdJx"></div>
                 {{ form_end(Form) }}
             </div>
 
@@ -63,6 +65,5 @@
                 </li>
             </ul>
         </div>
-    </div><!-- ./sponsor_section -->
-    <!-- /.reservation_section -->
+    </div>
 {% endblock %}

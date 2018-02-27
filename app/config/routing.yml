@@ -1,3 +1,11 @@
+graphe:
+    resource: "@GrapheBundle/Resources/config/routing.yml"
+    prefix:   /Graphe
+
+my_app_mail:
+    resource: "@MailBundle/Resources/config/routing.yml"
+    prefix:   /mail
+
 main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /BonsPlans
@@ -8,3 +16,13 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+wish_profile:
+    path:     /profile/wish/
+    defaults: { _controller: MainBundle:Wishlist:getWish}
+
+captcha_routing:
+  resource: "@CaptchaBundle/Resources/config/routing.yml"
+
+
+

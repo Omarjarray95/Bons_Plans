@@ -14,7 +14,7 @@ class ReservationController extends Controller
         $reservation = new Reservation();
         $Form = $this->createForm(ReservationType::class,$reservation);
         $Form->handleRequest($request);
-        if ($Form->isValid() && $Form->isSubmitted()){
+        if ($Form->isValid() && $Form->isSubmitted() && $this->captchaverify($request->get('g-recaptcha-response'))){
             $em= $this->getDoctrine()->getManager();
             $etab=$em->getRepository("MainBundle:Etablissement")->find($id1);
             $user=$em->getRepository("MainBundle:User")->find($id2);
@@ -24,7 +24,29 @@ class ReservationController extends Controller
             $em->flush();
             return $this->redirectToRoute('affiche_reservation');
         }
+        if($Form->isSubmitted() &&  $Form->isValid() && !$this->captchaverify($request->get('g-recaptcha-response'))){
+
+            $this->addFlash(
+                'error',
+                'Captcha Require'
+            );
+        }
         return $this->render('MainBundle:Reservation:ajout.html.twig', array('Form'=>$Form->createView()));
+    }
+    function captchaverify($recaptcha){
+        $url = "https://www.google.com/recaptcha/api/siteverify";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+            "secret"=>"6LeTXQgUAAAAALExcpzgCxWdnWjJcPDoMfK3oKGi","response"=>$recaptcha));
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response);
+
+        return $data->success;
     }
 
 
@@ -40,7 +62,7 @@ class ReservationController extends Controller
         $em=$this->getDoctrine()->getManager();
         $reservation=$em->getRepository("MainBundle:Reservation")->find($id1);
         $etab=$em->getRepository("MainBundle:Etablissement")->find($id2);
-        $etab->remove($reservation);
+        $em->remove($reservation);
         $em->flush();
         return $this->redirectToRoute('affiche_reservation');
 

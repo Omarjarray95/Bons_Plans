@@ -19,7 +19,7 @@
                         <li><a href="{{ path('Modifier_Etablissement_Photo_Admin',{'id':etab.id}) }}"> <i class="fa fa-picture-o"></i> Changer La Photo </a></li>
                         {% endif %}
                         <li class="active"><a href="javascript:history.go(0)"> <i class="fa fa-building-o"></i> Page </a></li>
-                        <li><a href="profile-activity.html"> <i class="fa fa-calendar"></i> Evenements </a></li>
+                        <li><a href="{{ path('Afficher_Evenement_ParId_Admin_etab',{'id_etab':etab.id}) }}"> <i class="fa fa-calendar"></i> Evenements </a></li>
                         {% if is_granted("ROLE_REPRESENTANT") %}
                         <li><a href="{{ path('Modifier_Etablissement_Admin',{'id':etab.id}) }}"><i class="fa fa-edit"></i> Modifier La Page </a></li>
                         {% endif %}

@@ -1,7 +1,35 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}MainBundle:SharedExperience:Ajout{% endblock %}
-
-{% block body %}
+{% block AjouterExperience %}
 <h1>Welcome to the SharedExperience:Ajout page</h1>
+<section id="reservation" class="bd-bottom reservation_section">
+    <div class="container padding">
+        <div class="col-sm-8">
+            <div class="reserv_form">
+                <div class="section_heading mb-40">
+                    <h2>Partagez votre expérience avec d'autres intenautes</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>It has survived not only five centuries.</p>
+                </div>
+                {{ form_start(Form) }}
+
+                <div class="col-xs-6">
+                    <tr><td>{{ form_label(Form.checkInDate)}}</td><td>{{ form_widget(Form.checkInDate)}}</td></tr></div><br>
+                <tr><td>{{ form_label(Form.impression)}}</td><td>{{ form_widget(Form.impression) }}</td><br>
+                {{ form_end(Form) }}
+            </div>
+
+            <div class="form-group">
+            </div>
+            <div id="msg-status" class="alert" role="alert"></div>
+
+        </div>
+
+        <div class="col-sm-4 hidden-xs">
+            <div class="reservation_img">
+                <img src="{{ asset('img/246x0w.png') }}" alt="reservation">
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

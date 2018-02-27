@@ -1,12 +1,18 @@
+{% set path_v = exist_v != true ? path('delete_visited' , {'id' : etab.id}) : path('ajouter_visited' , {'id' : etab.id}) %}
+{% set state_v = exist_v != true ? 'Deja visité' : 'Marquer visité' %}
+
+{% set path_wish = exist_w != true ? path('delete_wish' , {'id' : etab.id}) : path('ajouter_wish' , {'id' : etab.id}) %}
+{% set state_wish = exist_w != true ? 'Déja favoris' : 'Ajouter à mes favoris' %}
+
 {% extends 'Base.html.twig' %}
 
-{% block Modifier_Etablissement_Representant %}
-    {% if is_granted('ROLE_REPRESENTANT') %}
-    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('Modifier_Etablissement_Admin',{'id':etab.id})}}">Modifier Les Informations De {{ etab.nom }}</a></li>
-        {% endif %}
-{% endblock %}
+
 
 {% block AfficherEtablissement %}
+
+
+
+
 
     <link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
           xmlns="http://www.w3.org/1999/html"/>
@@ -28,6 +34,9 @@
                 <h2 style="margin-top: -80px">{{ etab.nom }}</h2>
             <div>
                 <a href="{{ path('ajout_reservation',{'id1':etab.id,'id2':app.user.id})}}">Passer une réservation</a>
+            </div>
+            <div>
+                <a href="{{ path('ajout_experience',{'id1':etab.id,'id2':app.user.id})}}">Partager votre expérience</a>
             </div>
             <div class="panel-body">
                 <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
@@ -57,7 +66,9 @@
                                     {% endfor %}
                                     <div>
                                         <button type="submit" class="btn btn-default">Ajouter Un Tag</button>
+
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -76,7 +87,23 @@
                 <blockquote>
                     <p>{{ etab.description }}</p>
                 </blockquote>
-            </div><!-- /.blog_content -->
+            <div>
+                <!-- /.ONLY USER -->
+                <a href="{{ path_v }}" class="default_btn" id="js-visited">{{ state_v }}</a>
+                <a href="{{ path_wish }}" class="default_btn" id="js-wished">{{ state_wish }}</a>
+
+            </div>
+            <!-- /.REPRESENTANT -->
+            <div>
+            <li><a  href="{{ path('Modifier_Etablissement_Admin',{'id':etab.id})}}">Modifier Les Informations De {{ etab.nom }}</a></li>
+            <li><a  href="{{ path('add_event',{'id':etab.id})}}">Ajouter vos évenements</a></li>
+            <li><a  href="{{ path('add_offre',{'id':etab.id})}}">Proposez un offre</a></li>
+            </div>
+
+            <br><br>
+            {{ socialButtons() }}
+            <br><br>
+        </div><!-- /.blog_content -->
 
             <div class="comments-wrap" style="padding-left: 100px">
                 <form class="form-horizontal coment-form">

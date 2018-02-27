@@ -370,6 +370,26 @@
 
                 <li class="sub-menu">
                     <a href="javascript:" >
+                        <i class="fa fa-calendar"></i>
+                        <span>Evenements</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="{{ path('all_etab_events_admin')}}">Afficher Tout</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:" >
+                        <i class="fa fa-calendar"></i>
+                        <span>Offres</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="{{ path('all_offres_Admin')}}">Afficher Tout</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:" >
                         <i class="fa fa-laptop"></i>
                         <span>Layouts</span>
                     </a>
@@ -560,13 +580,37 @@
 {% block Afficher_Etablissement %}
 {% endblock %}
 
+{% block Afficher_Evenement_ParId_etab %}
+{% endblock %}
+
+{% block Afficher_Evenement %}
+{% endblock %}
+
 {% block Afficher_Etablissement_ParId %}
 {% endblock %}
 
 {% block Afficher_Etablissement1 %}
 {% endblock %}
 
+
+{% block Afficher_Evenement_ParId %}
+{% endblock %}
+
+{% block stat1 %}
+{% endblock %}
+
+{% block Afficher_offres_etab %}
+{% endblock %}
 {% block Photo %}
+{% endblock %}
+
+{% block Afficher_Offre %}
+{% endblock %}
+
+{% block Afficher_Offre_ParId %}
+{% endblock %}
+
+{% block Afficher_offres_Tout %}
 {% endblock %}
 
 <!-- Right Slidebar start -->

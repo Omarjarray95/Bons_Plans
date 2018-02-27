@@ -12,7 +12,15 @@ a_propos:
 
 contact:
     path:     /Contact
-    defaults: { _controller: MainBundle:Default:contact }
+    defaults: { _controller: MailBundle:Mail:index}
+
+ajouter_etablissement:
+    path:     /AjouterEtablissement
+    defaults: { _controller: MainBundle:Etablissement:Ajout }
+
+_ajout:
+    path:     /AjoutRes
+    defaults: { _controller: MainBundle:Reservation:Ajout }
 
 Ajouter_Etablissement_Admin:
     path:     /AjouterEtablissementAdmin
@@ -29,6 +37,10 @@ Modifier_Etablissement_Admin:
 Afficher_Etablissement_ParId_Admin:
     path:     /AfficherEtablissementParIdAdmin/{id}
     defaults: { _controller: MainBundle:Etablissement:AfficheId }
+
+Afficher_Etablissement_user:
+    path:     /etab/{id}
+    defaults: { _controller: MainBundle:Etablissement:AfficheUser }
 
 Supprimer_Etablissement_Admin:
     path:     /SupprimerEtablissementAdmin/{id}
@@ -90,10 +102,6 @@ supprimer_etablissement:
     path:     /SupprimerEtablissement/{id}
     defaults: { _controller: MainBundle:Etablissement:Supp }
 
-main_bundle_get_notif:
-    path:     /notifications/get
-    defaults: { _controller: MainBundle:Notifications:get }
-
 main_bundle_show_notif:
     path:     /notifications/show
     defaults: { _controller: MainBundle:Notifications:show }
@@ -115,17 +123,150 @@ update_reservation:
     defaults: { _controller: MainBundle:Reservation:Update }
 
 ajout_experience:
-    path:     /AjoutEx
+    path:     /AjoutEx{id1}/{id2}
     defaults: { _controller: MainBundle:SharedExperience:Ajout }
 
 delete_experience:
-    path:     /DeleteEx
+    path:     /DeleteEx{id1}/{id2}
     defaults: { _controller: MainBundle:SharedExperience:Delete }
 
 update_experience:
-    path:     /UpdateEx
+    path:     /UpdateEx{id1}/{id2}
     defaults: { _controller: MainBundle:SharedExperience:Update }
 
 affiche_experience:
     path:     /AfficheEx
     defaults: { _controller: MainBundle:SharedExperience:Affiche }
+
+all_offres_user:
+    path:     /offresUser
+    defaults: { _controller: MainBundle:Offre:AfficheAllUser }
+
+all_offres_Admin:
+    path:     /offresAdmin
+    defaults: { _controller: MainBundle:Offre:AfficheAllAdmin }
+
+profile_offre_user:
+    path:     /offreUser/{id}
+    defaults: { _controller: MainBundle:Offre:AfficheIdOffreUser }
+
+profile_offre_admin:
+    path:     /offreAdmin/{id}
+    defaults: { _controller: MainBundle:Offre:AfficheIdOffreAdmin }
+
+all_etab_offre_user:
+    path:     /offreEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:AfficheEventsUserIdEtab }
+
+all_etab_offres_admin:
+    path:     /offresAdminEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:AfficheEventsAdminIdEtab}
+
+add_offre:
+    path:     /offreAdd/{id}
+    defaults: { _controller: MainBundle:Offre:Ajout }
+
+update_offre:
+    path:     /offreUpdate/{id}
+    defaults: { _controller: MainBundle:Offre:Update }
+
+delete_offre:
+    path:     /offreDelete/{id}
+    defaults: { _controller: MainBundle:Offre:Remove }
+
+all_events_user:
+    path:     /eventsUser
+    defaults: { _controller: MainBundle:Evenement:AfficheAllUser }
+
+all_events_Admin:
+    path:     /eventsAdmin
+    defaults: { _controller: MainBundle:Evenement:AfficheAllAdmin }
+
+profile_event_user:
+    path:     /eventUser/{id_event}
+    defaults: { _controller: MainBundle:Evenement:AfficheIdEventUser }
+
+profile_event_admin:
+    path:     /eventAdmin/{id_event}
+    defaults: { _controller: MainBundle:Evenement:AfficheIdEventAdmin }
+
+all_etab_events_user:
+    path:     /eventsEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:AfficheEventsUserIdEtab }
+
+all_etab_events_admin:
+    path:     /eventsAdminEtab/{id_etab}
+    defaults: { _controller: MainBundle:Evenement:AfficheEventsAdminIdEtab}
+
+add_event:
+    path:     /eventAdd/{id}
+    defaults: { _controller: MainBundle:Evenement:Add }
+
+update_event:
+    path:     /eventUpdate/{id}
+    defaults: { _controller: MainBundle:Evenement:Update }
+
+delete_event:
+    path:     /eventDelete/{id}
+    defaults: { _controller: MainBundle:Evenement:Remove }
+
+delete_event_admin:
+    path:     /SupprimerEvenementAdmin/{id}
+    defaults: { _controller: MainBundle:Evenement:RemoveAdmin }
+
+ajax_wish:
+    path:     /getWishList/{id}
+    defaults: { _controller: MainBundle:Wishlist:getWishList }
+
+ajouter_wish:
+    path:     /AjouterWish/{id}
+    defaults: { _controller: MainBundle:Wishlist:addWishAjax }
+
+delete_wish:
+      path:     /RetirerWish/{id}
+      defaults: { _controller: MainBundle:Wishlist:deleteWishAjax }
+
+affiche_wish:
+      path:     /VoirWishs
+      defaults: { _controller: MainBundle:Wishlist:AfficheWish }
+
+ajouter_visited:
+    path:     /AjouterVisited/{id}
+    defaults: { _controller: MainBundle:Visited:addVisitedAjax }
+
+delete_visited:
+      path:     /RetirerVisited/{id}
+      defaults: { _controller: MainBundle:Visited:deleteVisitAjax}
+
+affiche_visited:
+      path:     /VoirVisited
+      defaults: { _controller: MainBundle:Visited:AfficheVisited}
+
+ajouter_going:
+    path:     /AjouterGoing/{id}
+    defaults: { _controller: MainBundle:GoingEvents:addGoingAjax }
+
+delete_going:
+      path:     /RetirerGoing/{id}
+      defaults: { _controller: MainBundle:GoingEvents:deleteGoingAjax}
+
+affiche_going:
+      path:     /VoirGoing
+      defaults: { _controller: MainBundle:GoingEvents:AfficheGoingEvent}
+
+
+ajouter_interest:
+    path:     /AjouterInterest/{id}
+    defaults: { _controller: MainBundle:Interested:addInterestedAjax}
+
+delete_interest:
+      path:     /RetirerInerest/{id}
+      defaults: { _controller: MainBundle:Interested:deleteInterestAjax}
+
+affiche_interest:
+      path:     /VoirInterest
+      defaults: { _controller: MainBundle:Interested:AfficheInterestEvent}
+
+affiche_events_visites:
+      path:     /VoirEventsVisited
+      defaults: { _controller: MainBundle:Interested:AfficheInterestEvent}

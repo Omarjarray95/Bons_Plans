@@ -1,5 +1,3 @@
-{% trans_default_domain 'FOSUserBundle' %}
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -35,8 +33,6 @@
     <link rel="stylesheet" href="{{ asset('bundles/main/css/main.css')}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('bundles/main/css/responsive.css')}}">
-
-    <link href="{{ asset('bundles/main/BackEnd/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
 
     <script src="{{ asset('bundles/main/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
     <style>
@@ -79,35 +75,30 @@
 <header id="header" class="header_section">
     <nav class="navbar navbar-inverse">
         <div class="container">
+            <div class="navbar-header">
 
+            </div>
             <div id="navbar" class="navbar-right">
                 <ul id="mainmenu" class="nav navbar-nav">
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('main_homepage')}}">Acceuil</a>
+                    <li><a href="{{ path('main_homepage')}}">Acceuil <span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('a_propos') }}">A Propos</a></li>
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('main_homepage')}}">Actualités</a>
+                    <li><a href="{{ path('a_propos') }}">A Propos</a></li>
+                    <li><a href="{{ path('main_homepage')}}">Actualités</a>
                         <ul>
-                            <li><a style="color: #ffffff;font-size: 11px" href="{{ asset('bundles/main/events.html')}}">Evenements</a></li>
-                            <li><a style="color: #ffffff;font-size: 11px" href="{{ asset('bundles/main/coming_soon.html')}}">Nouveautés</a></li>
+                            <li><a href="{{ path('all_events_user')}}">Evenements</a></li>
+                            <li><a href="{{ path('all_offres_user')}}">Offres</a></li>
                         </ul>
                     </li>
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('contact') }}">Contact</a></li>
-                    {% block user1 %}
-                    {% if is_granted('ROLE_USER') %}
-                        <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></li>
-                        <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_logout') }}">Se Déconnecter</a></li>
+                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                    {% block user %}
+                    {% if is_granted("ROLE_USER") %}
+                        <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
                     {% else %}
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
-                    <li><a style="color: #ffffff;font-size: 11px" href="{{ path('fos_user_registration_register') }}">S'Inscrire</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">S'Inscrire</a></li>
                     {% endif %}
                     {% endblock %}
                     {% block Ajouter_Etablissement %}
-                    {% endblock %}
-                </ul>
-            </div>
-            <div id="navbar" class="navbar-left">
-                <ul id="mainmenu" class="nav navbar-nav">
-                    {% block Modifier_Etablissement_Representant %}
                     {% endblock %}
                 </ul>
             </div><!--/.navbar-collapse -->
@@ -127,20 +118,64 @@
 {% block login %}
 {% endblock %}
 
+{% block Afficher_Evenement_ParId_etab %}
+{% endblock %}
+
 {% block AjouterEtablissement %}
+{% endblock %}
+
+{% block UpdateEvent %}
+{% endblock %}
+
+{% block AfficherEtablissementUser %}
+{% endblock %}
+
+{% block EventRep %}
+{% endblock %}
+
+{% block EtabEvent %}
+{% endblock %}
+
+{% block Profileoffre %}
+{% endblock %}
+
+{% block OfferRep %}
+{% endblock %}
+
+{% block ProfileEvent %}
+{% endblock %}
+
+{% block AjouterEvent %}
+{% endblock %}
+
+{% block UpdateOffre %}
+{% endblock %}
+
+{% block ListOffre %}
+{% endblock %}
+
+{% block ListEvent %}
+{% endblock %}
+
+{% block AjouterOffre %}
+{% endblock %}
+
+{% block ShowFav %}
 {% endblock %}
 
 {% block AfficherEtablissement %}
 {% endblock %}
 
-{% block Photo %}
+{% block JQuery %}
 {% endblock %}
 
-{% block Rechercher_Etablissement_Client %}
+{% block mailsucces %}
 {% endblock %}
 
-<<<<<<< HEAD
 {% block AfficherReservation %}
+{% endblock %}
+
+{% block AfficherReservation1 %}
 {% endblock %}
 
 {% block AjouterReservation %}
@@ -148,11 +183,18 @@
 
 {% block UpdateReservation %}
 {% endblock %}
-=======
+
 {% block Tag %}
 {% endblock %}
 
->>>>>>> be65281b38db47c90efdde6d6b1aa9439ad33021
+{% block AfficherExperience %}
+{% endblock %}
+
+{% block AjouterExperience %}
+{% endblock %}
+
+
+
 <div class="sponsor_section bg-grey">
     <div class="container">
         <ul id="sponsor_carousel" class="sponsor_items owl-carousel">
@@ -184,6 +226,15 @@
     </div>
 </div><!-- ./sponsor_section -->
 
+{% block mail %}
+{% endblock %}
+
+{% block ShowVisited %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
 <section id="subscribe" class="widget_section padding">
     <div class="container">
         <div class="col-md-4 col-xs-6 xs-padding">
@@ -191,7 +242,7 @@
                 <h3 class="text-white">Contacts</h3>
                 <p>ADRESSE: Z.I. Chotrana II B.P. 160
                     Pôle Technologique El Ghazela - Ariana 2083
-                    <br>Email: digiminds@esprit.tn</p>
+                    <br>Email: bonsplans.esprit@gmail.tn</p>
                 <ul class="widget_social">
                     <li><a href="#"><i class="social_facebook"></i></a></li>
                     <li><a href="#"><i class="social_twitter"></i></a></li>
@@ -219,14 +270,13 @@
                 <h4 class="text-white">Newsletter</h4>
                 <div class="subscribe_form">
                     <form action="#" class="subscribe_form">
-                        <input type="email" name="email" id="subs-email" class="form_input" placeholder="Email Address...">
-                        <button type="submit" class="submit">S'inscrire</button>
-                        <div class="clearfix"></div>
-                        <div id="subscribe-result">
-                            <p class="subscription-success"></p>
-                            <p class="subscription-error"></p>
-                        </div>
+
+                        <a href="{{ path('contact')}}">S'inscrire</a>
+
+
+
                     </form>
+                    <br>
                     <p class="align-left">Vous recevrez régulièrement toutes nos actualités sur votre boîte de réception</p>
 
                 </div><!-- Subscribe Form -->
@@ -242,9 +292,9 @@
         </div>
         <div class="col-xs-6 xs-padding">
             <ul class="footer_social">
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Terms</a></li>
+
                 <li><a href="#">Passer une réclamation</a></li>
+
             </ul>
         </div>
     </div>
@@ -274,7 +324,8 @@
 <script src="{{ asset('bundles/main/js/contact.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('bundles/main/js/main.js') }}"></script>
-
+{% block javascript %}
+{% endblock %}
 </body>
 
 <!-- Mirrored from wowthemez.com/templates/hangout/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Feb 2018 22:50:36 GMT -->

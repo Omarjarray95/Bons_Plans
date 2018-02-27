@@ -87,9 +87,9 @@ class Reservation
      */
     private $arrivée;
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="heuredereservation", type="string", length=255, nullable=TRUE)
+     * @ORM\Column(name="heuredereservation", type="datetime",nullable=TRUE)
      */
     private $heuredereservation;
     /**
